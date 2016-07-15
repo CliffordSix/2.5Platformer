@@ -40,7 +40,7 @@ public class Deck
 
         for (int i = 0; i < Size; i++)
         {
-            d += Cards[i].getDifficulty();
+            //d += Cards[i].getDifficulty();
         }
 
         Difficulty = (ushort)Mathf.FloorToInt(((float)d / (float)Size) * (Size / 10));
