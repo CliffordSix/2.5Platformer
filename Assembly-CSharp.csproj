@@ -38,22 +38,33 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="UnityEngine">
-      <HintPath>I:/Unity5.3.2f1/Data/Managed/UnityEngine.dll</HintPath>
+      <HintPath>Z:/Unity5.3.2f1/Data/Managed/UnityEngine.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor">
-      <HintPath>I:/Unity5.3.2f1/Data/Managed/UnityEditor.dll</HintPath>
+      <HintPath>Z:/Unity5.3.2f1/Data/Managed/UnityEditor.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\LevelBuilder.cs" />
-     <Compile Include="Assets\Room.cs" />
+     <Compile Include="Assets\RoomManager.cs" />
+     <Compile Include="Assets\Scripts\CardManager\Armor.cs" />
+     <Compile Include="Assets\Scripts\CardManager\Card.cs" />
+     <Compile Include="Assets\Scripts\CardManager\CardManager.cs" />
+     <Compile Include="Assets\Scripts\CardManager\Collectible.cs" />
+     <Compile Include="Assets\Scripts\CardManager\Collection.cs" />
+     <Compile Include="Assets\Scripts\CardManager\Deck.cs" />
+     <Compile Include="Assets\Scripts\CardManager\Item.cs" />
+     <Compile Include="Assets\Scripts\CardManager\Model.cs" />
+     <Compile Include="Assets\Scripts\CardManager\Monster.cs" />
+     <Compile Include="Assets\Scripts\CardManager\Weapon.cs" />
      <Compile Include="Assets\Scripts\Doorway.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
+     <Compile Include="Assets\Scripts\Room.cs" />
+     <Compile Include="Assets\Scripts\RoomBuilder.cs" />
  <Reference Include="UnityEngine.UI">
- <HintPath>I:/Unity5.3.2f1/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+ <HintPath>Z:/Unity5.3.2f1/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Networking">
- <HintPath>I:/Unity5.3.2f1/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+ <HintPath>Z:/Unity5.3.2f1/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
