@@ -1,6 +1,6 @@
 5.3.2f1:2.2.0.0
 StandaloneWindows
-Z:/Unity5.3.2f1/Data/Managed/UnityEngine.dll
-Z:/Unity5.3.2f1/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll
-Z:/Unity5.3.2f1/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll
-Z:/Unity5.3.2f1/Data/Managed/UnityEditor.dll
+Z:/Unity5.3.2f1/Unity5.3.2f1/Data/Managed/UnityEngine.dll
+Z:/Unity5.3.2f1/Unity5.3.2f1/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll
+Z:/Unity5.3.2f1/Unity5.3.2f1/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll
+Z:/Unity5.3.2f1/Unity5.3.2f1/Data/Managed/UnityEditor.dll

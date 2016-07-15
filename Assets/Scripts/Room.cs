@@ -21,11 +21,8 @@ public class Room : MonoBehaviour {
 
 	void OnDrawGizmos()
 	{
-		Vector3 Center = new Vector3 ((bRight.position.x + tLeft.position.x) / 2, (tLeft.position.y + bRight.position.y) / 2, -1);
-		Gizmos.color = new Color (Random.Range(0,1), 1, 0, 0.25f);
-		Vector3 Size = new Vector3 (bRight.position.x - Center.x, tLeft.position.y - Center.y, 0.25f);
-		Gizmos.DrawCube(Center, Center);
-	}
+        Gizmos.DrawLine(tLeft.position, bRight.position);
+    }
 
     public Doorway[] GetExits()
     {
@@ -43,16 +40,23 @@ public class Room : MonoBehaviour {
         StartCoroutine(CheckForCollision());
     }
 
-	public void checkCollision()
+	public bool checkCollision()
 	{
 		Debug.Log ("Checking for overlapping rooms");
 		if (isOverlapping ()) {
 			Debug.Log ("Is Overlapping an existing Room");
 			collided = true;
+
+            return false;
 		}
+        else
+        {
+            //Renable the collider
+            return true;
+        }
 	}
 
-    void OnTriggerEnter2D(Collider2D col)
+    /*void OnTriggerEnter2D(Collider2D col)
     {
 		if (col.tag == "Player") {
 			Debug.Log ("Player Entered Rooms");
@@ -62,7 +66,7 @@ public class Room : MonoBehaviour {
 			}
 		}
 
-    }
+    }*/
 
     IEnumerator CheckForCollision()
     {

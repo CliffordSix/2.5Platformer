@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour {
         float H = Input.GetAxis("Horizontal");
         float V = Input.GetAxis("Vertical");
         MoveDirection.x = H / 100;
-        MoveDirection.x *= speed;
+       // MoveDirection.x *= speed;
         transform.position = new Vector3(Player.transform.position.x, Player.transform.position.y + CameraYoffset , -5);
 		if (Input.GetButtonDown("Fire1") && isGrounded())
         {
@@ -44,7 +44,7 @@ public class PlayerController : MonoBehaviour {
 			StartCoroutine(turnOnCollision (0.5f));
 		}
 
-        Player.transform.position += (new Vector3(speed * H, 0, 0));
+        Player.transform.position += (new Vector3((speed * H), 0, 0));
     }
 
 	bool isGrounded()
