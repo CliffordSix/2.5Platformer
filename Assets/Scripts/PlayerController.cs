@@ -39,12 +39,20 @@ public class PlayerController : MonoBehaviour {
 			}
         }
 
+
 		if (V < 0) {
 			Physics2D.IgnoreLayerCollision (10, 9,true); 
 			StartCoroutine(turnOnCollision (0.5f));
 		}
-
-        Player.transform.position += (new Vector3((speed * H), 0, 0));
+        if(H != 0 )
+        {
+            Player.GetComponent<Rigidbody2D>().AddForce(new Vector2((speed * Mathf.Round(H)), 0));
+            Vector2 Vel = Player.GetComponent<Rigidbody2D>().velocity;
+            Vel.x = Mathf.Clamp(Vel.x, 0.0f, speed);
+            Player.GetComponent<Rigidbody2D>().velocity = Vel;
+        }
+        
+       // Player.transform.position += (new Vector3((speed * H), 0, 0));
     }
 
 	bool isGrounded()
