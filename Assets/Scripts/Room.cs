@@ -19,10 +19,10 @@ public class Room : MonoBehaviour {
 
 	public LayerMask roomLayer;
 
-	void OnDrawGizmos()
+/*	void OnDrawGizmos()
 	{
         Gizmos.DrawLine(tLeft.position, bRight.position);
-    }
+    }*/
 
     public Doorway[] GetExits()
     {

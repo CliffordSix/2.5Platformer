@@ -45,7 +45,7 @@ public class Doorway : MonoBehaviour {
 					break;
 				}
 				//Create a new Room
-				rNumber = Random.Range (0, 4);
+				rNumber = Random.Range (0, rContainer.GetComponent<RoomManager>().RoomList.Length);
 
 				GameObject toBuild = rContainer.GetComponent<RoomManager> ().RoomList [rNumber];
 				switch (dir) {
@@ -107,7 +107,7 @@ public class Doorway : MonoBehaviour {
 				if(toBuild.GetComponent <Room> ().checkCollision ())
                 {
                     toBuild.GetComponent<BoxCollider2D>().enabled = true;
-                    if(rContainer.GetComponent<RoomManager>().count < 20)
+                    if(rContainer.GetComponent<RoomManager>().count < 60)
                     {                                         
                         rContainer.GetComponent<RoomManager>().count++;
                         Debug.Log("Adding " + toBuild.name + " to the List");
@@ -121,4 +121,27 @@ public class Doorway : MonoBehaviour {
 		}
 	}
 
+    public void BlockDoorway()
+    {
+        GameObject Clone = new GameObject();
+        switch (dir)
+        {
+            
+            case "N":
+                Clone  = Instantiate(rContainer.GetComponent<RoomManager>().Floor, transform.position, Quaternion.Euler(90, 0, 0)) as GameObject;
+                break;
+            case "E":
+                Clone = Instantiate(rContainer.GetComponent<RoomManager>().Wall, transform.position, Quaternion.Euler(90,90,0)) as GameObject;
+                break;
+            case "S":
+                Clone = Instantiate(rContainer.GetComponent<RoomManager>().Floor, transform.position, Quaternion.Euler(-90, 0, 0)) as GameObject;
+                break;
+            case "W":
+                Clone = Instantiate(rContainer.GetComponent<RoomManager>().Wall, transform.position, Quaternion.Euler(90, -90, 0)) as GameObject;
+                break;            
+
+        }
+        GetComponent<BoxCollider2D>().isTrigger = false;
+        Clone.transform.parent = transform;
+    }
 }

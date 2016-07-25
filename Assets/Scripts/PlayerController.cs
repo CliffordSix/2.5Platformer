@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour {
 
     public float jumpSpeed = 100;
     public float speed = 1.0f;
-    Vector3 MoveDirection = new Vector3();
+
     public float CameraYoffset = 3;
 
 	public Transform tLeft;
@@ -26,9 +26,10 @@ public class PlayerController : MonoBehaviour {
 	void Update () {
         float H = Input.GetAxis("Horizontal");
         float V = Input.GetAxis("Vertical");
-        MoveDirection.x = H / 100;
-       // MoveDirection.x *= speed;
+  
+        //Set the position of the camera to follow the player
         transform.position = new Vector3(Player.transform.position.x, Player.transform.position.y + CameraYoffset , -5);
+
 		if (Input.GetButtonDown("Fire1") && isGrounded())
         {
             Player.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, jumpSpeed));
@@ -38,21 +39,25 @@ public class PlayerController : MonoBehaviour {
 			
 			}
         }
-
-
+        //Allows player to jump up from under platforms
 		if (V < 0) {
 			Physics2D.IgnoreLayerCollision (10, 9,true); 
 			StartCoroutine(turnOnCollision (0.5f));
 		}
+
         if(H != 0 )
         {
-            Player.GetComponent<Rigidbody2D>().AddForce(new Vector2((speed * Mathf.Round(H)), 0));
             Vector2 Vel = Player.GetComponent<Rigidbody2D>().velocity;
+            Vel.x = 0;
+            
+            Player.GetComponent<Rigidbody2D>().velocity = Vel;
+
+            Player.GetComponent<Rigidbody2D>().AddForce(new Vector2((H * speed), Vel.y) - Player.GetComponent<Rigidbody2D>().velocity, ForceMode2D.Force);
+            
             Vel.x = Mathf.Clamp(Vel.x, 0.0f, speed);
             Player.GetComponent<Rigidbody2D>().velocity = Vel;
         }
-        
-       // Player.transform.position += (new Vector3((speed * H), 0, 0));
+ 
     }
 
 	bool isGrounded()

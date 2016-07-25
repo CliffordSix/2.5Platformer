@@ -8,6 +8,10 @@ public class RoomManager : MonoBehaviour {
     public int count = 0;
     public GameObject OriginalRoom;
 
+    public GameObject Wall, Floor;
+
+    bool CloseDoors = true;
+
     public List<GameObject> ExpandList = new List<GameObject>();
 
 	// Use this for initialization
@@ -34,6 +38,23 @@ public class RoomManager : MonoBehaviour {
                 d.buildRoom();
             }
             ExpandList.RemoveAt(0);
+        }
+        else
+        {
+            if (CloseDoors)
+            {
+                //Block off all doors
+                foreach (GameObject doors in GameObject.FindGameObjectsWithTag("Doorway"))
+                {
+                    if (doors.GetComponent<Doorway>().Connected == false)
+                    {
+                        doors.GetComponent<Doorway>().BlockDoorway();
+                    }
+                }
+                Debug.Log("Dungeon Built");
+            }
+            
+            CloseDoors = false;
         }
 
 	}
