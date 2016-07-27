@@ -3,22 +3,10 @@ using System.Collections;
 
 public class Behaviour : MonoBehaviour {
 
-	void Start()
-    {
+    public StateManager manager;
+    public Rigidbody2D body;
 
-    }
-
-    void OnEnabled()
-    {
-
-    }
-
-    void OnDisabled()
-    {
-
-    }
-
-    void Update()
+    protected virtual void Update()
     {
 
     }
