@@ -20,33 +20,27 @@ public class PlayerController : MonoBehaviour {
 	public LayerMask platforms;
 	public LayerMask PlayerMask;
 
-    GUIManager GUIMan;
     public float Health = 100;
+
+    public Weapon LHand;
+    public Weapon RHand;
+    public Armour Arm;
 
     bool jumping = false;
 
-    void Start()
+    public void Start()
     {
-    
-        if(!(GUIMan = GetComponent<GUIManager>()))
-        {
-            Debug.Log("No Gui Manager attached to player controller");
-        }
-        else
-        {
-            //init guiMan
-            GUIMan.setMaxHP(MaxHealth);
-        }
+        MaxHealth += Arm.extraHP;
+        Health += Arm.extraHP;
     }
 
-
-    void Update()
+     void Update()
     {
+
         if(Health > MaxHealth)
         {
             Health = MaxHealth;
-        }
-        GUIMan.Health = Health;
+        }     
         //Read Inputs here
         if (Input.GetButtonDown("Fire1") && isGrounded())
         {
