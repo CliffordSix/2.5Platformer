@@ -4,20 +4,28 @@ using System.Collections;
 public class Basic : StateManager {
 
     public float combatRange = 1.0f;
+    public float searchTime = 1.0f;
 
     bool inSight = false;
+    float untilStopSearch;
 
-	void OnCollisionEnter2D(Collision2D collision)
+    protected override void Start()
     {
-        if (!collision.gameObject.CompareTag("Player"))
+        base.Start();
+        untilStopSearch = searchTime;
+    }
+
+    void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (!collider.CompareTag("Player"))
             return;
 
         inSight = true;
     }
 
-    void OnCollisionExit2D(Collision2D collision)
+    void OnTriggerExit2D(Collider2D collider)
     {
-        if (!collision.gameObject.CompareTag("Player"))
+        if (!collider.CompareTag("Player"))
             return;
 
         inSight = false;
@@ -28,12 +36,12 @@ public class Basic : StateManager {
         if(inSight)
         {
             //In combat range and chasing
-            if(Vector2.Distance(transform.position, target.position) <= combatRange && currentState == State.Chasing)
+            if(Vector2.Distance(transform.position, target.position) <= combatRange)
             {
                 SetState(State.Fighting);
             }
             //Now out of combat range, or just into sight range
-            else if(currentState == State.Fighting || currentState == State.Searching)
+            else
             {
                 SetState(State.Chasing);
             }
@@ -42,6 +50,19 @@ public class Basic : StateManager {
         else if(currentState == State.Chasing)
         {
             SetState(State.Searching);
+        }
+
+        if(currentState == State.Searching)
+        {
+            if (untilStopSearch <= 0.0f)
+            {
+                untilStopSearch = searchTime;
+                SetState(State.Idle);
+            }
+            else
+            {
+                untilStopSearch -= Time.deltaTime;
+            }
         }
     }
 }

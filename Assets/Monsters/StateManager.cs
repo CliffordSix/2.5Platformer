@@ -14,16 +14,29 @@ public class StateManager : MonoBehaviour {
 
     public Transform target;
     public State initialState;
+
     public List<Behaviour> idleBehaviours = new List<Behaviour>();
     public List<Behaviour> chasingBehaviours = new List<Behaviour>();
     public List<Behaviour> searchingBehaviours = new List<Behaviour>();
     public List<Behaviour> fightingBehaviours = new List<Behaviour>();
 
-    protected List<Behaviour> currentBehaviours;
+    protected List<Behaviour> currentBehaviours = new List<Behaviour>();
     protected State currentState;
+    public List<Behaviour> allBehaviours = new List<Behaviour>();
 
-    void Start()
+    protected virtual void Start()
     {
+        allBehaviours.AddRange(idleBehaviours);
+        allBehaviours.AddRange(chasingBehaviours);
+        allBehaviours.AddRange(searchingBehaviours);
+        allBehaviours.AddRange(fightingBehaviours);
+        Debug.Log(fightingBehaviours.Count);
+        foreach(Behaviour behaviour in allBehaviours)
+        {
+            Debug.Log(behaviour);
+            behaviour.enabled = false;
+        }
+
         SetState(initialState);
     }
 
@@ -31,7 +44,7 @@ public class StateManager : MonoBehaviour {
     {
         foreach (Behaviour behaviour in currentBehaviours)
         {
-            behaviour.gameObject.SetActive(false);
+            behaviour.enabled = false;
         }
 
         switch (newState)
@@ -60,7 +73,7 @@ public class StateManager : MonoBehaviour {
         currentState = newState;
         foreach (Behaviour behaviour in currentBehaviours)
         {
-            behaviour.gameObject.SetActive(true);
+            behaviour.enabled = true;
         }
     }
 }
