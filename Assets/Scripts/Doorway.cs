@@ -38,7 +38,7 @@ public class Doorway : MonoBehaviour {
 			int rNumber = -1;
 			bool BuildRoom = false;
 			int idx = 0;
-			Debug.Log ("Building a Room");
+		//	Debug.Log ("Building a Room");
 			do {
 				if (idx >= 50) {
 					Debug.Log ("After 50 searches we can't find a room to fit this door check that a room with the correct facing door exists");
@@ -110,7 +110,7 @@ public class Doorway : MonoBehaviour {
                     if(rContainer.GetComponent<RoomManager>().count < 60)
                     {                                         
                         rContainer.GetComponent<RoomManager>().count++;
-                        Debug.Log("Adding " + toBuild.name + " to the List");
+                     //   Debug.Log("Adding " + toBuild.name + " to the List");
                         rContainer.GetComponent<RoomManager>().ExpandList.Add(toBuild);
                         
                     }

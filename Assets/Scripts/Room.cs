@@ -42,9 +42,9 @@ public class Room : MonoBehaviour {
 
 	public bool checkCollision()
 	{
-		Debug.Log ("Checking for overlapping rooms");
+		//Debug.Log ("Checking for overlapping rooms");
 		if (isOverlapping ()) {
-			Debug.Log ("Is Overlapping an existing Room");
+			//Debug.Log ("Is Overlapping an existing Room");
 			collided = true;
 
             return false;
@@ -75,7 +75,7 @@ public class Room : MonoBehaviour {
         //Debug.Log(collided);
         if(collided)
         {
-            Debug.Log("Rrmoving Room");
+          //  Debug.Log("Rrmoving Room");
             Destroy(this.gameObject);
         }
 

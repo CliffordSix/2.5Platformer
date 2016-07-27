@@ -75,6 +75,8 @@
     <Compile Include="Assets\Cards\Card.cs" />
     <Compile Include="Assets\Cards\CardManager.cs" />
     <Compile Include="Assets\Cards\Deck.cs" />
+    <Compile Include="Assets\FPSCounter.cs" />
+    <Compile Include="Assets\GUIManager.cs" />
     <Compile Include="Assets\Monsters\Monster.cs" />
     <Compile Include="Assets\RoomManager.cs" />
     <Compile Include="Assets\Scripts\Doorway.cs" />

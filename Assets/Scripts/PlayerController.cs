@@ -7,6 +7,8 @@ public class PlayerController : MonoBehaviour {
 
     public GameObject Player;
 
+    public float MaxHealth = 100;
+
     public float jumpSpeed = 100;
     public float speed = 1.0f;
 
@@ -17,30 +19,61 @@ public class PlayerController : MonoBehaviour {
 	public LayerMask groundLayers;
 	public LayerMask platforms;
 	public LayerMask PlayerMask;
-	// Use this for initialization
-	void Start () {
-		
-	}
+
+    GUIManager GUIMan;
+    public float Health = 100;
+
+    bool jumping = false;
+
+    void Start()
+    {
+    
+        if(!(GUIMan = GetComponent<GUIManager>()))
+        {
+            Debug.Log("No Gui Manager attached to player controller");
+        }
+        else
+        {
+            //init guiMan
+            GUIMan.setMaxHP(MaxHealth);
+        }
+    }
+
+
+    void Update()
+    {
+        if(Health > MaxHealth)
+        {
+            Health = MaxHealth;
+        }
+        GUIMan.Health = Health;
+        //Read Inputs here
+        if (Input.GetButtonDown("Fire1") && isGrounded())
+        {
+            jumping = true;
+        }
+        
+    }
 	
-	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
         float H = Input.GetAxis("Horizontal");
         float V = Input.GetAxis("Vertical");
   
         //Set the position of the camera to follow the player
         transform.position = new Vector3(Player.transform.position.x, Player.transform.position.y + CameraYoffset , -5);
 
-		if (Input.GetButtonDown("Fire1") && isGrounded())
+		if (jumping)
         {
-            Player.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, jumpSpeed));
-			if(Physics2D.Raycast (transform.position, Vector2.up, 1.0f, platforms)){
+            Player.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, jumpSpeed), ForceMode2D.Impulse);
+            jumping = false;
+            if (Physics2D.Raycast (transform.position, Vector2.up, 5.0f, platforms)){
 				Physics2D.IgnoreLayerCollision (10, 9,true); 
-				StartCoroutine(turnOnCollision (0.5f));
+				StartCoroutine(turnOnCollision (0.8f));
 			
 			}
         }
         //Allows player to jump up from under platforms
-		if (V < 0) {
+	    if (V < 0) {
 			Physics2D.IgnoreLayerCollision (10, 9,true); 
 			StartCoroutine(turnOnCollision (0.5f));
 		}
