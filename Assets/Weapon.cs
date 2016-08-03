@@ -7,7 +7,7 @@ public class Weapon : MonoBehaviour {
 
     public GameObject projectile;
 
-	public virtual void abilityOne()
+	public virtual void abilityOne(Transform Player)
     {
         Debug.Log("This Weapon is not for use");
         Instantiate(projectile, transform.parent.transform.position, Quaternion.identity);

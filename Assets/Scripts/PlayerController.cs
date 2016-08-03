@@ -25,13 +25,13 @@ public class PlayerController : MonoBehaviour {
     public Weapon LHand;
     public Weapon RHand;
     public Armour Arm;
-
     bool jumping = false;
 
     public void Start()
     {
         MaxHealth += Arm.extraHP;
         Health += Arm.extraHP;
+        Physics2D.IgnoreLayerCollision(10, 13, true);
     }
 
      void Update()
@@ -45,6 +45,12 @@ public class PlayerController : MonoBehaviour {
         if (Input.GetButtonDown("Fire1") && isGrounded())
         {
             jumping = true;
+            if (Physics2D.Raycast(transform.position, Vector2.up, 1.0f, platforms))
+            {
+                Physics2D.IgnoreLayerCollision(10, 9, true);
+                StartCoroutine(turnOnCollision(0.8f));
+
+            }
         }
         
     }
@@ -60,11 +66,7 @@ public class PlayerController : MonoBehaviour {
         {
             Player.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, jumpSpeed), ForceMode2D.Impulse);
             jumping = false;
-            if (Physics2D.Raycast (transform.position, Vector2.up, 5.0f, platforms)){
-				Physics2D.IgnoreLayerCollision (10, 9,true); 
-				StartCoroutine(turnOnCollision (0.8f));
-			
-			}
+          
         }
         //Allows player to jump up from under platforms
 	    if (V < 0) {

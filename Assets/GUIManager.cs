@@ -21,7 +21,7 @@ public class GUIManager : MonoBehaviour {
     public void Start()
     {
         GO.enabled = false;
-        Player = GetComponent<PlayerController>();
+        Player = Camera.main.GetComponent<PlayerController>();
         MaxHealth = Player.MaxHealth;
     }
 
@@ -38,7 +38,7 @@ public class GUIManager : MonoBehaviour {
         if (Input.GetKeyDown("1"))
         {
             A1.color = Color.grey;
-            Player.LHand.abilityOne();
+            Player.LHand.abilityOne(Player.Player.transform);
             StartCoroutine(CoolDown(cD1, A1));
         }
         if (Input.GetKeyDown("2"))
@@ -53,7 +53,7 @@ public class GUIManager : MonoBehaviour {
             if(Player.LHand.is2H)
                 Player.LHand.abilityThree();
             else
-                Player.RHand.abilityOne();
+                Player.RHand.abilityOne(Player.Player.transform);
             StartCoroutine(CoolDown(cD3, A3));
         }
         if (Input.GetKeyDown("4"))

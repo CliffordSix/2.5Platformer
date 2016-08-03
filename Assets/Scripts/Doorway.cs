@@ -123,25 +123,32 @@ public class Doorway : MonoBehaviour {
 
     public void BlockDoorway()
     {
-        GameObject Clone = new GameObject();
+        GameObject Clone;
+      //  Clone.name = "Delete Me";
         switch (dir)
         {
-            
+
             case "N":
-                Clone  = Instantiate(rContainer.GetComponent<RoomManager>().Floor, transform.position, Quaternion.Euler(90, 0, 0)) as GameObject;
+                Clone = Instantiate(rContainer.GetComponent<RoomManager>().Floor, transform.position, Quaternion.Euler(90, 0, 0)) as GameObject;
+                Clone.transform.parent = transform;
                 break;
             case "E":
-                Clone = Instantiate(rContainer.GetComponent<RoomManager>().Wall, transform.position, Quaternion.Euler(90,90,0)) as GameObject;
+                Clone = Instantiate(rContainer.GetComponent<RoomManager>().Wall, transform.position, Quaternion.Euler(90, 90, 0)) as GameObject;
+                Clone.transform.parent = transform;
                 break;
             case "S":
                 Clone = Instantiate(rContainer.GetComponent<RoomManager>().Floor, transform.position, Quaternion.Euler(-90, 0, 0)) as GameObject;
+                Clone.transform.parent = transform;
                 break;
             case "W":
                 Clone = Instantiate(rContainer.GetComponent<RoomManager>().Wall, transform.position, Quaternion.Euler(90, -90, 0)) as GameObject;
-                break;            
+                Clone.transform.parent = transform;
+                break;
 
         }
+
         GetComponent<BoxCollider2D>().isTrigger = false;
-        Clone.transform.parent = transform;
+       
+        
     }
 }
