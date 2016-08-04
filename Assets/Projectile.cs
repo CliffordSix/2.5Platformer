@@ -7,6 +7,7 @@ public class Projectile : MonoBehaviour {
     Rigidbody2D rB;
     public Vector2 Dir;
     public float ProjectileForce;
+	public float Dmg;
 
 	void Start () {
         rB = GetComponent<Rigidbody2D>();
@@ -15,19 +16,26 @@ public class Projectile : MonoBehaviour {
 
     void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.gameObject.layer != 10)
-        {
-			if (col.gameObject.layer == 12 || col.gameObject.layer == 9 || col.gameObject.layer == 8)
-            {
-                rB.isKinematic = true;
+		if (col.gameObject.layer != gameObject.layer) {
+			if (col.gameObject.layer == 14) {
+				rB.isKinematic = true;
 				transform.GetComponent<BoxCollider2D> ().enabled = false;
-				StartCoroutine (Despawn(DespawnTime));
-            }
-            else if (rB.isKinematic == false)
-            {
-                Destroy(gameObject);
-            }
-        }
+				transform.parent = col.transform;
+				col.transform.GetComponent<Rigidbody2D> ().AddForce (new Vector2 (0, 4), ForceMode2D.Impulse);
+				col.gameObject.GetComponent<MonsterHealth> ().ApplyDamage (Dmg);
+				StartCoroutine (Despawn (DespawnTime));
+			}
+			if (col.gameObject.layer != 10) {
+				if (col.gameObject.layer == 12 || col.gameObject.layer == 9 || col.gameObject.layer == 8) {
+					rB.isKinematic = true;
+					transform.GetComponent<BoxCollider2D> ().enabled = false;
+					StartCoroutine (Despawn (DespawnTime));
+
+				} else if (rB.isKinematic == false) {
+					Destroy (gameObject);
+				} 
+			}
+		}
     }
 
     void FixedUpdate()

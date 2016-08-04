@@ -32,7 +32,7 @@ public class PlayerController : MonoBehaviour {
         MaxHealth += Arm.extraHP;
         Health += Arm.extraHP;
 		Player.GetComponent<Rigidbody2D> ().mass += Arm.weight;
-        Physics2D.IgnoreLayerCollision(10, 13, false);
+        Physics2D.IgnoreLayerCollision(10, 13, true);
     }
 
      void Update()
@@ -46,8 +46,11 @@ public class PlayerController : MonoBehaviour {
         if (Input.GetButtonDown("Fire1") && isGrounded())
         {
             jumping = true;
-            if (Physics2D.Raycast(transform.position, Vector2.up, 1.0f, platforms))
-            {
+			Vector3 rayStart = transform.position;
+			rayStart.y -= 1;
+            if (Physics2D.Raycast(rayStart, Vector2.up, 2.0f, platforms))    
+			{
+				Debug.Log ("Hit a Platform");
                 Physics2D.IgnoreLayerCollision(10, 9, true);
                 StartCoroutine(turnOnCollision(0.8f));
 

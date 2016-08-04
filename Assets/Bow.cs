@@ -18,7 +18,9 @@ public class Bow : Weapon {
         v2.x = v2.x - objPos.x;
         v2.y = v2.y - objPos.y;
         float angle = Mathf.Atan2(v2.y, v2.x) * Mathf.Rad2Deg;
-        GameObject p = Instantiate(projectile, spawn + (Player.localScale / 2), Quaternion.Euler(new Vector3(0,0,angle - 90))) as GameObject;       
+		Vector3 lScale = Player.localScale;
+		lScale.z = 0;
+        GameObject p = Instantiate(projectile, spawn + (lScale / 2), Quaternion.Euler(new Vector3(0,0,angle ))) as GameObject;       
         p.GetComponentInChildren<Projectile>().Dir = D;
     }
 

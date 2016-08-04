@@ -12,6 +12,10 @@ public class GUIManager : MonoBehaviour {
     public float MaxHealth;
     public float cD1, cD2, cD3, cD4;
 
+	public Image LoadingScreen;
+	public Image LoadingBarFull, LoadingBarEmpty;
+	public Text LoadingText;
+
     PlayerController Player;
 
     public Text GO;
@@ -22,8 +26,27 @@ public class GUIManager : MonoBehaviour {
     {
         GO.enabled = false;
         Player = Camera.main.GetComponent<PlayerController>();
-        
+		Player.enabled = false;
     }
+
+	void LoadBarInc(float i)
+	{
+		Debug.Log ("Loading" + i);
+		LoadingBarFull.fillAmount += i;
+		if (LoadingBarFull.fillAmount == 1) {
+			LoadingScreen.enabled = false;
+			LoadingBarEmpty.enabled = false;
+			LoadingBarFull.enabled = false;
+			LoadingText.enabled = false;
+			Player.enabled = true;
+			A1.enabled = true;
+			A2.enabled = true;
+			A3.enabled = true;
+			A4.enabled = true;
+			HealthFull.enabled = true;
+			HealthEmpty.enabled = true;
+		}
+	}
 
     void Update () {
 

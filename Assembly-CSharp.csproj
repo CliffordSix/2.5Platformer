@@ -53,6 +53,7 @@
      <Compile Include="Assets\EnviroDamage.cs" />
      <Compile Include="Assets\FPSCounter.cs" />
      <Compile Include="Assets\GUIManager.cs" />
+     <Compile Include="Assets\MonsterHealth.cs" />
      <Compile Include="Assets\Monsters\Behaviour.cs" />
      <Compile Include="Assets\Monsters\Behaviours\Charge.cs" />
      <Compile Include="Assets\Monsters\Behaviours\Jumpy.cs" />

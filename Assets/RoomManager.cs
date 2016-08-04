@@ -52,10 +52,17 @@ public class RoomManager : MonoBehaviour {
                     }
                 }
                 Debug.Log("Dungeon Built");
+				StartCoroutine ("WaitForLoad");
             }
             
             CloseDoors = false;
+
         }
 
+	}
+	IEnumerator WaitForLoad()
+	{
+		yield return new WaitForSeconds(1.0F);
+		GameObject.Find("GUI Manager").BroadcastMessage ("LoadBarInc", 1.0F);
 	}
 }
