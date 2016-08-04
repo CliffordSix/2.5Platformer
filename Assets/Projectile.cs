@@ -3,10 +3,11 @@ using System.Collections;
 
 public class Projectile : MonoBehaviour {
 
+	float DespawnTime = 2.0f;
     Rigidbody2D rB;
     public Vector2 Dir;
     public float ProjectileForce;
-	// Use this for initialization
+
 	void Start () {
         rB = GetComponent<Rigidbody2D>();
         rB.AddForce( Dir * ProjectileForce, ForceMode2D.Impulse);
@@ -16,9 +17,11 @@ public class Projectile : MonoBehaviour {
     {
         if (col.gameObject.layer != 10)
         {
-            if (col.gameObject.layer == 12)
+			if (col.gameObject.layer == 12 || col.gameObject.layer == 9 || col.gameObject.layer == 8)
             {
                 rB.isKinematic = true;
+				transform.GetComponent<BoxCollider2D> ().enabled = false;
+				StartCoroutine (Despawn(DespawnTime));
             }
             else if (rB.isKinematic == false)
             {
@@ -30,12 +33,14 @@ public class Projectile : MonoBehaviour {
     void FixedUpdate()
     {
  
-      transform.parent.transform.LookAt(transform.parent.transform.position + new Vector3(rB.velocity.x, rB.velocity.y, 0));
-
+	//	transform.LookAt (transform.position + new Vector3(0,0, rB.velocity.y));
+		if(!rB.isKinematic)
+			transform.right = rB.velocity;
     }
 
-    // Update is called once per frame
-    void Update () {
-
+	IEnumerator Despawn(float time)
+	{
+		yield return new WaitForSeconds(time);
+		Destroy (gameObject);   
 	}
 }

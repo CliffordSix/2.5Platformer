@@ -1,0 +1,154 @@
+fileFormatVersion: 2
+guid: c36986f65d7777348a1f407130ecfead
+timeCreated: 1470326024
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Imp:Jadeimp
+    100004: Imp:joint1
+    100006: Imp:joint12
+    100008: Imp:joint13
+    100010: Imp:joint14
+    100012: Imp:joint14 1
+    100014: Imp:joint15
+    100016: Imp:joint15 1
+    100018: Imp:joint16
+    100020: Imp:joint16 1
+    100022: Imp:joint17
+    100024: Imp:joint17 1
+    100026: Imp:joint18
+    100028: Imp:joint18 1
+    100030: Imp:joint19
+    100032: Imp:joint2
+    100034: Imp:joint20
+    100036: Imp:joint20 1
+    100038: Imp:joint21
+    100040: Imp:joint21 1
+    100042: Imp:joint22
+    100044: Imp:joint22 1
+    100046: Imp:joint23
+    100048: Imp:joint23 1
+    100050: Imp:joint29
+    100052: Imp:joint3
+    100054: Imp:joint30
+    100056: Imp:joint30 1
+    100058: Imp:joint31
+    100060: Imp:joint31 1
+    100062: Imp:joint4
+    100064: Imp:joint40
+    100066: Imp:joint5
+    100068: Imp:joint6
+    100070: Imp:joint7
+    100072: Imp:joint8
+    100074: Imp:joint9
+    100076: Imp:joint9 1
+    100078: Imp:sunDirection
+    400000: //RootNode
+    400002: Imp:Jadeimp
+    400004: Imp:joint1
+    400006: Imp:joint12
+    400008: Imp:joint13
+    400010: Imp:joint14
+    400012: Imp:joint14 1
+    400014: Imp:joint15
+    400016: Imp:joint15 1
+    400018: Imp:joint16
+    400020: Imp:joint16 1
+    400022: Imp:joint17
+    400024: Imp:joint17 1
+    400026: Imp:joint18
+    400028: Imp:joint18 1
+    400030: Imp:joint19
+    400032: Imp:joint2
+    400034: Imp:joint20
+    400036: Imp:joint20 1
+    400038: Imp:joint21
+    400040: Imp:joint21 1
+    400042: Imp:joint22
+    400044: Imp:joint22 1
+    400046: Imp:joint23
+    400048: Imp:joint23 1
+    400050: Imp:joint29
+    400052: Imp:joint3
+    400054: Imp:joint30
+    400056: Imp:joint30 1
+    400058: Imp:joint31
+    400060: Imp:joint31 1
+    400062: Imp:joint4
+    400064: Imp:joint40
+    400066: Imp:joint5
+    400068: Imp:joint6
+    400070: Imp:joint7
+    400072: Imp:joint8
+    400074: Imp:joint9
+    400076: Imp:joint9 1
+    400078: Imp:sunDirection
+    4300000: Imp:Jadeimp
+    9500000: //RootNode
+    13700000: Imp:Jadeimp
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

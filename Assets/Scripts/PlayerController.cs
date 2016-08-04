@@ -31,7 +31,8 @@ public class PlayerController : MonoBehaviour {
     {
         MaxHealth += Arm.extraHP;
         Health += Arm.extraHP;
-        Physics2D.IgnoreLayerCollision(10, 13, true);
+		Player.GetComponent<Rigidbody2D> ().mass += Arm.weight;
+        Physics2D.IgnoreLayerCollision(10, 13, false);
     }
 
      void Update()
@@ -76,6 +77,11 @@ public class PlayerController : MonoBehaviour {
 
         if(H != 0 )
         {
+			if (H < 0)
+				Player.transform.localScale = new Vector3 (-1, transform.localScale.y, 1);
+			if(H > 0)
+				Player.transform.localScale = new Vector3 (1, transform.localScale.y, 1);
+			
             Vector2 Vel = Player.GetComponent<Rigidbody2D>().velocity;
             Vel.x = 0;
             

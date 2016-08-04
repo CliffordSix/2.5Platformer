@@ -41,7 +41,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   is2H: 1
-  projectile: {fileID: 102742, guid: fa326c51330038241a06feba7ea8b538, type: 2}
+  projectile: {fileID: 145666, guid: ea583fbd22337ca4eb6f19d08ac28b62, type: 2}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

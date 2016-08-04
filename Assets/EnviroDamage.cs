@@ -16,7 +16,7 @@ public class EnviroDamage : MonoBehaviour {
         {
             //Damage Player
             Camera.main.GetComponent<PlayerController>().Health -= 10;
-            Rigidbody2D pR = col.transform.parent.GetComponent<Rigidbody2D>();
+            Rigidbody2D pR = col.GetComponent<Rigidbody2D>();
             pR.velocity = new Vector2(0, 0);
             pR.AddForce(knockbackPower, ForceMode2D.Impulse);
         }
