@@ -30,10 +30,10 @@ public class StateManager : MonoBehaviour {
         allBehaviours.AddRange(chasingBehaviours);
         allBehaviours.AddRange(searchingBehaviours);
         allBehaviours.AddRange(fightingBehaviours);
-        Debug.Log(fightingBehaviours.Count);
+     //   Debug.Log(fightingBehaviours.Count);
         foreach(Behaviour behaviour in allBehaviours)
         {
-            Debug.Log(behaviour);
+        //    Debug.Log(behaviour);
             behaviour.enabled = false;
         }
 

@@ -520,7 +520,7 @@ GameObject:
   - 4: {fileID: 417364}
   - 33: {fileID: 3359776}
   - 23: {fileID: 2347338}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FloorBlock 2x2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -784,7 +784,7 @@ GameObject:
   - 4: {fileID: 448536}
   - 33: {fileID: 3386004}
   - 23: {fileID: 2330014}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FloorBlock 2x2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1076,7 +1076,7 @@ GameObject:
   - 4: {fileID: 488998}
   - 33: {fileID: 3316754}
   - 23: {fileID: 2316922}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FloorBlock 2x2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1605,7 +1605,7 @@ GameObject:
   - 4: {fileID: 497186}
   - 33: {fileID: 3324452}
   - 23: {fileID: 2340106}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FloorBlock 2x2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1674,7 +1674,7 @@ GameObject:
   - 4: {fileID: 435630}
   - 33: {fileID: 3323402}
   - 23: {fileID: 2320942}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FloorBlock 2x2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2025,7 +2025,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 182862}
   m_LocalRotation: {x: 0.000000115202326, y: 0.7071067, z: 0.7071068, w: -0.00000011520231}
-  m_LocalPosition: {x: 1, y: 1, z: 0.955}
+  m_LocalPosition: {x: 1.01, y: 1, z: 0.955}
   m_LocalScale: {x: 0.39370078, y: 0.39370078, z: 0.39370078}
   m_LocalEulerAnglesHint: {x: -90, y: 180, z: 0}
   m_Children: []

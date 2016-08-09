@@ -11,7 +11,7 @@ GameObject:
   - 33: {fileID: 3387638}
   - 23: {fileID: 2369972}
   - 95: {fileID: 9510414}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FloorBlock 2x2
   m_TagString: Untagged
   m_Icon: {fileID: 0}

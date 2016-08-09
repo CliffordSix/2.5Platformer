@@ -8,6 +8,9 @@ public class Projectile : MonoBehaviour {
     public Vector2 Dir;
     public float ProjectileForce;
 	public float Dmg;
+    public Vector2 Knockback = new Vector2(0, 4);
+
+    public bool UltimateArrow = false;
 
 	void Start () {
         rB = GetComponent<Rigidbody2D>();
@@ -16,7 +19,8 @@ public class Projectile : MonoBehaviour {
 
     void OnCollisionEnter2D(Collision2D col)
     {
-		if (col.gameObject.layer != gameObject.layer) {
+		if (col.gameObject.layer != gameObject.layer && !UltimateArrow)
+        {
 			if (col.gameObject.layer == 14) {
 				rB.isKinematic = true;
 				transform.GetComponent<BoxCollider2D> ().enabled = false;
@@ -36,6 +40,30 @@ public class Projectile : MonoBehaviour {
 				} 
 			}
 		}
+        else if(UltimateArrow)
+        {
+            Debug.Log("Ultimate Cast");
+            Dmg = 200;
+            if (col.gameObject.layer == 14)
+            {
+                col.transform.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 4), ForceMode2D.Impulse);
+                col.gameObject.GetComponent<MonsterHealth>().ApplyDamage(Dmg);
+            }
+            if (col.gameObject.layer != 10)
+            {
+                if (col.gameObject.layer == 12 || col.gameObject.layer == 9 || col.gameObject.layer == 8)
+                {
+                    rB.isKinematic = true;
+                    transform.GetComponent<BoxCollider2D>().enabled = false;
+                    StartCoroutine(Despawn(DespawnTime));
+
+                }
+               // else if (rB.isKinematic == false)
+              //  {
+              //      Destroy(gameObject);
+              //  }
+            }
+        }
     }
 
     void FixedUpdate()

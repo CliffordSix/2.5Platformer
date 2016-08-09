@@ -111,7 +111,7 @@ public class Doorway : MonoBehaviour {
                     {                                         
                         rContainer.GetComponent<RoomManager>().count++;
 						float m = (1.0f / 61.0f);
-						Debug.Log (m);
+					//	Debug.Log (m);
 						GameObject.Find("GUI Manager").BroadcastMessage ("LoadBarInc", m);
                      //   Debug.Log("Adding " + toBuild.name + " to the List");
                         rContainer.GetComponent<RoomManager>().ExpandList.Add(toBuild);

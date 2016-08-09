@@ -8,6 +8,7 @@ TagManager:
   - Room
   - Doorway
   - Fire
+  - DropManager
   layers:
   - Default
   - TransparentFX

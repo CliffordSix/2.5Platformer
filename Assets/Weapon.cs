@@ -13,17 +13,17 @@ public class Weapon : MonoBehaviour {
         Instantiate(projectile, transform.parent.transform.position, Quaternion.identity);
     }
 
-    public virtual void abilityTwo()
+    public virtual void abilityTwo(Transform Player)
     {
         Debug.Log("This Weapon is not for use");
     }
 
-    public virtual void abilityThree()
+    public virtual void abilityThree(Transform Player)
     {
         Debug.Log("This Weapon is not for use");
     }
 
-    public virtual void abilityFour()
+    public virtual void abilityFour(Transform Player)
     {
         Debug.Log("This Weapon is not for use");
     }

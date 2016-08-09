@@ -15,7 +15,7 @@ public class MonsterHealth : MonoBehaviour {
 		Health -= (dmg - (dmg / (100 / Armour)));
 	}
 
-	void OnCollisionEnter2D(Collider col)
+	void OnTriggerEnter2D(Collider2D col)
 	{
 		if (col.tag == "Player") {
 			Camera.main.GetComponent<PlayerController>().Health -= Dmg;
@@ -29,6 +29,7 @@ public class MonsterHealth : MonoBehaviour {
 	void Update()
 	{
 		if (Health <= 0) {
+            GameObject.FindGameObjectWithTag("DropManager").GetComponent<DropManger>().DropItem(transform.position);
 			Destroy (gameObject);
 		}
 	}
