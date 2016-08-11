@@ -21,10 +21,14 @@ public class MonsterHealth : MonoBehaviour {
 			Camera.main.GetComponent<PlayerController>().Health -= Dmg;
 			Rigidbody2D pR = col.GetComponent<Rigidbody2D>();
 			pR.velocity = new Vector2(0, 0);
+            Rigidbody2D eR = GetComponent<Rigidbody2D>();
+            eR.velocity = new Vector2(0, 0);
 			pR.AddForce(knockbackPower, ForceMode2D.Impulse);
 		
 		}
-	}
+
+      
+    }
 
 	void Update()
 	{

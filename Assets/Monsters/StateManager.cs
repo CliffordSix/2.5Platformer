@@ -21,7 +21,7 @@ public class StateManager : MonoBehaviour {
     public List<Behaviour> fightingBehaviours = new List<Behaviour>();
 
     protected List<Behaviour> currentBehaviours = new List<Behaviour>();
-    protected State currentState;
+    public State currentState;
     public List<Behaviour> allBehaviours = new List<Behaviour>();
 
     protected virtual void Start()
