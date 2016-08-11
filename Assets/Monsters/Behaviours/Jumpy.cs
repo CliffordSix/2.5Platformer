@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Jumpy : MonoBehaviour {
+public class Jumpy : Behaviour {
 
-    public Rigidbody2D body;
+    
     public float jumpForce = 1.0f;
     public float jumpDelay = 0.0f;
     public LayerMask ground;
@@ -11,7 +11,7 @@ public class Jumpy : MonoBehaviour {
     float untilJump = 0.0f;
 
     // Update is called once per frame
-    void Update () {
+    override protected void Update () {
         if (!IsGrounded())
             return;
 
