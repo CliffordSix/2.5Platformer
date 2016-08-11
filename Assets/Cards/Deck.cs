@@ -1,81 +1,38 @@
-﻿using System;
-using System.Linq;
+﻿using UnityEngine;
+using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
+using Newtonsoft.Json.Linq;
 
+public class Deck : MonoBehaviour {
 
-public class Deck
-{
+    List<string> cards_ = new List<string>();
 
-    List<Card> Cards = new List<Card>();
-    UInt16 Difficulty = 0;
-    string Name;
-    //Default Deck Size is 10
-    private UInt32 MaxSize = 100;
-    private UInt32 Size = 0;
-
-    public void setName(string n)
+	public void AddCard(string name)
     {
-        Name = n;
+        cards_.Add(name);
     }
 
-    public string getName()
+    public void RemoveCard(string name)
     {
-        return Name;
+        cards_.Remove(name);
     }
 
-    public UInt16 getDifficulty()
+    public void Shuffle()
     {
-        return Difficulty;
-    }
-
-    public UInt32 getSize()
-    {
-        return Size;
-    }
-
-    private void calculateDifficulty()
-    {
-        UInt32 d = 0;
-
-        for (int i = 0; i < Size; i++)
+        List<string> old_cards = new List<string>(cards_);
+        cards_.Clear();
+        while (old_cards.Count > 0)
         {
-            //d += Cards[i].getDifficulty();
+            int index = Random.Range(0, old_cards.Count);
+            string card = old_cards[index];
+            old_cards.RemoveAt(index);
+            cards_.Add(card);
         }
-
-        Difficulty = (ushort)Mathf.FloorToInt(((float)d / (float)Size) * (Size / 10));
-
-        //Assuming Max container size = 90 then the maximum difficulty is 50.
-        /*
-         * 0-10     Standard
-         * 11-20    Tough
-         * 21-30    Brutal
-         * 31-40    Destroyer
-         * 41+      Abyssal
-         * Difficulty Ratings
-         */
     }
 
-
-    public bool addCard(Card c)
+    public Card Draw(CardManager manager)
     {
-        if (Size == MaxSize)
-            return false;
-
-        Cards.Add(c);
-        Size++;
-        calculateDifficulty();
-
-        return true;
+        string card_name = cards_[0];
+        return manager.Create(card_name);
     }
-
-    public bool RemoveCard(Card c)
-    {
-        Cards.Remove(c);
-        Size--;
-
-        return true;
-    }
-
-
 }

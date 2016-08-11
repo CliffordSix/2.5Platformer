@@ -2,11 +2,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using Newtonsoft.Json;
 
 [System.Serializable]
 public struct CardDetail
 {
-    public int id;
     public string name;
     public string flavour_text;
 }
@@ -14,7 +14,7 @@ public struct CardDetail
 public class CardManager : MonoBehaviour
 {
     public string card_definition_folder_ = "Cards";
-    public List<GameObject> cards_;
+    public Dictionary<string, GameObject> cards_ = new Dictionary<string, GameObject>();
 
     void Start()
     {
@@ -26,8 +26,7 @@ public class CardManager : MonoBehaviour
             string card_folder_name = Path.GetFileName(card_folder);
             try
             {
-                GameObject card = Load(card_folder_name, cards_.Count);
-                cards_.Add(card);
+                Load(card_folder_name);
             }
             catch (System.Exception e)
             {
@@ -37,7 +36,7 @@ public class CardManager : MonoBehaviour
     }
 
     //Create a card prefab from a text file and model found in the given directory, ready to be instantiated
-    GameObject Load(string card_directory, int id)
+    void Load(string card_directory)
     {
         Debug.Log("Loading Card from: " + card_directory);
         string path = Path.Combine(card_definition_folder_, card_directory);
@@ -49,8 +48,7 @@ public class CardManager : MonoBehaviour
             throw new System.Exception("Failed to load card details");
         }
         //Convert from JSON string to CardDetail object
-        CardDetail card_detail = JsonUtility.FromJson<CardDetail>(card_detail_text.text);
-        card_detail.id = id;
+        CardDetail card_detail = JsonConvert.DeserializeObject<CardDetail>(card_detail_text.text);
 
         //Load prefab/model for card (not the monster, the actual card)
         GameObject card_model_prefab = Resources.Load<GameObject>(Path.Combine(path, "model"));
@@ -72,11 +70,11 @@ public class CardManager : MonoBehaviour
         card_script.model = card_model.transform;
         card_script.SetCardDetail(card_detail);
 
-        return card;
+        cards_.Add(card_detail.name, card);
     }
 
-    public Card Get(int id)
+    public Card Create(string name)
     {
-        return cards_[id].GetComponent<Card>();
+        return GameObject.Instantiate<GameObject>(cards_[name]).GetComponent<Card>();
     }
 }
