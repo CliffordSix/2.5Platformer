@@ -44,36 +44,85 @@ public class Doorway : MonoBehaviour {
 					Debug.Log ("After 50 searches we can't find a room to fit this door check that a room with the correct facing door exists");
 					break;
 				}
-				//Create a new Room
-				rNumber = Random.Range (0, rContainer.GetComponent<RoomManager>().RoomList.Length);
 
+                //Create a new Room
+                rNumber = Random.Range(0, rContainer.GetComponent<RoomManager>().RoomList.Length);
+                
 				GameObject toBuild = rContainer.GetComponent<RoomManager> ().RoomList [rNumber];
 				switch (dir) {
 				case "N":
 					if (toBuild.GetComponent<Room> ().Down) {
-						BuildRoom = true;
-						doorToUse = "S";
+                            if (CheckSpace(transform.position + new Vector3(0, toBuild.GetComponent<Room>().Height, 0))
+                                && CheckSpace(transform.position + new Vector3(toBuild.GetComponent<Room>().Width,1,0)))
+                            {
+                                if (Physics2D.Raycast(transform.position + Vector3.up, Vector2.up, toBuild.GetComponent<Room>().Height))
+                                {
+                                    Debug.Log("Not Enough Room for this room here");
+                                    break;
+                                }
+                                else
+                                {
+                                    BuildRoom = true;
+                                    doorToUse = "S";
+                                }
+                            }
 					}
 
 					break;
 				case "E":
 					if (toBuild.GetComponent<Room> ().Left) {
-						BuildRoom = true;
-						doorToUse = "W";
+                            if (CheckSpace(transform.position + new Vector3(1, toBuild.GetComponent<Room>().Height, 0))
+                               && CheckSpace(transform.position + new Vector3(toBuild.GetComponent<Room>().Width, 0, 0)))
+                            {
+                                if (Physics2D.Raycast(transform.position + Vector3.right, Vector2.right, toBuild.GetComponent<Room>().Width))
+                                {
+                                    Debug.Log("Not Enough Room for this room here");
+                                    break;
+                                }
+                                else
+                                {
+                                    BuildRoom = true;
+                                    doorToUse = "W";
+                                }
+                            }
 					}
 
 					break;
 				case "S":
 					if (toBuild.GetComponent<Room> ().Up) {
-						BuildRoom = true;
-						doorToUse = "N";
+                            if (CheckSpace(transform.position - new Vector3(0, toBuild.GetComponent<Room>().Height, 0))
+                               && CheckSpace(transform.position + new Vector3(toBuild.GetComponent<Room>().Width, -1, 0)))
+                            {
+                                if (Physics2D.Raycast(transform.position + Vector3.down, Vector2.down, toBuild.GetComponent<Room>().Height))
+                                {
+                                    Debug.Log("Not Enough Room for this room here");
+                                    break;
+                                }
+                                else
+                                {
+                                    BuildRoom = true;
+                                    doorToUse = "N";
+                                }
+                            }
 					}
 
 					break;
 				case "W":
 					if (toBuild.GetComponent<Room> ().Right) {
-						BuildRoom = true;
-						doorToUse = "E";
+                            if (CheckSpace(transform.position + new Vector3(-1, toBuild.GetComponent<Room>().Height, 0))
+                               && CheckSpace(transform.position - new Vector3(toBuild.GetComponent<Room>().Width, 0, 0)))
+                            {
+                                if (Physics2D.Raycast(transform.position + Vector3.left, Vector2.left, toBuild.GetComponent<Room>().Width))
+                                {
+                                    Debug.Log("Not Enough Room for this room here");
+                                    break;
+                                }
+                                else
+                                {
+                                    BuildRoom = true;
+                                    doorToUse = "E";
+                                }
+                            }
 					}
 
 					break;
@@ -121,6 +170,21 @@ public class Doorway : MonoBehaviour {
             }
 		}
 	}
+
+    bool CheckSpace(Vector3 Position)
+    {
+
+        //Look to see if there is an object at a position
+        float radius = 1.0f;
+        if(Physics.CheckSphere(Position, radius))
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
 
     public void BlockDoorway()
     {

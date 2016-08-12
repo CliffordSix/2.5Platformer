@@ -19,6 +19,8 @@ public class Room : MonoBehaviour {
 
 	public LayerMask roomLayer;
 
+    public int Width, Height;
+
 /*	void OnDrawGizmos()
 	{
         Gizmos.DrawLine(tLeft.position, bRight.position);
@@ -76,7 +78,7 @@ public class Room : MonoBehaviour {
         if(collided)
         {
           //  Debug.Log("Rrmoving Room");
-            Destroy(this.gameObject);
+           // Destroy(this.gameObject);
         }
 
     }
