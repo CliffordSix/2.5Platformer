@@ -5085,7 +5085,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 182238}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 1463d82a70488304ea5b6144abd6ef74, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
@@ -5099,7 +5099,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 131678}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 1463d82a70488304ea5b6144abd6ef74, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
@@ -5155,7 +5155,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 137930}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 1463d82a70488304ea5b6144abd6ef74, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
@@ -5183,7 +5183,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 109726}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 1463d82a70488304ea5b6144abd6ef74, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
@@ -5197,7 +5197,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 122530}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 1463d82a70488304ea5b6144abd6ef74, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
@@ -5211,7 +5211,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 117508}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 1463d82a70488304ea5b6144abd6ef74, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
@@ -5225,7 +5225,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 108636}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 1463d82a70488304ea5b6144abd6ef74, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
@@ -5239,7 +5239,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 116392}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 1463d82a70488304ea5b6144abd6ef74, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
@@ -5346,6 +5346,8 @@ MonoBehaviour:
   roomLayer:
     serializedVersion: 2
     m_Bits: 2048
+  Width: 12
+  Height: 8
 --- !u!114 &11422302
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5373,6 +5375,7 @@ MonoBehaviour:
   rContainer: {fileID: 0}
   dir: N
   Connected: 0
+  DungeonSize: 60
 --- !u!114 &11436986
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5387,6 +5390,7 @@ MonoBehaviour:
   rContainer: {fileID: 0}
   dir: E
   Connected: 0
+  DungeonSize: 60
 --- !u!114 &11448940
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5413,6 +5417,7 @@ MonoBehaviour:
   rContainer: {fileID: 0}
   dir: W
   Connected: 0
+  DungeonSize: 60
 --- !u!114 &11467346
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5438,6 +5443,7 @@ MonoBehaviour:
   rContainer: {fileID: 0}
   dir: S
   Connected: 0
+  DungeonSize: 60
 --- !u!198 &19866360
 ParticleSystem:
   m_ObjectHideFlags: 1

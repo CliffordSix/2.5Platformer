@@ -13019,7 +13019,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 155952}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 1463d82a70488304ea5b6144abd6ef74, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
@@ -13047,7 +13047,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 172862}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 1463d82a70488304ea5b6144abd6ef74, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
@@ -13061,7 +13061,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 132362}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 1463d82a70488304ea5b6144abd6ef74, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
@@ -13075,7 +13075,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 119236}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 1463d82a70488304ea5b6144abd6ef74, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
@@ -13103,7 +13103,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 170130}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 1463d82a70488304ea5b6144abd6ef74, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
@@ -13117,7 +13117,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 100710}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 1463d82a70488304ea5b6144abd6ef74, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
@@ -13131,7 +13131,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 130140}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 1463d82a70488304ea5b6144abd6ef74, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
@@ -13145,7 +13145,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 108376}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 1463d82a70488304ea5b6144abd6ef74, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
@@ -13201,7 +13201,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 139812}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 1463d82a70488304ea5b6144abd6ef74, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
@@ -13229,7 +13229,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 190428}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 1463d82a70488304ea5b6144abd6ef74, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
@@ -13243,7 +13243,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 151882}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 1463d82a70488304ea5b6144abd6ef74, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
@@ -13257,7 +13257,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 181656}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 1463d82a70488304ea5b6144abd6ef74, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
@@ -13343,6 +13343,7 @@ MonoBehaviour:
   rContainer: {fileID: 0}
   dir: W
   Connected: 0
+  DungeonSize: 60
 --- !u!114 &11435720
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -13364,6 +13365,8 @@ MonoBehaviour:
   roomLayer:
     serializedVersion: 2
     m_Bits: 2048
+  Width: 24
+  Height: 14
 --- !u!114 &11445264
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -13378,6 +13381,7 @@ MonoBehaviour:
   rContainer: {fileID: 0}
   dir: S
   Connected: 0
+  DungeonSize: 60
 --- !u!114 &11447128
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -13404,6 +13408,7 @@ MonoBehaviour:
   rContainer: {fileID: 0}
   dir: N
   Connected: 0
+  DungeonSize: 60
 --- !u!114 &11454448
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -13441,6 +13446,7 @@ MonoBehaviour:
   rContainer: {fileID: 0}
   dir: E
   Connected: 0
+  DungeonSize: 60
 --- !u!114 &11493774
 MonoBehaviour:
   m_ObjectHideFlags: 1

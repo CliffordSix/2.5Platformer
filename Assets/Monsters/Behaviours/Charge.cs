@@ -31,7 +31,7 @@ public class Charge : Behaviour {
     protected override void Update()
     {
         base.Update();
-        Debug.Log("Called");
+       // Debug.Log("Called");
         
         body.AddForce(new Vector2(chargeSpeed * direction * Time.deltaTime, 0.0f));
     }

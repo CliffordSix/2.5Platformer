@@ -81,6 +81,7 @@
     <Compile Include="Assets\MonsterHealth.cs" />
     <Compile Include="Assets\Monsters\Behaviour.cs" />
     <Compile Include="Assets\Monsters\Behaviours\Charge.cs" />
+    <Compile Include="Assets\Monsters\Behaviours\ImpCombat.cs" />
     <Compile Include="Assets\Monsters\Behaviours\Jumpy.cs" />
     <Compile Include="Assets\Monsters\Behaviours\Wander.cs" />
     <Compile Include="Assets\Monsters\State Managers\Basic.cs" />
