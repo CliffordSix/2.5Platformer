@@ -208,21 +208,6 @@ public class Doorway : MonoBehaviour {
 		}
 	}
 
-    bool CheckSpace(Vector3 Position)
-    {
-
-        //Look to see if there is an object at a position
-        float radius = 1.0f;
-        if(Physics.CheckSphere(Position, radius))
-        {
-            return false;
-        }
-        else
-        {
-            return true;
-        }
-    }
-
     public void BlockDoorway()
     {
         GameObject Clone;

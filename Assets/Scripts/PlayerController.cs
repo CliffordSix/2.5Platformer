@@ -20,6 +20,8 @@ public class PlayerController : MonoBehaviour {
 	public LayerMask platforms;
 	public LayerMask PlayerMask;
 
+    public float CameraDistance = -10;
+
     public float Health = 100;
 
     public Weapon LHand;
@@ -58,14 +60,17 @@ public class PlayerController : MonoBehaviour {
         }
         
     }
-	
+
+    void LateUpdate()
+    {
+        //Set the position of the camera to follow the player
+        transform.position = new Vector3(Player.transform.position.x, Player.transform.position.y + CameraYoffset, CameraDistance);
+    }
+
 	void FixedUpdate () {
         float H = Input.GetAxis("Horizontal");
         float V = Input.GetAxis("Vertical");
   
-        //Set the position of the camera to follow the player
-        transform.position = new Vector3(Player.transform.position.x, Player.transform.position.y + CameraYoffset , -5);
-
 		if (jumping)
         {
             Player.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, jumpSpeed), ForceMode2D.Impulse);
@@ -91,7 +96,8 @@ public class PlayerController : MonoBehaviour {
             Player.GetComponent<Rigidbody2D>().velocity = Vel;
 
             Player.GetComponent<Rigidbody2D>().AddForce(new Vector2((H * speed), Vel.y) - Player.GetComponent<Rigidbody2D>().velocity, ForceMode2D.Force);
-            
+           // Vel.x = (H * speed);
+          //  Vel.y = Vel.y;
             Vel.x = Mathf.Clamp(Vel.x, 0.0f, speed);
             Player.GetComponent<Rigidbody2D>().velocity = Vel;
         }

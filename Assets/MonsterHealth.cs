@@ -9,6 +9,10 @@ public class MonsterHealth : MonoBehaviour {
 	public float Dmg;
 	public Vector2 knockbackPower = new Vector2(0, 5);
 
+    void start()
+    {
+        Physics2D.IgnoreLayerCollision(10, 14, true);
+    }
 
 	public void ApplyDamage(float dmg)
 	{

@@ -97,7 +97,7 @@ public class Bow : Weapon {
 
     Vector3 getSpawn(Vector3 p)
     {
-        return new Vector3(p.x, p.y, 0);
+        return new Vector3(p.x, p.y, 0.5f);
     }
 
 
