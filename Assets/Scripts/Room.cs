@@ -21,10 +21,10 @@ public class Room : MonoBehaviour {
 
     public int Width, Height;
 
-/*	void OnDrawGizmos()
-	{
-        Gizmos.DrawLine(tLeft.position, bRight.position);
-    }*/
+    /*	void OnDrawGizmos()
+        {
+            Gizmos.DrawLine(tLeft.position, bRight.position);
+        }*/
 
     public Doorway[] GetExits()
     {
@@ -47,7 +47,7 @@ public class Room : MonoBehaviour {
 		//Debug.Log ("Checking for overlapping rooms");
 		if (isOverlapping ()) {
 			//Debug.Log ("Is Overlapping an existing Room");
-			collided = true;
+			//collided = true;
 
             return false;
 		}
