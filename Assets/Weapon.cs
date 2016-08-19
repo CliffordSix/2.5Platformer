@@ -1,13 +1,20 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+
 public class Weapon : MonoBehaviour {
 
     public bool is2H = false;
+    public Mesh Model;
+    public Material weaponMat;
+
+    public bool isRanged;
 
     public GameObject projectile;
 
-	public virtual void abilityOne(Transform Player)
+    public Sprite A1, A2, A3, A4;
+
+    public virtual void abilityOne(Transform Player)
     {
         Debug.Log("This Weapon is not for use");
         Instantiate(projectile, transform.parent.transform.position, Quaternion.identity);

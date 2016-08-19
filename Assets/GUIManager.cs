@@ -30,6 +30,19 @@ public class GUIManager : MonoBehaviour {
         GO.enabled = false;
         Player = Camera.main.GetComponent<PlayerController>();
 		Player.enabled = false;
+        A1.GetComponent<Image>().sprite = Player.LHand.A1;
+        A2.GetComponent<Image>().sprite = Player.LHand.A2;
+        if (Player.LHand.is2H)
+        {
+            A3.GetComponent<Image>().sprite = Player.LHand.A3;
+            A4.GetComponent<Image>().sprite = Player.LHand.A4;
+        }
+        else
+        {
+            A3.GetComponent<Image>().sprite = Player.RHand.A1;
+            A4.GetComponent<Image>().sprite = Player.RHand.A2;
+        }
+
     }
 
 	void LoadBarInc(float i)

@@ -20,6 +20,9 @@ public class PlayerController : MonoBehaviour {
 	public LayerMask platforms;
 	public LayerMask PlayerMask;
 
+    GameObject PlayerWeaponL;
+    GameObject PlayerWeaponR;
+
     public float CameraDistance = -10;
 
     public float Health = 100;
@@ -31,16 +34,36 @@ public class PlayerController : MonoBehaviour {
 
     public void Start()
     {
+        //Initilise Armour
         MaxHealth += Arm.extraHP;
         Health += Arm.extraHP;
-		Player.GetComponent<Rigidbody2D> ().mass += Arm.weight;
+        Player.GetComponent<Rigidbody2D>().mass += Arm.weight;
         Physics2D.IgnoreLayerCollision(10, 13, true);
-    }
+        
+        //Initiliase Weapons
+        PlayerWeaponL = Player.transform.Find("Weapon").gameObject;
+        PlayerWeaponL.GetComponent<MeshFilter>().mesh = LHand.Model;
+        PlayerWeaponL.GetComponent<MeshRenderer>().material = LHand.weaponMat;
+        if(!LHand.is2H)
+        {
+            PlayerWeaponR = Player.transform.Find("WeaponDual").gameObject;
+            PlayerWeaponR.GetComponent<MeshFilter>().mesh = RHand.Model;
+            PlayerWeaponR.GetComponent<MeshRenderer>().material = RHand.weaponMat;
+        }
 
+        if(LHand.isRanged)
+        {
+            PlayerWeaponL.GetComponent<BoxCollider2D>().enabled = false;
+        }
+        if(RHand.isRanged)
+        {
+            PlayerWeaponR.GetComponent<BoxCollider2D>().enabled = false;
+        }
+    }
      void Update()
     {
 
-        if(Health > MaxHealth)
+        if (Health > MaxHealth)
         {
             Health = MaxHealth;
         }     
