@@ -95,6 +95,11 @@
     <Compile Include="Assets\Projectile.cs" />
     <Compile Include="Assets\ProjectileCollisions.cs" />
     <Compile Include="Assets\RoomManager.cs" />
+    <Compile Include="Assets\Scripts\Abilities\Ability.cs" />
+    <Compile Include="Assets\Scripts\Abilities\BasicBowFire.cs" />
+    <Compile Include="Assets\Scripts\Abilities\BowMultiDirectionShot.cs" />
+    <Compile Include="Assets\Scripts\Abilities\BowMultishot.cs" />
+    <Compile Include="Assets\Scripts\Abilities\BowUltimateAbility.cs" />
     <Compile Include="Assets\Scripts\Doorway.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Room.cs" />

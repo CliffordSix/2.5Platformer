@@ -55,7 +55,7 @@ public class PlayerController : MonoBehaviour {
         {
             PlayerWeaponL.GetComponent<BoxCollider2D>().enabled = false;
         }
-        if(RHand.isRanged)
+        if(RHand != null && RHand.isRanged)
         {
             PlayerWeaponR.GetComponent<BoxCollider2D>().enabled = false;
         }

@@ -10,7 +10,7 @@ public class GUIManager : MonoBehaviour {
     public Image HealthEmpty;
     public float Health = 0;
     public float MaxHealth;
-    public float cD1, cD2, cD3, cD4;
+    float cD1, cD2, cD3, cD4;
 
     public Image CardBack;
     public Text CardName, CardDiff;
@@ -30,17 +30,23 @@ public class GUIManager : MonoBehaviour {
         GO.enabled = false;
         Player = Camera.main.GetComponent<PlayerController>();
 		Player.enabled = false;
-        A1.GetComponent<Image>().sprite = Player.LHand.A1;
-        A2.GetComponent<Image>().sprite = Player.LHand.A2;
+        A1.GetComponent<Image>().sprite = Player.LHand.WeaponAbilities[0].Icon;
+        cD1 = Player.LHand.WeaponAbilities[0].CD;
+        A2.GetComponent<Image>().sprite = Player.LHand.WeaponAbilities[1].Icon;
+        cD2 = Player.LHand.WeaponAbilities[1].CD;
         if (Player.LHand.is2H)
         {
-            A3.GetComponent<Image>().sprite = Player.LHand.A3;
-            A4.GetComponent<Image>().sprite = Player.LHand.A4;
+            A3.GetComponent<Image>().sprite = Player.LHand.WeaponAbilities[2].Icon;
+            cD3 = Player.LHand.WeaponAbilities[2].CD;
+            A4.GetComponent<Image>().sprite = Player.LHand.WeaponAbilities[3].Icon;
+            cD4 = Player.LHand.WeaponAbilities[3].CD;
         }
         else
         {
-            A3.GetComponent<Image>().sprite = Player.RHand.A1;
-            A4.GetComponent<Image>().sprite = Player.RHand.A2;
+            A3.GetComponent<Image>().sprite = Player.RHand.WeaponAbilities[0].Icon;
+            cD3 = Player.RHand.WeaponAbilities[0].CD;
+            A4.GetComponent<Image>().sprite = Player.RHand.WeaponAbilities[1].Icon;
+            cD4 = Player.RHand.WeaponAbilities[1].CD;
         }
 
     }

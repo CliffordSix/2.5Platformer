@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using System.Collections.Generic;
 
 public class Weapon : MonoBehaviour {
 
@@ -12,7 +12,9 @@ public class Weapon : MonoBehaviour {
 
     public GameObject projectile;
 
-    public Sprite A1, A2, A3, A4;
+   // public Sprite A1, A2, A3, A4;
+
+    public List<Ability> WeaponAbilities = new List<Ability>();
 
     public virtual void abilityOne(Transform Player)
     {
