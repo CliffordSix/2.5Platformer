@@ -1,16 +1,21 @@
 ﻿using UnityEngine;
-using System.Collections;
 using System.Collections.Generic;
 using System.IO;
-using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using Newtonsoft.Json;
+
+[System.Serializable]
+public struct DeckDefinition
+{
+    public string[] cards;
+}
 
 public class CollectionManager : MonoBehaviour {
 
     public string decks_folder = "Decks";
 
     public Dictionary<string, int> card_collection = new Dictionary<string, int>();
-    public List<Deck> deck_collection = new List<Deck>();
+    public List<GameObject> deck_collection = new List<GameObject>();
 
 	// Use this for initialization
 	void Start () {
@@ -20,7 +25,23 @@ public class CollectionManager : MonoBehaviour {
 
     void LoadDeck(string name)
     {
+        Debug.Log("Loading deck: " + name);
+        TextAsset deck_text = Resources.Load<TextAsset>(Path.Combine(decks_folder, name));
+        if(deck_text == null)
+        {
+            throw new System.Exception("Failed to load deck: " + name);
+        }
+        DeckDefinition definition = JsonConvert.DeserializeObject<DeckDefinition>(deck_text.text);
+        GameObject deck = new GameObject(name);
+        deck.hideFlags = HideFlags.HideInInspector;
+        deck.SetActive(false);
 
+        Deck deck_script = deck.AddComponent<Deck>();
+        foreach(string card_name in definition.cards)
+        {
+            deck_script.AddCard(card_name);
+        }
+        deck_collection.Add(deck);
     }
 
     void LoadDecks()
@@ -30,7 +51,11 @@ public class CollectionManager : MonoBehaviour {
         string[] deck_files = Directory.GetFiles(path);
         foreach(string deck_file in deck_files)
         {
-            string deck_file_name = Path.GetFileName(deck_file);
+            if(Path.GetExtension(deck_file) == ".meta")
+            {
+                continue;
+            }
+            string deck_file_name = Path.GetFileNameWithoutExtension(deck_file);
             try
             {
                 LoadDeck(deck_file_name);
@@ -68,7 +93,6 @@ public class CollectionManager : MonoBehaviour {
 
     public void CollectCard(string name, int amount = 1)
     {
-        Debug.Log("Collected " + amount + " " + name);
         if(card_collection.ContainsKey(name))
         {
             int count = card_collection[name] + amount;

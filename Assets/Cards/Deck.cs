@@ -5,7 +5,7 @@ using Newtonsoft.Json.Linq;
 
 public class Deck : MonoBehaviour {
 
-    List<string> cards_ = new List<string>();
+    public List<string> cards_ = new List<string>();
 
 	public void AddCard(string name)
     {

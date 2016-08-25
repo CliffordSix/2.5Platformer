@@ -103,8 +103,9 @@
     <Compile Include="Assets\Scripts\Doorway.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Room.cs" />
-    <Compile Include="Assets\StartMenu.cs" />
     <Compile Include="Assets\SwordSingle.cs" />
+    <Compile Include="Assets\UI\DeckListUI.cs" />
+    <Compile Include="Assets\UI\StartMenu.cs" />
     <Compile Include="Assets\UnityPackages\JsonNetSample\JsonNetSample.cs" />
     <Compile Include="Assets\Weapon.cs" />
   </ItemGroup>

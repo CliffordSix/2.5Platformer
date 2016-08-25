@@ -5,7 +5,7 @@ using System.IO;
 using Newtonsoft.Json;
 
 [System.Serializable]
-public struct CardDetail
+public struct CardDefinition
 {
     public string name;
     public string flavour_text;
@@ -48,7 +48,7 @@ public class CardManager : MonoBehaviour
             throw new System.Exception("Failed to load card details");
         }
         //Convert from JSON string to CardDetail object
-        CardDetail card_detail = JsonConvert.DeserializeObject<CardDetail>(card_detail_text.text);
+        CardDefinition card_detail = JsonConvert.DeserializeObject<CardDefinition>(card_detail_text.text);
 
         //Load prefab/model for card (not the monster, the actual card)
         GameObject card_model_prefab = Resources.Load<GameObject>(Path.Combine(path, "model"));
