@@ -1,2 +1,0 @@
-Base path: I:/Unity5.3.2f1/Data
-Cmd: getPlatforms
