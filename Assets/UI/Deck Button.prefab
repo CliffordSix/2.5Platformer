@@ -60,9 +60,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deck: {fileID: 0}
-  card_preview_container: {fileID: 0}
-  card_preview_prefab: {fileID: 1000014250454832, guid: 1a3c8fbeaedb6bd45a2d6cc55ba2ea7b,
-    type: 2}
+  deck_list: {fileID: 0}
 --- !u!114 &114000011439363176
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -136,7 +134,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 114000010938052546}
-        m_MethodName: Preview
+        m_MethodName: Select
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

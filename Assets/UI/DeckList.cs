@@ -6,18 +6,27 @@ public class DeckList : MonoBehaviour {
 
     public CollectionManager collection;
     public Transform[] rows = new Transform[2];
-    public Transform preview_content_container;
 
     public GameObject deck_button_prefab;
 
+    public DeckPreview previewer;
+
+    Deck selected;
+
+    public void SetSelected(Deck deck)
+    {
+        selected = deck;
+        previewer.Preview(deck);
+    }
+
     void Start()
     {
-        LoadDecks();
+        Setup();
     }
 
 	void OnEnable()
     {
-        LoadDecks();
+        Setup();
     }
 
     void ClearRow(int index)
@@ -27,7 +36,7 @@ public class DeckList : MonoBehaviour {
         children.ForEach(child => Destroy(child));
     }
 
-    void LoadDecks()
+    void Setup()
     {
         for(int i = 0; i < 2; i++)
         {
@@ -41,9 +50,9 @@ public class DeckList : MonoBehaviour {
             button.GetComponentInChildren<Text>().text = deck.name;
             DeckButton script = button.GetComponent<DeckButton>();
             script.deck = deck.GetComponent<Deck>();
-            script.card_preview_container = preview_content_container;
+            script.deck_list = this;
+
             int row = i % 2 == 0 ? 0 : 1;
-            Debug.Log(row);
             button.transform.SetParent(rows[row], false);
         }
     }
