@@ -65,6 +65,7 @@ public class CollectionManager : MonoBehaviour {
     public void CreateDeck(Deck deck)
     {
         deck.index = deck_collection.Count;
+        deck.name = "deck" + deck.index.ToString();
         deck_collection.Add(deck);
     }
 
