@@ -3,11 +3,20 @@ using System.Collections;
 using System.Collections.Generic;
 using Newtonsoft.Json.Linq;
 
-public class Deck : MonoBehaviour {
+public struct Deck {
 
-    public List<string> cards = new List<string>();
+    public string name;
+    public List<string> cards;
+    public int index;
 
-	public void AddCard(string name)
+    public Deck(string name, int index)
+    {
+        this.name = name;
+        this.index = index;
+        cards = new List<string>();
+    }
+
+    public void AddCard(string name)
     {
         cards.Add(name);
     }
@@ -30,9 +39,9 @@ public class Deck : MonoBehaviour {
         }
     }
 
-    public Card Draw(CardManager manager)
+    public Card Draw(CardManager card_manager)
     {
         string card_name = cards[0];
-        return manager.Create(card_name);
+        return card_manager.Create(card_name);
     }
 }

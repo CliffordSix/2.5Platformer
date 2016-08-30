@@ -5,6 +5,9 @@ using System.Collections.Generic;
 public class DeckPreview : MonoBehaviour {
 
     public GameObject card_preview_prefab;
+    public CollectionManager collection;
+
+    Deck current_deck;
 
 	public void Preview(Deck deck)
     {
@@ -14,11 +17,27 @@ public class DeckPreview : MonoBehaviour {
         foreach (Transform child in content) children.Add(child.gameObject);
         children.ForEach(child => Destroy(child));
 
+        current_deck = deck;
+        if (current_deck.cards == null) return;
+
+        Dictionary<string, int> card_counts = new Dictionary<string, int>();
         foreach (string card_name in deck.cards)
         {
             GameObject card_preview = Instantiate<GameObject>(card_preview_prefab);
             card_preview.GetComponentInChildren<Text>().text = card_name;
             card_preview.transform.SetParent(content, false);
         }
+    }
+
+    public void AddCard(string card)
+    {
+        current_deck.AddCard(card);
+        Preview(current_deck);
+    }
+
+    public void SaveDeck()
+    {
+        collection.deck_collection[current_deck.index] = current_deck;
+        Preview(new Deck());
     }
 }

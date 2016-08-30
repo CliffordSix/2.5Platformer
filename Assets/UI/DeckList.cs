@@ -44,12 +44,12 @@ public class DeckList : MonoBehaviour {
         }
         for (int i = collection.deck_collection.Count - 1; i >= 0; i--)
         {
-            GameObject deck = collection.deck_collection[i];
+            Deck deck = collection.deck_collection[i];
             GameObject button = Instantiate<GameObject>(deck_button_prefab);
 
             button.GetComponentInChildren<Text>().text = deck.name;
             DeckButton script = button.GetComponent<DeckButton>();
-            script.deck = deck.GetComponent<Deck>();
+            script.SetDeck(deck);
             script.deck_list = this;
 
             int row = i % 2 == 0 ? 0 : 1;

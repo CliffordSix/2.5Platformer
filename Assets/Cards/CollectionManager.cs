@@ -15,7 +15,7 @@ public class CollectionManager : MonoBehaviour {
     public string decks_folder = "Decks";
 
     public Dictionary<string, int> card_collection = new Dictionary<string, int>();
-    public List<GameObject> deck_collection = new List<GameObject>();
+    public List<Deck> deck_collection = new List<Deck>();
 
 	// Use this for initialization
 	void Start () {
@@ -25,21 +25,16 @@ public class CollectionManager : MonoBehaviour {
 
     void LoadDeck(string name)
     {
-        Debug.Log("Loading deck: " + name);
         TextAsset deck_text = Resources.Load<TextAsset>(Path.Combine(decks_folder, name));
         if(deck_text == null)
         {
             throw new System.Exception("Failed to load deck: " + name);
         }
         DeckDefinition definition = JsonConvert.DeserializeObject<DeckDefinition>(deck_text.text);
-        GameObject deck = new GameObject(name);
-        deck.hideFlags = HideFlags.HideInInspector;
-        deck.SetActive(false);
-
-        Deck deck_script = deck.AddComponent<Deck>();
+        Deck deck = new Deck(name, deck_collection.Count);
         foreach(string card_name in definition.cards)
         {
-            deck_script.AddCard(card_name);
+            deck.AddCard(card_name);
         }
         deck_collection.Add(deck);
     }

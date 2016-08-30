@@ -38,7 +38,6 @@ public class CardManager : MonoBehaviour
     //Create a card prefab from a text file and model found in the given directory, ready to be instantiated
     void Load(string card_directory)
     {
-        Debug.Log("Loading Card from: " + card_directory);
         string path = Path.Combine(card_definition_folder_, card_directory);
 
         //Load text file with card details in
