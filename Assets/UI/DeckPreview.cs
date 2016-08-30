@@ -9,6 +9,16 @@ public class DeckPreview : MonoBehaviour {
 
     Deck current_deck;
 
+    void OnEnable()
+    {
+        Clear();
+    }
+
+    public void Clear()
+    {
+        Preview(new Deck("test", -1));
+    }
+
 	public void Preview(Deck deck)
     {
         Transform content = GetComponent<ScrollRect>().content.transform;
@@ -37,7 +47,14 @@ public class DeckPreview : MonoBehaviour {
 
     public void SaveDeck()
     {
-        collection.deck_collection[current_deck.index] = current_deck;
-        Preview(new Deck());
+        if(current_deck.index < collection.deck_collection.Count  && current_deck.index > 0)
+        {
+            collection.deck_collection[current_deck.index] = current_deck;
+            Clear();
+        }
+        else
+        {
+            collection.CreateDeck(current_deck);
+        }
     }
 }

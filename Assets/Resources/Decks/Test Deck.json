@@ -1,18 +1,1 @@
-{
-	cards: [
-		'Slime',
-		'Slime',
-		'test',
-		'test2',
-		'test',
-		'test2',
-		'test',
-		'test2',
-		'test',
-		'test2',
-		'test',
-		'test2',
-		'test',
-		'test2'
-	]
-}
+{"name":"Test Deck","cards":["Slime","Slime","test","test2","test","test2","test","test2","test","test2","test","test2","test","test2"],"index":0}

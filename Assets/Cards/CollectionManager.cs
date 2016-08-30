@@ -62,9 +62,22 @@ public class CollectionManager : MonoBehaviour {
         }
     }
 
-    void SaveDecks()
+    public void CreateDeck(Deck deck)
     {
+        deck.index = deck_collection.Count;
+        deck_collection.Add(deck);
+    }
 
+    public void SaveDecks()
+    {
+        foreach(Deck deck in deck_collection)
+        {
+            string jsonString = JsonConvert.SerializeObject(deck);
+            string path = Path.Combine("Assets", "Resources");
+            path = Path.Combine(path, decks_folder);
+            path = Path.Combine(path, deck.name + ".json");
+            File.WriteAllText(path, jsonString);
+        }
     }
 
     void LoadCardCollection()
@@ -88,6 +101,7 @@ public class CollectionManager : MonoBehaviour {
 
     public void CollectCard(string name, int amount = 1)
     {
+        if (name == null) return;
         if(card_collection.ContainsKey(name))
         {
             int count = card_collection[name] + amount;

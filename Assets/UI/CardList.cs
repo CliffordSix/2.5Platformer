@@ -6,6 +6,7 @@ public class CardList : MonoBehaviour {
 
     public CollectionManager collection;
     public Transform[] rows = new Transform[2];
+    public DeckPreview previewer;
 
     public GameObject collected_card_prefab;
 
@@ -35,9 +36,11 @@ public class CardList : MonoBehaviour {
         foreach(var pair in collection.card_collection)
         {
             GameObject button = Instantiate<GameObject>(collected_card_prefab);
-            button.transform.FindChild("Name").GetComponent<Text>().text = pair.Key;
-            button.transform.FindChild("Count").GetComponent<Text>().text = "x" + pair.Value.ToString();
             button.transform.SetParent(rows[nextRow], false);
+
+            CollectedCard script = button.GetComponent<CollectedCard>();
+            script.SetCard(pair.Key, pair.Value);
+            script.previewer = previewer;
             nextRow++;
             if(nextRow > 1) nextRow = 0;
         }
