@@ -3,8 +3,7 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 
 public class CardList : MonoBehaviour {
-
-    public CollectionManager collection;
+    
     public Transform[] rows = new Transform[2];
     public DeckPreview previewer;
 
@@ -33,7 +32,7 @@ public class CardList : MonoBehaviour {
             ClearRow(i);
         }
         int nextRow = 0;
-        foreach(var pair in collection.card_collection)
+        foreach(var pair in CollectionManager.it.cards)
         {
             GameObject button = Instantiate<GameObject>(collected_card_prefab);
             button.transform.SetParent(rows[nextRow], false);

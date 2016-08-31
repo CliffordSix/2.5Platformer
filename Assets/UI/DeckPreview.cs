@@ -5,7 +5,6 @@ using System.Collections.Generic;
 public class DeckPreview : MonoBehaviour {
 
     public GameObject card_preview_prefab;
-    public CollectionManager collection;
 
     Deck current_deck;
 
@@ -29,8 +28,7 @@ public class DeckPreview : MonoBehaviour {
 
         current_deck = deck;
         if (current_deck.cards == null) return;
-
-        Dictionary<string, int> card_counts = new Dictionary<string, int>();
+        
         foreach (string card_name in deck.cards)
         {
             GameObject card_preview = Instantiate<GameObject>(card_preview_prefab);
@@ -47,14 +45,14 @@ public class DeckPreview : MonoBehaviour {
 
     public void SaveDeck()
     {
-        if(current_deck.index < collection.deck_collection.Count  && current_deck.index > 0)
+        if(current_deck.index < CollectionManager.it.decks.Count  && current_deck.index > 0)
         {
-            collection.deck_collection[current_deck.index] = current_deck;
+            CollectionManager.it.decks[current_deck.index] = current_deck;
             Clear();
         }
         else
         {
-            collection.CreateDeck(current_deck);
+            CollectionManager.it.CreateDeck(current_deck);
         }
     }
 }

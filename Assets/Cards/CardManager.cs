@@ -13,10 +13,26 @@ public struct CardDefinition
 
 public class CardManager : MonoBehaviour
 {
+    public static CardManager it;
+
     public string card_definition_folder_ = "Cards";
     public Dictionary<string, GameObject> cards_ = new Dictionary<string, GameObject>();
 
-    void Start()
+    void Awake()
+    {
+        if(it == null)
+        {
+            it = this;
+            Init();
+            DontDestroyOnLoad(gameObject);
+        }
+        else if(it != this)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    void Init()
     {
         string path = Path.Combine("Assets", "Resources");
         path = Path.Combine(path, card_definition_folder_);

@@ -4,7 +4,6 @@ using System.IO;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
 
-[System.Serializable]
 public struct DeckDefinition
 {
     public string[] cards;
@@ -12,13 +11,29 @@ public struct DeckDefinition
 
 public class CollectionManager : MonoBehaviour {
 
+    public static CollectionManager it;
+
     public string decks_folder = "Decks";
 
-    public Dictionary<string, int> card_collection = new Dictionary<string, int>();
-    public List<Deck> deck_collection = new List<Deck>();
+    public Dictionary<string, int> cards = new Dictionary<string, int>();
+    public List<Deck> decks = new List<Deck>();
 
-	// Use this for initialization
-	void Start () {
+    void Awake()
+    {
+        if (it == null)
+        {
+            it = this;
+            Init();
+            DontDestroyOnLoad(gameObject);
+        }
+        else if (it != this)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    // Use this for initialization
+    void Init () {
         LoadDecks();
         LoadCardCollection();
 	}
@@ -31,12 +46,12 @@ public class CollectionManager : MonoBehaviour {
             throw new System.Exception("Failed to load deck: " + name);
         }
         DeckDefinition definition = JsonConvert.DeserializeObject<DeckDefinition>(deck_text.text);
-        Deck deck = new Deck(name, deck_collection.Count);
+        Deck deck = new Deck(name, decks.Count);
         foreach(string card_name in definition.cards)
         {
             deck.AddCard(card_name);
         }
-        deck_collection.Add(deck);
+        decks.Add(deck);
     }
 
     void LoadDecks()
@@ -64,14 +79,14 @@ public class CollectionManager : MonoBehaviour {
 
     public void CreateDeck(Deck deck)
     {
-        deck.index = deck_collection.Count;
+        deck.index = decks.Count;
         deck.name = "deck" + deck.index.ToString();
-        deck_collection.Add(deck);
+        decks.Add(deck);
     }
 
     public void SaveDecks()
     {
-        foreach(Deck deck in deck_collection)
+        foreach(Deck deck in decks)
         {
             string jsonString = JsonConvert.SerializeObject(deck);
             string path = Path.Combine("Assets", "Resources");
@@ -103,14 +118,14 @@ public class CollectionManager : MonoBehaviour {
     public void CollectCard(string name, int amount = 1)
     {
         if (name == null) return;
-        if(card_collection.ContainsKey(name))
+        if(cards.ContainsKey(name))
         {
-            int count = card_collection[name] + amount;
-            card_collection[name] = count;
+            int count = cards[name] + amount;
+            cards[name] = count;
         }
         else
         {
-            card_collection.Add(name, amount);
+            cards.Add(name, amount);
         }
     }
 }

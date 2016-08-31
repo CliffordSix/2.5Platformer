@@ -855,7 +855,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 933952b022c7dae4c9a2007aeef7b5fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collection: {fileID: 1033244523}
   rows:
   - {fileID: 1306097592}
   - {fileID: 1240094490}
@@ -1714,7 +1713,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   card_preview_prefab: {fileID: 1000014250454832, guid: 1a3c8fbeaedb6bd45a2d6cc55ba2ea7b,
     type: 2}
-  collection: {fileID: 1033244523}
 --- !u!4 &430933863 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: fcfff063ab886d74dbb39156e3baeff2, type: 3}
@@ -3429,47 +3427,12 @@ Transform:
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: fcfff063ab886d74dbb39156e3baeff2, type: 3}
   m_PrefabInternal: {fileID: 1054735812}
---- !u!1 &1033244522
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1033244524}
-  - 114: {fileID: 1033244523}
-  m_Layer: 0
-  m_Name: CollectionManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1033244523
+--- !u!114 &1033244523 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1033244522}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
+  m_PrefabParentObject: {fileID: 114000010436293210, guid: 3f0d0506c38e04341ac816b10219a225,
+    type: 2}
+  m_PrefabInternal: {fileID: 1248549454}
   m_Script: {fileID: 11500000, guid: 10630bee806dd8d47b94ee258dd059d5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  decks_folder: Decks
---- !u!4 &1033244524
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1033244522}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13.429918, y: -16.543379, z: -4.964951}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
 --- !u!1001 &1043191985
 Prefab:
   m_ObjectHideFlags: 0
@@ -4088,47 +4051,6 @@ MonoBehaviour:
   m_PreferredHeight: -1
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
---- !u!1 &1146200185
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1146200187}
-  - 114: {fileID: 1146200186}
-  m_Layer: 0
-  m_Name: CardManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1146200186
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1146200185}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41cdb544a7ccecf4c9c7083623097b77, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  card_definition_folder_: Cards
---- !u!4 &1146200187
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1146200185}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13.429918, y: -16.543379, z: -4.964951}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
 --- !u!4 &1154550294 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: fcfff063ab886d74dbb39156e3baeff2, type: 3}
@@ -4602,6 +4524,48 @@ MonoBehaviour:
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: fcfff063ab886d74dbb39156e3baeff2, type: 3}
   m_PrefabInternal: {fileID: 1171216373}
+--- !u!1001 &1248549454
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4000013340852892, guid: 3f0d0506c38e04341ac816b10219a225, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0.30541715
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013340852892, guid: 3f0d0506c38e04341ac816b10219a225, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.016381113
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013340852892, guid: 3f0d0506c38e04341ac816b10219a225, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0.7285156
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013340852892, guid: 3f0d0506c38e04341ac816b10219a225, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013340852892, guid: 3f0d0506c38e04341ac816b10219a225, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013340852892, guid: 3f0d0506c38e04341ac816b10219a225, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013340852892, guid: 3f0d0506c38e04341ac816b10219a225, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000013340852892, guid: 3f0d0506c38e04341ac816b10219a225, type: 2}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 3f0d0506c38e04341ac816b10219a225, type: 2}
+  m_IsPrefabParent: 0
 --- !u!4 &1288309115 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: fcfff063ab886d74dbb39156e3baeff2, type: 3}
@@ -6901,7 +6865,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18e7e3d5e891c6544b33a8db7cd348b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collection: {fileID: 1033244523}
   rows:
   - {fileID: 83831677}
   - {fileID: 1118835673}

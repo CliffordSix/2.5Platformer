@@ -39,9 +39,9 @@ public struct Deck {
         }
     }
 
-    public Card Draw(CardManager card_manager)
+    public Card Draw()
     {
         string card_name = cards[0];
-        return card_manager.Create(card_name);
+        return CardManager.it.Create(card_name);
     }
 }

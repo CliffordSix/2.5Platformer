@@ -3,8 +3,7 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 
 public class DeckList : MonoBehaviour {
-
-    public CollectionManager collection;
+    
     public Transform[] rows = new Transform[2];
 
     public GameObject deck_button_prefab;
@@ -42,9 +41,9 @@ public class DeckList : MonoBehaviour {
         {
             ClearRow(i);
         }
-        for (int i = collection.deck_collection.Count - 1; i >= 0; i--)
+        for (int i = CollectionManager.it.decks.Count - 1; i >= 0; i--)
         {
-            Deck deck = collection.deck_collection[i];
+            Deck deck = CollectionManager.it.decks[i];
             GameObject button = Instantiate<GameObject>(deck_button_prefab);
 
             button.GetComponentInChildren<Text>().text = deck.name;
