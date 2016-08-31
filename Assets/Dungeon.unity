@@ -5882,6 +5882,10 @@ Prefab:
       propertyPath: A1
       value: 
       objectReference: {fileID: 356087622}
+    - target: {fileID: 11408882, guid: aff4b94e9a156f849952822c028958b0, type: 2}
+      propertyPath: m_BlockingMask.m_Bits
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: aff4b94e9a156f849952822c028958b0, type: 2}
   m_IsPrefabParent: 0
@@ -10213,7 +10217,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e75e0964d0ebbf54c8b40340e4a0976c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DungeonSize: 200
+  DungeonSize: 1
   RoomList:
   - {fileID: 162828, guid: d75a203ac747e4547ac7fdc2b08b2615, type: 2}
   - {fileID: 131608, guid: cad107816b2f3224296bd5122476b1cb, type: 2}
@@ -10257,15 +10261,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4000013340852892, guid: 3f0d0506c38e04341ac816b10219a225, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0.30541715
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4000013340852892, guid: 3f0d0506c38e04341ac816b10219a225, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0.016381113
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4000013340852892, guid: 3f0d0506c38e04341ac816b10219a225, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 0.7285156
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4000013340852892, guid: 3f0d0506c38e04341ac816b10219a225, type: 2}
       propertyPath: m_LocalRotation.x
@@ -17088,7 +17092,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1975003328
 RectTransform:
   m_ObjectHideFlags: 0
