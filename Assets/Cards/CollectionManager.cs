@@ -37,15 +37,15 @@ public class CollectionManager : MonoBehaviour {
     void Init () {
         LoadDecks();
         LoadCardCollection();
-	}
+    }
 
     void LoadDeck(string path)
     {
         string name = Path.GetFileNameWithoutExtension(path);
         FileStream stream = new FileStream(path, FileMode.Open);
         BinaryFormatter formatter = new BinaryFormatter();
-        object o = formatter.Deserialize(stream);
-        Deck deck = (Deck)o;
+        Deck deck = (Deck)formatter.Deserialize(stream);
+        stream.Close();
         decks.Add(deck);
     }
 
@@ -53,17 +53,14 @@ public class CollectionManager : MonoBehaviour {
     {
         string path = Application.persistentDataPath;
         path = Path.Combine(path, decks_folder);
-        try
-        {
-            string[] deck_files = Directory.GetFiles(path);
-            foreach (string deck_file in deck_files)
-            {
-                LoadDeck(deck_file);
-            }
-        }
-        catch(System.Exception e)
-        {
+
+        if (!Directory.Exists(path))
             Directory.CreateDirectory(path);
+
+        string[] deck_files = Directory.GetFiles(path);
+        foreach (string deck_file in deck_files)
+        {
+            LoadDeck(deck_file);
         }
     }
 
@@ -90,21 +87,27 @@ public class CollectionManager : MonoBehaviour {
 
     void LoadCardCollection()
     {
-        TextAsset card_collection_text = Resources.Load<TextAsset>("card_collection");
-        if (card_collection_text == null)
-        {
-            throw new System.Exception("Failed to load card collection");
-        }
-        JObject card_collection_o = JObject.Parse(card_collection_text.text);
-        foreach(var p in card_collection_o)
-        {
-            CollectCard(p.Key, p.Value.ToObject<int>());
-        }
+        string path = Application.persistentDataPath;
+        path = Path.Combine(path, "card_collection");
+
+        if (!File.Exists(path))
+            return;
+
+        FileStream stream = new FileStream(path, FileMode.Open);
+        BinaryFormatter formatter = new BinaryFormatter();
+        cards = (Dictionary<string, int>)formatter.Deserialize(stream);
+        stream.Close();
     }
 
-    void SaveCardCollection()
+    public void SaveCards()
     {
+        string path = Application.persistentDataPath;
+        path = Path.Combine(path, "card_collection");
 
+        FileStream stream = new FileStream(path, FileMode.OpenOrCreate);
+        BinaryFormatter formatter = new BinaryFormatter();
+        formatter.Serialize(stream, cards);
+        stream.Close();
     }
 
     public void CollectCard(string name, int amount = 1)
