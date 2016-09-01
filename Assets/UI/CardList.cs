@@ -8,11 +8,7 @@ public class CardList : MonoBehaviour {
     public DeckPreview previewer;
 
     public GameObject collected_card_prefab;
-
-    void Start () {
-        Setup();
-	}
-
+    
     void OnEnable()
     {
         Setup();

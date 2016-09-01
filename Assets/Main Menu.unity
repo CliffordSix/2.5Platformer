@@ -6871,6 +6871,7 @@ MonoBehaviour:
   deck_button_prefab: {fileID: 1000010959213076, guid: f7a0a5fca8504234aa9347d2aab854a4,
     type: 2}
   previewer: {fileID: 422073295}
+  edit_button: {fileID: 1684876955}
 --- !u!1001 &1841443717
 Prefab:
   m_ObjectHideFlags: 0
@@ -7428,9 +7429,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 688654419}
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 422073295}
+        m_MethodName: SaveDeck
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -7483,16 +7484,16 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 422073295}
-        m_MethodName: SaveDeck
-        m_Mode: 1
+      - m_Target: {fileID: 688654419}
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 1
+          m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null

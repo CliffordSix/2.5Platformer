@@ -10,7 +10,6 @@ public class DeckButton : MonoBehaviour {
     public void SetDeck(Deck deck)
     {
         this.deck = deck;
-        Debug.Log(deck.name);
         GetComponentInChildren<Text>().text = deck.name;
     }
 

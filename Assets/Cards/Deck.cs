@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Newtonsoft.Json.Linq;
 
+[System.Serializable]
 public struct Deck {
 
     public string name;

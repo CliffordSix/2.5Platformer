@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
 
@@ -38,42 +39,31 @@ public class CollectionManager : MonoBehaviour {
         LoadCardCollection();
 	}
 
-    void LoadDeck(string name)
+    void LoadDeck(string path)
     {
-        TextAsset deck_text = Resources.Load<TextAsset>(Path.Combine(decks_folder, name));
-        if(deck_text == null)
-        {
-            throw new System.Exception("Failed to load deck: " + name);
-        }
-        DeckDefinition definition = JsonConvert.DeserializeObject<DeckDefinition>(deck_text.text);
-        Deck deck = new Deck(name, decks.Count);
-        foreach(string card_name in definition.cards)
-        {
-            deck.AddCard(card_name);
-        }
+        string name = Path.GetFileNameWithoutExtension(path);
+        FileStream stream = new FileStream(path, FileMode.Open);
+        BinaryFormatter formatter = new BinaryFormatter();
+        object o = formatter.Deserialize(stream);
+        Deck deck = (Deck)o;
         decks.Add(deck);
     }
 
     void LoadDecks()
     {
-        string path = Path.Combine("Assets", "Resources");
+        string path = Application.persistentDataPath;
         path = Path.Combine(path, decks_folder);
-        string[] deck_files = Directory.GetFiles(path);
-        foreach(string deck_file in deck_files)
+        try
         {
-            if(Path.GetExtension(deck_file) == ".meta")
+            string[] deck_files = Directory.GetFiles(path);
+            foreach (string deck_file in deck_files)
             {
-                continue;
+                LoadDeck(deck_file);
             }
-            string deck_file_name = Path.GetFileNameWithoutExtension(deck_file);
-            try
-            {
-                LoadDeck(deck_file_name);
-            }
-            catch (System.Exception e)
-            {
-                Debug.Log(e.StackTrace);
-            }
+        }
+        catch(System.Exception e)
+        {
+            Directory.CreateDirectory(path);
         }
     }
 
@@ -88,11 +78,13 @@ public class CollectionManager : MonoBehaviour {
     {
         foreach(Deck deck in decks)
         {
-            string jsonString = JsonConvert.SerializeObject(deck);
-            string path = Path.Combine("Assets", "Resources");
+            string path = Application.persistentDataPath;
             path = Path.Combine(path, decks_folder);
-            path = Path.Combine(path, deck.name + ".json");
-            File.WriteAllText(path, jsonString);
+            path = Path.Combine(path, deck.name);
+            FileStream stream = new FileStream(path, FileMode.OpenOrCreate);
+            BinaryFormatter formatter = new BinaryFormatter();
+            formatter.Serialize(stream, deck);
+            stream.Close();
         }
     }
 

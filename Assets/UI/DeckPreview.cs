@@ -15,7 +15,7 @@ public class DeckPreview : MonoBehaviour {
 
     public void Clear()
     {
-        Preview(new Deck("test", -1));
+        Preview(new Deck("", -1));
     }
 
 	public void Preview(Deck deck)
@@ -45,7 +45,7 @@ public class DeckPreview : MonoBehaviour {
 
     public void SaveDeck()
     {
-        if(current_deck.index < CollectionManager.it.decks.Count  && current_deck.index > 0)
+        if(current_deck.index < CollectionManager.it.decks.Count  && current_deck.index >= 0)
         {
             CollectionManager.it.decks[current_deck.index] = current_deck;
             Clear();

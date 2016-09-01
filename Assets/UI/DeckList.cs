@@ -9,6 +9,7 @@ public class DeckList : MonoBehaviour {
     public GameObject deck_button_prefab;
 
     public DeckPreview previewer;
+    public Button edit_button;
 
     Deck selected;
 
@@ -16,13 +17,9 @@ public class DeckList : MonoBehaviour {
     {
         selected = deck;
         previewer.Preview(deck);
+        edit_button.interactable = deck.index >= 0;
     }
-
-    void Start()
-    {
-        Setup();
-    }
-
+    
 	void OnEnable()
     {
         Setup();
@@ -37,6 +34,7 @@ public class DeckList : MonoBehaviour {
 
     void Setup()
     {
+        SetSelected(new Deck("", -1));
         for(int i = 0; i < 2; i++)
         {
             ClearRow(i);

@@ -34,7 +34,8 @@ public class CardManager : MonoBehaviour
 
     void Init()
     {
-        string path = Path.Combine("Assets", "Resources");
+        string path = Application.dataPath;
+        path = Path.Combine(path, "Resources");
         path = Path.Combine(path, card_definition_folder_);
         string[] card_folders = Directory.GetDirectories(path);
         foreach (string card_folder in card_folders)
