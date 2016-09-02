@@ -72,18 +72,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Armour.cs" />
-    <Compile Include="Assets\Bow.cs" />
     <Compile Include="Assets\Cards\Card.cs" />
     <Compile Include="Assets\Cards\CardManager.cs" />
     <Compile Include="Assets\Cards\CollectionManager.cs" />
     <Compile Include="Assets\Cards\Deck.cs" />
     <Compile Include="Assets\Cards\DeckOld.cs" />
-    <Compile Include="Assets\DropManger.cs" />
-    <Compile Include="Assets\EnviroDamage.cs" />
-    <Compile Include="Assets\FPSCounter.cs" />
-    <Compile Include="Assets\GUIManager.cs" />
-    <Compile Include="Assets\MonsterHealth.cs" />
     <Compile Include="Assets\Monsters\Behaviour.cs" />
     <Compile Include="Assets\Monsters\Behaviours\Charge.cs" />
     <Compile Include="Assets\Monsters\Behaviours\ImpCombat.cs" />
@@ -91,20 +84,29 @@
     <Compile Include="Assets\Monsters\Behaviours\Wander.cs" />
     <Compile Include="Assets\Monsters\State Managers\Basic.cs" />
     <Compile Include="Assets\Monsters\StateManager.cs" />
-    <Compile Include="Assets\Pickup.cs" />
-    <Compile Include="Assets\Projectile.cs" />
-    <Compile Include="Assets\ProjectileCollisions.cs" />
-    <Compile Include="Assets\RoomManager.cs" />
     <Compile Include="Assets\Scripts\Abilities\Ability.cs" />
     <Compile Include="Assets\Scripts\Abilities\BasicBowFire.cs" />
     <Compile Include="Assets\Scripts\Abilities\BowMultiDirectionShot.cs" />
     <Compile Include="Assets\Scripts\Abilities\BowMultishot.cs" />
     <Compile Include="Assets\Scripts\Abilities\BowUltimateAbility.cs" />
+    <Compile Include="Assets\Scripts\Armour.cs" />
+    <Compile Include="Assets\Scripts\Bow.cs" />
     <Compile Include="Assets\Scripts\DontDestroy.cs" />
     <Compile Include="Assets\Scripts\Doorway.cs" />
+    <Compile Include="Assets\Scripts\DropManger.cs" />
+    <Compile Include="Assets\Scripts\EnviroDamage.cs" />
+    <Compile Include="Assets\Scripts\FPSCounter.cs" />
+    <Compile Include="Assets\Scripts\GUIManager.cs" />
+    <Compile Include="Assets\Scripts\MonsterHealth.cs" />
+    <Compile Include="Assets\Scripts\Pickup.cs" />
+    <Compile Include="Assets\Scripts\Platform.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\Projectile.cs" />
+    <Compile Include="Assets\Scripts\ProjectileCollisions.cs" />
     <Compile Include="Assets\Scripts\Room.cs" />
-    <Compile Include="Assets\SwordSingle.cs" />
+    <Compile Include="Assets\Scripts\RoomManager.cs" />
+    <Compile Include="Assets\Scripts\SwordSingle.cs" />
+    <Compile Include="Assets\Scripts\Weapon.cs" />
     <Compile Include="Assets\UI\CardList.cs" />
     <Compile Include="Assets\UI\CollectedCard.cs" />
     <Compile Include="Assets\UI\DeckButton.cs" />
@@ -112,7 +114,6 @@
     <Compile Include="Assets\UI\DeckPreview.cs" />
     <Compile Include="Assets\UI\StartMenu.cs" />
     <Compile Include="Assets\UnityPackages\JsonNetSample\JsonNetSample.cs" />
-    <Compile Include="Assets\Weapon.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />

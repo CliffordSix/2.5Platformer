@@ -22,15 +22,12 @@ public class Wander : Behaviour {
 
     override protected void Update() {
        // Debug.DrawRay(transform.position + Vector3.up, Vector3.up * 2.0f, Color.blue);
-        Debug.Log(IsGrounded());
        // text.transform.localScale = new Vector3(dir * 0.05f,0.05f,0.05f);
         if(CheckAbove == true)
         {
             body.AddForce(new Vector2(walkSpeed * dir, 0.0f), ForceMode2D.Force);
-            Debug.Log("looking for platform");
             if (Physics2D.Raycast(transform.position + Vector3.up, Vector3.up, 2.0f, Plat))
             {
-                Debug.Log("Jumping");
                 CheckAbove = false;
                 StartCoroutine("JumpToPlat");
             }
@@ -61,7 +58,6 @@ public class Wander : Behaviour {
     { 
         if(col.gameObject.tag != "Player" && col.gameObject.layer != 8 && col.gameObject.layer != 9)
         {
-            Debug.Log("turning around");
             dir *= -1;
         }
     }
@@ -71,7 +67,6 @@ public class Wander : Behaviour {
         dChange = false;
         yield return new WaitForSeconds(5.0F);
         System.Random dirChange = new System.Random();
-        Debug.Log("turning");
         if (dirChange.Next(0, 100) > 90)
         {
             dir *= -1;

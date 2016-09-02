@@ -9,6 +9,7 @@ TagManager:
   - Doorway
   - Fire
   - DropManager
+  - Platform
   layers:
   - Default
   - TransparentFX
