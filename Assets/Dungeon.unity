@@ -17310,12 +17310,13 @@ Prefab:
     - target: {fileID: 11402840, guid: 2296b0beaef119d4c9e966243e4e8179, type: 2}
       propertyPath: LHand
       value: 
-      objectReference: {fileID: 11465688, guid: 015e68aac9a5a1d4ba77f018f9734306,
+      objectReference: {fileID: 11488228, guid: 8ac6a4c1a35bf344081c972b505b338a,
         type: 2}
     - target: {fileID: 11402840, guid: 2296b0beaef119d4c9e966243e4e8179, type: 2}
       propertyPath: RHand
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 11488228, guid: 8ac6a4c1a35bf344081c972b505b338a,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2296b0beaef119d4c9e966243e4e8179, type: 2}
   m_IsPrefabParent: 0
