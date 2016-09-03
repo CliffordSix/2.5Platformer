@@ -11,4 +11,9 @@ public class Ability : MonoBehaviour {
     {
         Player = Camera.main.GetComponent<PlayerController>().Player.transform;
     }
+
+    public virtual void Update()
+    {
+
+    }
 }

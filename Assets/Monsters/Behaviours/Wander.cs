@@ -21,6 +21,7 @@ public class Wander : Behaviour {
     public LayerMask Plat;
 
     override protected void Update() {
+       // Debug.Log("This update works yes>");
        // Debug.DrawRay(transform.position + Vector3.up, Vector3.up * 2.0f, Color.blue);
        // text.transform.localScale = new Vector3(dir * 0.05f,0.05f,0.05f);
         if(CheckAbove == true)

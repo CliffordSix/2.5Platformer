@@ -10,14 +10,20 @@ public class SwordSingle : Weapon
         projectile = null;
     }
 
+    protected override void Update()
+    {
+        base.Update();
+        WeaponAbilities[0].Update();      
+    }
+
     override public void abilityOne(Transform Player)
     {
-        Debug.Log("Sword Attack 1");
+        WeaponAbilities[0].CallAbility(projectile);
     }
 
     override public void abilityTwo(Transform Player)
     {
-        Debug.Log("Sword Attack 2");
+        WeaponAbilities[1].CallAbility(projectile);
     }
 
 

@@ -1,15 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class SwordStab : MonoBehaviour {
+public class SwordStab : Ability {
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    public override void CallAbility(GameObject projectile)
+    {
+        
+    }
+
 }

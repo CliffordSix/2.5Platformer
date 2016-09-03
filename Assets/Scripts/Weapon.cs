@@ -16,6 +16,11 @@ public class Weapon : MonoBehaviour {
 
     public List<Ability> WeaponAbilities = new List<Ability>();
 
+    protected virtual void Update()
+    {
+
+    }
+
     public virtual void abilityOne(Transform Player)
     {
         Debug.Log("This Weapon is not for use");
