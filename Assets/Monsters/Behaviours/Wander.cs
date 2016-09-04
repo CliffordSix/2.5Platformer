@@ -9,7 +9,7 @@ using System;
  * 							*
  ****************************/
 
-public class Wander : Behaviour {
+public class Wander : BehaviourOld {
 
     public float walkSpeed = 1.0f;
     int dir = 1;

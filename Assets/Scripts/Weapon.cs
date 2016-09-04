@@ -14,7 +14,7 @@ public class Weapon : MonoBehaviour {
 
    // public Sprite A1, A2, A3, A4;
 
-    public List<Ability> WeaponAbilities = new List<Ability>();
+    public List<Ability> abilities = new List<Ability>();
 
     protected virtual void Update()
     {

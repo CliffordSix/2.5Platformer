@@ -9,7 +9,7 @@ public class Ability : MonoBehaviour {
 
     public virtual void CallAbility(GameObject projectile)
     {
-        Player = Camera.main.GetComponent<PlayerController>().Player.transform;
+        
     }
 
     public virtual void Update()

@@ -15,14 +15,14 @@ public class StateManager : MonoBehaviour {
     public Transform target;
     public State initialState;
 
-    public List<Behaviour> idleBehaviours = new List<Behaviour>();
-    public List<Behaviour> chasingBehaviours = new List<Behaviour>();
-    public List<Behaviour> searchingBehaviours = new List<Behaviour>();
-    public List<Behaviour> fightingBehaviours = new List<Behaviour>();
+    public List<BehaviourOld> idleBehaviours = new List<BehaviourOld>();
+    public List<BehaviourOld> chasingBehaviours = new List<BehaviourOld>();
+    public List<BehaviourOld> searchingBehaviours = new List<BehaviourOld>();
+    public List<BehaviourOld> fightingBehaviours = new List<BehaviourOld>();
 
-    protected List<Behaviour> currentBehaviours = new List<Behaviour>();
+    protected List<BehaviourOld> currentBehaviours = new List<BehaviourOld>();
     public State currentState;
-    public List<Behaviour> allBehaviours = new List<Behaviour>();
+    public List<BehaviourOld> allBehaviours = new List<BehaviourOld>();
 
     protected virtual void Start()
     {
@@ -31,7 +31,7 @@ public class StateManager : MonoBehaviour {
         allBehaviours.AddRange(searchingBehaviours);
         allBehaviours.AddRange(fightingBehaviours);
      //   Debug.Log(fightingBehaviours.Count);
-        foreach(Behaviour behaviour in allBehaviours)
+        foreach(BehaviourOld behaviour in allBehaviours)
         {
         //    Debug.Log(behaviour);
             behaviour.enabled = false;
@@ -42,7 +42,7 @@ public class StateManager : MonoBehaviour {
 
     protected void SetState(State newState)
     {
-        foreach (Behaviour behaviour in currentBehaviours)
+        foreach (BehaviourOld behaviour in currentBehaviours)
         {
             behaviour.enabled = false;
         }
@@ -66,12 +66,12 @@ public class StateManager : MonoBehaviour {
                 break;
 
             default:
-                currentBehaviours = new List<Behaviour>();
+                currentBehaviours = new List<BehaviourOld>();
                 break;
         }
 
         currentState = newState;
-        foreach (Behaviour behaviour in currentBehaviours)
+        foreach (BehaviourOld behaviour in currentBehaviours)
         {
             behaviour.enabled = true;
         }

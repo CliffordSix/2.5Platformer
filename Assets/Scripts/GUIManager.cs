@@ -10,7 +10,9 @@ public class GUIManager : MonoBehaviour {
     public Image HealthEmpty;
     public float Health = 0;
     public float MaxHealth;
-    float cD1, cD2, cD3, cD4;
+
+    float[] abilityCds = new float[4];
+    Image[] abilityIcons = new Image[4];
 
     public Image CardBack;
     public Text CardName, CardDiff;
@@ -19,8 +21,6 @@ public class GUIManager : MonoBehaviour {
 	public Image LoadingBarFull, LoadingBarEmpty;
 	public Text LoadingText;
 
-    PlayerController Player;
-
     public Text GO;
 
     public Image A1, A2, A3, A4;
@@ -28,27 +28,30 @@ public class GUIManager : MonoBehaviour {
     public void Start()
     {
         GO.enabled = false;
-        Player = Camera.main.GetComponent<PlayerController>();
-		Player.enabled = false;
-        A1.GetComponent<Image>().sprite = Player.LHand.WeaponAbilities[0].Icon;
-        cD1 = Player.LHand.WeaponAbilities[0].CD;
-        A2.GetComponent<Image>().sprite = Player.LHand.WeaponAbilities[1].Icon;
-        cD2 = Player.LHand.WeaponAbilities[1].CD;
-        if (Player.LHand.is2H)
+		PlayerController.it.enabled = false;
+    }
+
+    void SetAbilities(Weapon weapon, int count, int start)
+    {
+        for(int i = 0; i < count; i++)
         {
-            A3.GetComponent<Image>().sprite = Player.LHand.WeaponAbilities[2].Icon;
-            cD3 = Player.LHand.WeaponAbilities[2].CD;
-            A4.GetComponent<Image>().sprite = Player.LHand.WeaponAbilities[3].Icon;
-            cD4 = Player.LHand.WeaponAbilities[3].CD;
+            Ability ability = weapon.abilities[i];
+            abilityCds[start + i] = ability.CD;
+            abilityIcons[start + i].sprite = ability.Icon;
+        }
+    }
+
+    public void SetAbilities(Weapon mainHand, Weapon offhand = null)
+    {
+        if(offhand == null)
+        {
+            SetAbilities(mainHand, 4, 0);
         }
         else
         {
-            A3.GetComponent<Image>().sprite = Player.RHand.WeaponAbilities[0].Icon;
-            cD3 = Player.RHand.WeaponAbilities[0].CD;
-            A4.GetComponent<Image>().sprite = Player.RHand.WeaponAbilities[1].Icon;
-            cD4 = Player.RHand.WeaponAbilities[1].CD;
+            SetAbilities(mainHand, 2, 0);
+            SetAbilities(offhand, 2, 2);
         }
-
     }
 
 	void LoadBarInc(float i)
@@ -60,7 +63,7 @@ public class GUIManager : MonoBehaviour {
 			LoadingBarEmpty.enabled = false;
 			LoadingBarFull.enabled = false;
 			LoadingText.enabled = false;
-			Player.enabled = true;
+			PlayerController.it.enabled = true;
 			A1.enabled = true;
 			A2.enabled = true;
 			A3.enabled = true;
@@ -72,58 +75,58 @@ public class GUIManager : MonoBehaviour {
 
     void Update () {
 
-		MaxHealth = Player.MaxHealth;
+		MaxHealth = PlayerController.it.damageable.maxHealth;
       	HealthFull.fillAmount = Health / MaxHealth;
 
-        Health = Player.Health;
+        Health = PlayerController.it.damageable.GetHealth();
         if(Health < 0)
         {
             GO.enabled = true;
         }
 
-        if (Input.GetKeyDown("1"))
-        {
-			if (A1.color == Color.white) 
-			{
-				A1.color = Color.grey;
-				Player.LHand.abilityOne (Player.Player.transform);
-				StartCoroutine (CoolDown (cD1, A1));
-			}
+   //     if (Input.GetKeyDown("1"))
+   //     {
+			//if (A1.color == Color.white) 
+			//{
+			//	A1.color = Color.grey;
+			//	Player.LHand.abilityOne (Player.Player.transform);
+			//	StartCoroutine (CoolDown (cD1, A1));
+			//}
 
-        }
-        if (Input.GetKeyDown("2"))
-        {
-			if (A2.color == Color.white) {
-							A2.color = Color.grey;
-				Player.LHand.abilityTwo (Player.Player.transform);
-				StartCoroutine (CoolDown (cD2, A2));
-			}
+   //     }
+   //     if (Input.GetKeyDown("2"))
+   //     {
+			//if (A2.color == Color.white) {
+			//				A2.color = Color.grey;
+			//	Player.LHand.abilityTwo (Player.Player.transform);
+			//	StartCoroutine (CoolDown (cD2, A2));
+			//}
 
-        }
-        if (Input.GetKeyDown("3"))
-        {
-			if (A3.color == Color.white) {
-				A3.color = Color.grey;
-				if (Player.LHand.is2H)
-					Player.LHand.abilityThree (Player.Player.transform);
-				else
-					Player.RHand.abilityOne (Player.Player.transform);
-				StartCoroutine (CoolDown (cD3, A3));
-			}
+   //     }
+   //     if (Input.GetKeyDown("3"))
+   //     {
+			//if (A3.color == Color.white) {
+			//	A3.color = Color.grey;
+			//	if (Player.LHand.is2H)
+			//		Player.LHand.abilityThree (Player.Player.transform);
+			//	else
+			//		Player.RHand.abilityOne (Player.Player.transform);
+			//	StartCoroutine (CoolDown (cD3, A3));
+			//}
 
-        }
-        if (Input.GetKeyDown("4"))
-        {
-			if (A4.color == Color.white) {
-				A4.color = Color.grey;
-				if (Player.LHand.is2H)
-					Player.LHand.abilityFour (Player.Player.transform);
-				else
-					Player.RHand.abilityTwo (Player.Player.transform);				
-				StartCoroutine (CoolDown (cD4, A4));
-			}
+   //     }
+   //     if (Input.GetKeyDown("4"))
+   //     {
+			//if (A4.color == Color.white) {
+			//	A4.color = Color.grey;
+			//	if (Player.LHand.is2H)
+			//		Player.LHand.abilityFour (Player.Player.transform);
+			//	else
+			//		Player.RHand.abilityTwo (Player.Player.transform);				
+			//	StartCoroutine (CoolDown (cD4, A4));
+			//}
 		
-        }
+   //     }
 
     }
 
@@ -172,3 +175,4 @@ public class GUIManager : MonoBehaviour {
         Ability.color = Color.white;    
     }
 }
+

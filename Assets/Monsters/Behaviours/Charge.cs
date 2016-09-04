@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Charge : Behaviour {
+public class Charge : BehaviourOld {
 
     public float chargeSpeed = 10.0f;
     int direction = 1;

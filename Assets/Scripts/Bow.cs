@@ -23,7 +23,7 @@ public class Bow : Weapon {
           GameObject p = Instantiate(projectile, spawn + (lScale / 2), Quaternion.Euler(new Vector3(0,0,angle ))) as GameObject;       
           p.GetComponentInChildren<Projectile>().Dir = D;*/
 
-        WeaponAbilities[0].CallAbility(projectile);
+        abilities[0].CallAbility(projectile);
     }
 
     override public void abilityTwo(Transform Player)

@@ -13,16 +13,8 @@ public class EnviroDamage : MonoBehaviour {
     void OnTriggerEnter2D(Collider2D col)
     {
         if(col.tag == "Player")
-        {
-            //Damage Player
-            Camera.main.GetComponent<PlayerController>().Health -= 10;
-            Rigidbody2D pR = col.GetComponent<Rigidbody2D>();
-            pR.velocity = new Vector2(0, 0);
-            pR.AddForce(knockbackPower, ForceMode2D.Impulse);
-        }
+            PlayerController.it.damageable.Damage(10);
     }
-
-    
 
 	// Update is called once per frame
 	void Update () {

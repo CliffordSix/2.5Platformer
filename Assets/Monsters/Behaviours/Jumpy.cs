@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Jumpy : Behaviour {
+public class Jumpy : BehaviourOld {
 
     
     public float jumpForce = 1.0f;
