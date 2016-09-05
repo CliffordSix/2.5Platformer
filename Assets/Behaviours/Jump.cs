@@ -9,7 +9,7 @@ namespace Behaviours
 
         new Rigidbody2D rigidbody;
         
-        public Trigger inputTrigger;
+        public Trigger trigger;
         public Triggers.Grounded groundedTrigger;
         public float force = 0.0f;
 
@@ -20,7 +20,7 @@ namespace Behaviours
         
         void FixedUpdate()
         {
-            if(inputTrigger.IsActive() && groundedTrigger.IsActive())
+            if(trigger.IsActive() && groundedTrigger.IsActive())
             {
                 rigidbody.AddForce(new Vector2(0, force), ForceMode2D.Impulse);
             }
