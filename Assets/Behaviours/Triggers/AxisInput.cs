@@ -4,7 +4,7 @@ using System;
 
 namespace Behaviours.Triggers
 {
-    public class AxisInput : BehaviourTrigger
+    public class AxisInput : Trigger
     {
 
         public string axis;
