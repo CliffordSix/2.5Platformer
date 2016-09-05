@@ -73,6 +73,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Behaviours\DropDown.cs" />
+    <Compile Include="Assets\Behaviours\HorizontalTargetMove.cs" />
     <Compile Include="Assets\Behaviours\Jump.cs" />
     <Compile Include="Assets\Behaviours\PlayerMovement.cs" />
     <Compile Include="Assets\Behaviours\Triggers\AxisInput.cs" />
