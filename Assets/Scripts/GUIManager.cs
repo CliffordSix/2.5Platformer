@@ -4,6 +4,8 @@ using UnityEngine.UI;
 
 public class GUIManager : MonoBehaviour {
 
+    public static GUIManager it;
+
     public Vector2 position = new Vector2(0, 0);
     public Vector2 size = new Vector2(0, 0);
     public Image HealthFull;
@@ -12,7 +14,7 @@ public class GUIManager : MonoBehaviour {
     public float MaxHealth;
 
     float[] abilityCds = new float[4];
-    Image[] abilityIcons = new Image[4];
+    public Image[] abilityIcons = new Image[4];
 
     public Image CardBack;
     public Text CardName, CardDiff;
@@ -25,16 +27,25 @@ public class GUIManager : MonoBehaviour {
 
     public Image A1, A2, A3, A4;
 
-    public void Start()
+    void Awake()
+    {
+        if (it != this)
+        {
+            it = this;
+            Init();
+        }
+    }
+
+    void Init()
     {
         GO.enabled = false;
-		PlayerController.it.enabled = false;
+        
     }
 
     void SetAbilities(Weapon weapon, int count, int start)
     {
         for(int i = 0; i < count; i++)
-        {
+        {         
             Ability ability = weapon.abilities[i];
             abilityCds[start + i] = ability.CD;
             abilityIcons[start + i].sprite = ability.Icon;
@@ -58,7 +69,6 @@ public class GUIManager : MonoBehaviour {
 	{
 	//	Debug.Log ("Loading" + i);
 		LoadingBarFull.fillAmount += i;
-        Debug.Log(LoadingBarFull.fillAmount);
 		if (LoadingBarFull.fillAmount == 1) {
 			LoadingScreen.enabled = false;
 			LoadingBarEmpty.enabled = false;
@@ -86,49 +96,52 @@ public class GUIManager : MonoBehaviour {
             GO.enabled = true;
         }
 
-   //     if (Input.GetKeyDown("1"))
-   //     {
-			//if (A1.color == Color.white) 
-			//{
-			//	A1.color = Color.grey;
-			//	Player.LHand.abilityOne (Player.Player.transform);
-			//	StartCoroutine (CoolDown (cD1, A1));
-			//}
+        if (Input.GetKeyDown("1"))
+        {
+            if (A1.color == Color.white)
+            {
+                A1.color = Color.grey;
+                PlayerController.it.mainHandWep.abilityOne(PlayerController.it.transform);
+                StartCoroutine(CoolDown(abilityCds[0], A1));
+            }
 
-   //     }
-   //     if (Input.GetKeyDown("2"))
-   //     {
-			//if (A2.color == Color.white) {
-			//				A2.color = Color.grey;
-			//	Player.LHand.abilityTwo (Player.Player.transform);
-			//	StartCoroutine (CoolDown (cD2, A2));
-			//}
+        }
+        if (Input.GetKeyDown("2"))
+        {
+            if (A2.color == Color.white)
+            {
+                A2.color = Color.grey;
+                PlayerController.it.mainHandWep.abilityTwo(PlayerController.it.transform);
+                StartCoroutine(CoolDown(abilityCds[1], A2));
+            }
 
-   //     }
-   //     if (Input.GetKeyDown("3"))
-   //     {
-			//if (A3.color == Color.white) {
-			//	A3.color = Color.grey;
-			//	if (Player.LHand.is2H)
-			//		Player.LHand.abilityThree (Player.Player.transform);
-			//	else
-			//		Player.RHand.abilityOne (Player.Player.transform);
-			//	StartCoroutine (CoolDown (cD3, A3));
-			//}
+        }
+        if (Input.GetKeyDown("3"))
+        {
+            if (A3.color == Color.white)
+            {
+                A3.color = Color.grey;
+                if (PlayerController.it.mainHandWep.is2H)
+                    PlayerController.it.mainHandWep.abilityThree(PlayerController.it.transform);
+                else
+                    PlayerController.it.offhandWep.abilityOne(PlayerController.it.transform);
+                StartCoroutine(CoolDown(abilityCds[2], A3));
+            }
 
-   //     }
-   //     if (Input.GetKeyDown("4"))
-   //     {
-			//if (A4.color == Color.white) {
-			//	A4.color = Color.grey;
-			//	if (Player.LHand.is2H)
-			//		Player.LHand.abilityFour (Player.Player.transform);
-			//	else
-			//		Player.RHand.abilityTwo (Player.Player.transform);				
-			//	StartCoroutine (CoolDown (cD4, A4));
-			//}
-		
-   //     }
+        }
+        if (Input.GetKeyDown("4"))
+        {
+            if (A4.color == Color.white)
+            {
+                A4.color = Color.grey;
+                if (PlayerController.it.mainHandWep.is2H)
+                    PlayerController.it.mainHandWep.abilityFour(PlayerController.it.transform);
+                else
+                    PlayerController.it.offhandWep.abilityTwo(PlayerController.it.transform);
+                StartCoroutine(CoolDown(abilityCds[3], A4));
+            }
+
+        }
 
     }
 

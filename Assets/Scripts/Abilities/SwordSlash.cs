@@ -3,23 +3,27 @@ using System.Collections;
 
 public class SwordSlash : Ability
 {
-    public Transform SlashBegin;
-    public Transform SlashEnd;
+    /* public Transform SlashBegin;
+     public Transform SlashEnd;*/
 
-    public Material trailMaterial;
+    public ParticleSystem Slash;
+
+  //  public Material trailMaterial;
 
     bool SlashEffect = false;
 
     public override void CallAbility(GameObject projectile)
     {
-        Debug.Log("SWORD SLASH");
-        SlashEffect = true;
-        SlashEffectCoolDown();
+        Debug.Log("SwordSlash");
+        Slash.Play();
+       // Debug.Log("SWORD SLASH");
+       // SlashEffect = true;
+       // SlashEffectCoolDown();
     }
 
     public override void Update()
     {
-        Debug.Log("SwordSlashUpdate");
+    /*    Debug.Log("SwordSlashUpdate");
        // base.Update();
         if(SlashEffect)
         {
@@ -44,12 +48,12 @@ public class SwordSlash : Ability
             weaponTrail.colors = colours;
 
             Graphics.DrawMesh(weaponTrail, trailVerts[0], Quaternion.identity, trailMaterial, 0);
-        }
+        }*/
     }
 
-    IEnumerator SlashEffectCoolDown()
+  /*  IEnumerator SlashEffectCoolDown()
     {
         yield return new WaitForSeconds(CD);
         SlashEffect = false;
-    }
+    }*/
 }

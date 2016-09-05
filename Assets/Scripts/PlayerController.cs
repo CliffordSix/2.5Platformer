@@ -9,8 +9,8 @@ public class PlayerController : MonoBehaviour {
 
     public Transform mainHandPos;
     public Transform offhandPos;
-    Weapon mainHandWep;
-    Weapon offhandWep;
+    public Weapon mainHandWep;
+    public Weapon offhandWep;
     
 	void Awake () {
 	    if(it != this)
@@ -22,7 +22,9 @@ public class PlayerController : MonoBehaviour {
 	
     void Init()
     {
-
+        SetMainWeapon(mainHandWep);
+        SetOffWeapon(offhandWep);
+        GUIManager.it.SetAbilities(mainHandWep, offhandWep);
     }
 
 	// Update is called once per frame
@@ -32,16 +34,17 @@ public class PlayerController : MonoBehaviour {
 
     public void SetMainWeapon(Weapon weapon)
     {
-        if(mainHandWep)
+        mainHandWep = Instantiate(weapon, mainHandPos.position, mainHandPos.rotation, mainHandPos) as Weapon;
+       
+        /*
+        if (mainHandWep)
         {
             Destroy(mainHandWep);
             mainHandWep = null;
         }
 
         mainHandWep = weapon;
-        weapon.transform.parent = mainHandPos;
-        weapon.transform.localPosition = Vector3.zero;
-        weapon.transform.localRotation = Quaternion.identity;
+       */
     }
 
     public Weapon GetMainWeapon()
@@ -51,16 +54,15 @@ public class PlayerController : MonoBehaviour {
 
     public void SetOffWeapon(Weapon weapon)
     {
-        if (offhandWep)
+        offhandWep = Instantiate(weapon, offhandPos.position, offhandPos.rotation, offhandPos) as Weapon;
+      /*  if (offhandWep)
         {
             Destroy(offhandWep);
             offhandWep = null;
         }
-
+        
         offhandWep = weapon;
-        weapon.transform.parent = offhandPos;
-        weapon.transform.localPosition = Vector3.zero;
-        weapon.transform.localRotation = Quaternion.identity;
+        */
     }
 
     public Weapon GetOffWeapon()
