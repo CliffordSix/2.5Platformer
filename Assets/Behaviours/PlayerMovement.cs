@@ -23,7 +23,7 @@ namespace Behaviours
             rigidbody.velocity = velocity;
 
             Vector3 scale = transform.localScale;
-            scale.x = input < 0 ? -1 : 1;
+            scale.x = input == 0 ? scale.x : input < 0 ? -1 : 1;
             transform.localScale = scale;
         }
     }
