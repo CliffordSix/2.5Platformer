@@ -72,6 +72,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Behaviours\Behaviour.cs" />
+    <Compile Include="Assets\Behaviours\Jump.cs" />
+    <Compile Include="Assets\Behaviours\Triggers\AxisInput.cs" />
+    <Compile Include="Assets\Behaviours\Triggers\BehaviourTrigger.cs" />
+    <Compile Include="Assets\Behaviours\Triggers\Grounded.cs" />
     <Compile Include="Assets\Cards\Card.cs" />
     <Compile Include="Assets\Cards\CardManager.cs" />
     <Compile Include="Assets\Cards\CollectionManager.cs" />
