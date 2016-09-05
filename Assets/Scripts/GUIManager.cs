@@ -86,11 +86,9 @@ public class GUIManager : MonoBehaviour {
 	}
 
     void Update () {
-
-		MaxHealth = PlayerController.it.damageable.maxHealth;
-      	HealthFull.fillAmount = Health / MaxHealth;
-
-        Health = PlayerController.it.damageable.GetHealth();
+        float maxHealth = PlayerController.it.damageable.maxHealth;
+        float health = PlayerController.it.damageable.GetHealth();
+        HealthFull.fillAmount = health / maxHealth;
         if(Health < 0)
         {
             GO.enabled = true;

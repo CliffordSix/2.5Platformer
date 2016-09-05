@@ -44,7 +44,7 @@ public class Damageable : MonoBehaviour {
         {
             Damageable script = (Damageable)target;
 
-            script.health = EditorGUILayout.FloatField("Max Health", script.health);
+            script.maxHealth = EditorGUILayout.FloatField("Max Health", script.maxHealth);
             script.takesKnockback = EditorGUILayout.Toggle("Take Knockback", script.takesKnockback);
             if(script.takesKnockback)
             {
