@@ -4,14 +4,46 @@ using System.Collections;
 public class DropDown : MonoBehaviour {
 
     public Trigger trigger;
-    public LayerMask platformLayer;
+    public string platformLayerName;
+    public float dropTime = 1.0f;
+
+    int platformLayer;
+    float sinceIgnored = 0.0f;
+    bool lastTriggerActive = false;
+    bool ignoring = false;
+
+    void Start()
+    {
+        platformLayer = LayerMask.NameToLayer(platformLayerName);
+    }
 	
-	// Update is called once per frame
+    void SetIgnore(bool ignore)
+    {
+        Physics2D.IgnoreLayerCollision(gameObject.layer, platformLayer, ignore);
+        ignoring = ignore;
+    }
+
+	// Check trigger to start/stop ignoring
 	void Update () {
-	    if(trigger.IsActive())
+        bool triggerActive = trigger.IsActive();
+        //If trigger just activated, start ignoring
+	    if(triggerActive && !lastTriggerActive)
         {
-            Debug.Log("Ran");
-            Physics2D.IgnoreLayerCollision(gameObject.layer, platformLayer.value);
+            SetIgnore(true);
+            sinceIgnored = 0.0f;
         }
+
+        //If ignoring, increment time ignored 
+        if(ignoring)
+        {
+            sinceIgnored += Time.deltaTime;
+            //If time ignored more than drop time, turn collisions back on
+            if(sinceIgnored >= dropTime)
+            {
+                SetIgnore(false);
+            }
+        }
+
+        lastTriggerActive = triggerActive;
 	}
 }
