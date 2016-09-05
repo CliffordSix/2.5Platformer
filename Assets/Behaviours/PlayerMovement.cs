@@ -21,6 +21,10 @@ namespace Behaviours
             Vector2 velocity = rigidbody.velocity;
             velocity.x = input * speed;
             rigidbody.velocity = velocity;
+
+            Vector3 scale = transform.localScale;
+            scale.x = input < 0 ? -1 : 1;
+            transform.localScale = scale;
         }
     }
 }
