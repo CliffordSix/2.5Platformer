@@ -196,7 +196,7 @@ public class Doorway : MonoBehaviour {
                     if(rContainer.GetComponent<RoomManager>().count < DungeonSize)
                     {                                         
                         rContainer.GetComponent<RoomManager>().count++;
-						float m = (1.0f / 61.0f);
+						float m = (1.0f / (DungeonSize +1.0f));
 					//	Debug.Log (m);
 						GameObject.Find("GUI Manager").BroadcastMessage ("LoadBarInc", m);
                      //   Debug.Log("Adding " + toBuild.name + " to the List");

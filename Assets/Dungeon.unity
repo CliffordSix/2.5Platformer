@@ -22518,7 +22518,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e75e0964d0ebbf54c8b40340e4a0976c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DungeonSize: 1
+  DungeonSize: 20
   RoomList:
   - {fileID: 162828, guid: d75a203ac747e4547ac7fdc2b08b2615, type: 2}
   - {fileID: 131608, guid: cad107816b2f3224296bd5122476b1cb, type: 2}
@@ -30832,6 +30832,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39e487473a882cc41807e8eaa084b4aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  load: 0
+  y_: 1.2
+  z_: -8
 --- !u!81 &1932766942
 AudioListener:
   m_ObjectHideFlags: 0

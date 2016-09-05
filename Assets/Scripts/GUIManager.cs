@@ -58,6 +58,7 @@ public class GUIManager : MonoBehaviour {
 	{
 	//	Debug.Log ("Loading" + i);
 		LoadingBarFull.fillAmount += i;
+        Debug.Log(LoadingBarFull.fillAmount);
 		if (LoadingBarFull.fillAmount == 1) {
 			LoadingScreen.enabled = false;
 			LoadingBarEmpty.enabled = false;
@@ -70,6 +71,7 @@ public class GUIManager : MonoBehaviour {
 			A4.enabled = true;
 			HealthFull.enabled = true;
 			HealthEmpty.enabled = true;
+            Camera.main.GetComponent<CameraController>().load = true;
 		}
 	}
 
