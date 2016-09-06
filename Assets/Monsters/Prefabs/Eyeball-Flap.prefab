@@ -80,6 +80,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000013195111130}
+  - 58: {fileID: 58000013983992076}
   m_Layer: 0
   m_Name: joint1
   m_TagString: Untagged
@@ -129,7 +130,6 @@ GameObject:
   - 4: {fileID: 4000010601441806}
   - 95: {fileID: 95000013875758118}
   - 50: {fileID: 50000011068044678}
-  - 58: {fileID: 58000010189632722}
   - 114: {fileID: 114000010850050812}
   m_Layer: 14
   m_Name: Eyeball-Flap
@@ -274,7 +274,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012811570650}
   m_LocalRotation: {x: -0, y: 0.7071099, z: -0, w: -0.7071037}
-  m_LocalPosition: {x: -0, y: 0.18307438, z: 0.34968826}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 0.125, y: 0.125, z: 0.125}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -348,17 +348,17 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 0
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!58 &58000010189632722
+--- !u!58 &58000013983992076
 CircleCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000012860317320}
+  m_GameObject: {fileID: 1000011754856214}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -390,7 +390,7 @@ Animator:
   m_GameObject: {fileID: 1000012860317320}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 116b1e76b2d31b045b938557c10fc0db, type: 3}
-  m_Controller: {fileID: 9100000, guid: ef40f72da87c14b428ad5559b22e0522, type: 2}
+  m_Controller: {fileID: 9100000, guid: 7fb7297251ff11c4d874e9af5143fbef, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -413,6 +413,8 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 0
+  other: {fileID: 0}
+  triggered: 0
 --- !u!114 &114000010850050812
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -425,9 +427,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trigger: {fileID: 114000010088968614}
-  target: {fileID: 4000010601441806}
+  target: {fileID: 0}
   speed: 1
-  collider: {fileID: 58000010189632722}
+  collider: {fileID: 58000013983992076}
 --- !u!137 &137000011887794090
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
