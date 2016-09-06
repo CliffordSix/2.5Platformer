@@ -24,6 +24,13 @@ namespace Behaviours
 
             Vector3 scale = transform.localScale;
             scale.x = input == 0 ? scale.x : input < 0 ? -1 : 1;
+            ParticleSystem[] particles = GetComponentsInChildren<ParticleSystem>();
+            foreach(ParticleSystem p in particles)
+            {
+                Vector3 s = p.transform.localScale;
+                s.x = input == 0 ? scale.x : input < 0 ? -1 : 1;
+                p.transform.localScale = s;
+            }
             transform.localScale = scale;
         }
     }
