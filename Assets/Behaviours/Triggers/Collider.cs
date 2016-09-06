@@ -9,34 +9,66 @@ namespace Behaviours.Triggers
     {
         public string requiredTag;
         public LayerMask layerMask;
+        public Collider2D other = null;
 
-        bool triggered = false;
+        public bool triggered = false;
 
         public override bool IsActive()
         {
             return triggered;
         }
 
-        void Check(GameObject o)
+        bool Check(GameObject o)
         {
             if (requiredTag != null && requiredTag.Length > 0 && o.tag != requiredTag)
-                return;
+                return false;
 
             int result = layerMask.value & 1 << o.layer;
-            if (layerMask.value == 0 || result > 0)
+            return layerMask.value == 0 || result > 0;
+        }
+
+        void OnCollisionEnter2D(Collision2D collision)
+        {
+            if (triggered) return;
+            bool result = Check(collision.gameObject);
+            if(result)
             {
                 triggered = true;
+                other = collision.collider;
             }
         }
 
-        void OnCollisionStay2D(Collision2D collision)
+        void OnCollisionExit2D(Collision2D collision)
         {
-            Check(collision.gameObject);
+            if (collision.collider != other) return;
+            bool result = Check(collision.gameObject);
+            if(result)
+            {
+                triggered = false;
+                other = null;
+            }
         }
 
-        void OnTriggerStay2D(Collider2D other)
+        void OnTriggerEnter2D(Collider2D other)
         {
-            Check(other.gameObject);
+            if (triggered) return;
+            bool result = Check(other.gameObject);
+            if (result)
+            {
+                triggered = true;
+                this.other = other;
+            }
+        }
+
+        void OnTriggerExit2D(Collider2D other)
+        {
+            if (other != this.other) return;
+            bool result = Check(other.gameObject);
+            if (result)
+            {
+                triggered = false;
+                other = null;
+            }
         }
     }
 }

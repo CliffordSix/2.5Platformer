@@ -5,7 +5,10 @@ using System.Collections;
 public class Damageable : MonoBehaviour {
 
     public float maxHealth = 0.0f;
+    public int maxArmour = 0;
+
     float health = 0;
+    int armour = 0;
 
     public bool takesKnockback = true;
     public bool dynamicKnockback = true;
@@ -15,12 +18,8 @@ public class Damageable : MonoBehaviour {
     void Start()
     {
         health = maxHealth;
+        armour = maxArmour;
     }
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
 
     public float GetHealth()
     {
@@ -32,9 +31,10 @@ public class Damageable : MonoBehaviour {
         health += amount;
     }
 
-    public void Damage(float amount)
+    public void Damage(float amount, Transform damager = null)
     {
         health -= amount;
+        
     }
 
     [CustomEditor(typeof(Damageable))]

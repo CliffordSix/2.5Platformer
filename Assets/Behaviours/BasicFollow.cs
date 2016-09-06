@@ -4,7 +4,7 @@ using System.Collections;
 namespace Behaviours
 {
     [RequireComponent(typeof(Rigidbody2D))]
-    public class HorizontalTargetMove : MonoBehaviour
+    public class BasicFollow : MonoBehaviour
     {
 
         public Trigger trigger;

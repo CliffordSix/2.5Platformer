@@ -26,7 +26,7 @@ public class Projectile : MonoBehaviour {
 				transform.GetComponent<BoxCollider2D> ().enabled = false;
 				transform.parent = col.transform;
 				col.transform.GetComponent<Rigidbody2D> ().AddForce (new Vector2 (0, 4), ForceMode2D.Impulse);
-				col.gameObject.GetComponent<MonsterHealth> ().ApplyDamage (Dmg);
+				col.gameObject.GetComponent<Damageable> ().Damage (Dmg);
 				StartCoroutine (Despawn (DespawnTime));
 			}
 			if (col.gameObject.layer != 10) {
@@ -47,7 +47,7 @@ public class Projectile : MonoBehaviour {
             if (col.gameObject.layer == 14)
             {
                 col.transform.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 4), ForceMode2D.Impulse);
-                col.gameObject.GetComponent<MonsterHealth>().ApplyDamage(Dmg);
+                col.gameObject.GetComponent<Damageable>().Damage(Dmg);
             }
             if (col.gameObject.layer != 10)
             {

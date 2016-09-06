@@ -13,7 +13,7 @@ public class EnviroDamage : MonoBehaviour {
     void OnTriggerEnter2D(Collider2D col)
     {
         if(col.tag == "Player")
-            PlayerController.it.damageable.Damage(10);
+            PlayerController.it.damageable.Damage(10, transform);
     }
 
 	// Update is called once per frame

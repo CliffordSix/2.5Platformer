@@ -72,8 +72,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Behaviours\BasicFollow.cs" />
+    <Compile Include="Assets\Behaviours\ContactDamage.cs" />
     <Compile Include="Assets\Behaviours\DropDown.cs" />
-    <Compile Include="Assets\Behaviours\HorizontalTargetMove.cs" />
     <Compile Include="Assets\Behaviours\Jump.cs" />
     <Compile Include="Assets\Behaviours\PlayerMovement.cs" />
     <Compile Include="Assets\Behaviours\Triggers\AxisInput.cs" />
@@ -111,7 +112,6 @@
     <Compile Include="Assets\Scripts\EnviroDamage.cs" />
     <Compile Include="Assets\Scripts\FPSCounter.cs" />
     <Compile Include="Assets\Scripts\GUIManager.cs" />
-    <Compile Include="Assets\Scripts\MonsterHealth.cs" />
     <Compile Include="Assets\Scripts\Pickup.cs" />
     <Compile Include="Assets\Scripts\Platform.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
