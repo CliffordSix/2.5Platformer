@@ -38,8 +38,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000010669892502}
   - 61: {fileID: 61000010823061690}
-  - 61: {fileID: 61000010439525734}
-  - 114: {fileID: 114000012012367622}
+  - 251: {fileID: 251000012205474326}
   m_Layer: 9
   m_Name: Platform
   m_TagString: Platform
@@ -110,20 +109,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011111910058}
   m_Mesh: {fileID: 4300000, guid: f0c3747b37fdec247874b791bd76f22f, type: 3}
---- !u!61 &61000010439525734
-BoxCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000012799821570}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_Offset: {x: 0, y: -0.308025}
-  serializedVersion: 2
-  m_Size: {x: 2, y: 0.28394997}
 --- !u!61 &61000010823061690
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -134,7 +119,7 @@ BoxCollider2D:
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_Offset: {x: 0, y: -0.13}
   serializedVersion: 2
   m_Size: {x: 2, y: 0.3}
@@ -155,15 +140,20 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114000012012367622
-MonoBehaviour:
+--- !u!251 &251000012205474326
+PlatformEffector2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012799821570}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01360d5e386b9094c9eeee2772ce1ce2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  solid_collider: {fileID: 61000010823061690}
+  m_UseColliderMask: 0
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseOneWay: 1
+  m_UseOneWayGrouping: 0
+  m_SurfaceArc: 180
+  m_UseSideFriction: 0
+  m_UseSideBounce: 0
+  m_SideArc: 1

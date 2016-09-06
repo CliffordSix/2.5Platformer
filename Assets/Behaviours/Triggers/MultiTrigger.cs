@@ -1,15 +1,30 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
-public class MultiTrigger : MonoBehaviour {
+namespace Behaviours.Triggers
+{
+    public class MultiTrigger : Trigger
+    {
+        public enum Mode
+        {
+            AND,
+            OR
+        }
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+        public Trigger[] triggers;
+        public Mode mode;
+
+        public override bool IsActive()
+        {
+            foreach(Trigger trigger in triggers)
+            {
+                if (mode == Mode.AND && !trigger.IsActive())
+                    return false;
+                if (mode == Mode.OR && trigger.IsActive())
+                    return true;
+            }
+            return false;
+        }
+    }
 }
