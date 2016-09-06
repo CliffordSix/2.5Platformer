@@ -10,8 +10,10 @@ namespace Behaviours
         public Trigger trigger;
         public Transform target;
         public float speed = 0.0f;
+        public Collider2D collider;
 
         new Rigidbody2D rigidbody;
+        bool collided = false;
 
         void Start()
         {
@@ -37,5 +39,17 @@ namespace Behaviours
                 transform.localScale = scale;
             }
         }
+
+        //void OnCollisionEnter2D(Collision2D collision)
+        //{
+        //    if(collision.transform == target)
+        //        collided = true;
+        //}
+
+        //void OnCollisionExit2D(Collision2D collision)
+        //{
+        //    if (collision.transform == target)
+        //        collided = false;
+        //}
     }
 }

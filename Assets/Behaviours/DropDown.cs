@@ -29,6 +29,7 @@ public class DropDown : MonoBehaviour {
         //If trigger just activated, start ignoring
 	    if(triggerActive && !lastTriggerActive)
         {
+            Debug.Log("true");
             SetIgnore(true);
             sinceIgnored = 0.0f;
         }
