@@ -101,6 +101,7 @@
     <Compile Include="Assets\Scripts\Abilities\BowMultiDirectionShot.cs" />
     <Compile Include="Assets\Scripts\Abilities\BowMultishot.cs" />
     <Compile Include="Assets\Scripts\Abilities\BowUltimateAbility.cs" />
+    <Compile Include="Assets\Scripts\Abilities\GreatswordShockwave.cs" />
     <Compile Include="Assets\Scripts\Abilities\SwordSlash.cs" />
     <Compile Include="Assets\Scripts\Abilities\SwordStab.cs" />
     <Compile Include="Assets\Scripts\Armour.cs" />
@@ -113,6 +114,7 @@
     <Compile Include="Assets\Scripts\EnviroDamage.cs" />
     <Compile Include="Assets\Scripts\FPSCounter.cs" />
     <Compile Include="Assets\Scripts\GUIManager.cs" />
+    <Compile Include="Assets\Scripts\Greatsword.cs" />
     <Compile Include="Assets\Scripts\Pickup.cs" />
     <Compile Include="Assets\Scripts\Platform.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />

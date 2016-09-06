@@ -23,7 +23,10 @@ public class PlayerController : MonoBehaviour {
     void Init()
     {
         SetMainWeapon(mainHandWep);
-        SetOffWeapon(offhandWep);
+        if (!mainHandWep.is2H)
+        {
+            SetOffWeapon(offhandWep);
+        }
         GUIManager.it.SetAbilities(mainHandWep, offhandWep);
     }
 

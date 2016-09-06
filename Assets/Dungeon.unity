@@ -5104,7 +5104,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &869519789
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5906,8 +5906,9 @@ MonoBehaviour:
   damageable: {fileID: 948892777}
   mainHandPos: {fileID: 102007805}
   offhandPos: {fileID: 913402599}
-  mainHandWep: {fileID: 11488228, guid: 8ac6a4c1a35bf344081c972b505b338a, type: 2}
-  offhandWep: {fileID: 11488228, guid: 8ac6a4c1a35bf344081c972b505b338a, type: 2}
+  mainHandWep: {fileID: 114000012985758550, guid: a74f13f4ccb65624da96e2f294864435,
+    type: 2}
+  offhandWep: {fileID: 0}
 --- !u!114 &948892779
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6535,6 +6536,11 @@ Prefab:
       propertyPath: target
       value: 
       objectReference: {fileID: 948892776}
+    - target: {fileID: 95000013969970552, guid: a37bb40a38b31c446a42dffce5347e24,
+        type: 2}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 7fb7297251ff11c4d874e9af5143fbef, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a37bb40a38b31c446a42dffce5347e24, type: 2}
   m_IsPrefabParent: 0
