@@ -13,7 +13,7 @@ namespace Behaviours.Triggers
         bool running = true;
         bool triggered = false;
 
-        public override bool IsActive()
+        protected override bool CheckActive()
         {
             return triggered;
         }

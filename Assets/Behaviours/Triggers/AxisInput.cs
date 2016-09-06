@@ -9,7 +9,7 @@ namespace Behaviours.Triggers
 
         public string axis;
 
-        public override bool IsActive()
+        protected override bool CheckActive()
         {
             return Input.GetAxis(axis) != 0.0f;
         }

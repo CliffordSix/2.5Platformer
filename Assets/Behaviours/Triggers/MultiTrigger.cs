@@ -15,7 +15,7 @@ namespace Behaviours.Triggers
         public Trigger[] triggers;
         public Mode mode;
 
-        public override bool IsActive()
+        protected override bool CheckActive()
         {
             foreach(Trigger trigger in triggers)
             {

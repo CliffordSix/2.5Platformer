@@ -72,9 +72,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Behaviours\BasicFollow.cs" />
     <Compile Include="Assets\Behaviours\ContactDamage.cs" />
     <Compile Include="Assets\Behaviours\DropDown.cs" />
+    <Compile Include="Assets\Behaviours\FlyingFollow.cs" />
+    <Compile Include="Assets\Behaviours\GroundFollow.cs" />
     <Compile Include="Assets\Behaviours\Jump.cs" />
     <Compile Include="Assets\Behaviours\PlayerMovement.cs" />
     <Compile Include="Assets\Behaviours\Triggers\AxisInput.cs" />

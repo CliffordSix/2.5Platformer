@@ -11,9 +11,9 @@ namespace Behaviours.Triggers
         public LayerMask layerMask;
         public Collider2D other = null;
 
-        public bool triggered = false;
+        bool triggered = false;
 
-        public override bool IsActive()
+        protected override bool CheckActive()
         {
             return triggered;
         }

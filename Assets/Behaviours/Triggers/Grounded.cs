@@ -15,7 +15,7 @@ namespace Behaviours.Triggers
         bool grounded = false;
         bool lastGrounded = false;
 
-        public override bool IsActive()
+        protected override bool CheckActive()
         {
             return grounded && lastGrounded;
         }

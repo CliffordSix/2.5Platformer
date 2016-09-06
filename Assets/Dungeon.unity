@@ -4240,12 +4240,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c207c433e7d86b4fab12a4696d3d646, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  oneShot: 0
   requiredTag: Player
   layerMask:
     serializedVersion: 2
     m_Bits: 0
   other: {fileID: 0}
-  triggered: 0
 --- !u!61 &324197973
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4673,12 +4673,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c207c433e7d86b4fab12a4696d3d646, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  oneShot: 1
   requiredTag: Player
   layerMask:
     serializedVersion: 2
     m_Bits: 0
   other: {fileID: 0}
-  triggered: 0
 --- !u!1 &610631849
 GameObject:
   m_ObjectHideFlags: 0
@@ -5119,7 +5119,6 @@ MonoBehaviour:
   trigger: {fileID: 579909179}
   target: {fileID: 948892776}
   speed: 2
-  collider: {fileID: 0}
 --- !u!50 &869519790
 Rigidbody2D:
   serializedVersion: 2
@@ -5748,6 +5747,10 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: c36986f65d7777348a1f407130ecfead, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c36986f65d7777348a1f407130ecfead, type: 3}
   m_IsPrefabParent: 0
@@ -5916,6 +5919,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d89616e6f31d9c945a74257dd8ff6edf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  oneShot: 0
   axis: Jump
 --- !u!114 &948892780
 MonoBehaviour:
@@ -5954,6 +5958,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d89616e6f31d9c945a74257dd8ff6edf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  oneShot: 0
   axis: Drop
 --- !u!114 &948892783
 MonoBehaviour:
@@ -6485,6 +6490,53 @@ Prefab:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d75a203ac747e4547ac7fdc2b08b2615, type: 2}
+  m_IsPrefabParent: 0
+--- !u!1001 &983222099
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4000011712222892, guid: a37bb40a38b31c446a42dffce5347e24, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 3.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011712222892, guid: a37bb40a38b31c446a42dffce5347e24, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 5.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011712222892, guid: a37bb40a38b31c446a42dffce5347e24, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011712222892, guid: a37bb40a38b31c446a42dffce5347e24, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011712222892, guid: a37bb40a38b31c446a42dffce5347e24, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0.7071099
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011712222892, guid: a37bb40a38b31c446a42dffce5347e24, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011712222892, guid: a37bb40a38b31c446a42dffce5347e24, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: -0.7071037
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000011712222892, guid: a37bb40a38b31c446a42dffce5347e24, type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000013873935280, guid: a37bb40a38b31c446a42dffce5347e24,
+        type: 2}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 948892776}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: a37bb40a38b31c446a42dffce5347e24, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &998823476
 GameObject:
@@ -10611,53 +10663,6 @@ ParticleSystem:
     subEmitterCollision1: {fileID: 0}
     subEmitterDeath: {fileID: 0}
     subEmitterDeath1: {fileID: 0}
---- !u!1001 &1210558325
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4000010601441806, guid: 0d6777894908c154ba11be6166e69345, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000010601441806, guid: 0d6777894908c154ba11be6166e69345, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000010601441806, guid: 0d6777894908c154ba11be6166e69345, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000010601441806, guid: 0d6777894908c154ba11be6166e69345, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000010601441806, guid: 0d6777894908c154ba11be6166e69345, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: -0.7071099
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000010601441806, guid: 0d6777894908c154ba11be6166e69345, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000010601441806, guid: 0d6777894908c154ba11be6166e69345, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: -0.7071037
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000010601441806, guid: 0d6777894908c154ba11be6166e69345, type: 2}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000010850050812, guid: 0d6777894908c154ba11be6166e69345,
-        type: 2}
-      propertyPath: target
-      value: 
-      objectReference: {fileID: 948892776}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 0d6777894908c154ba11be6166e69345, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &1264324672
 GameObject:
   m_ObjectHideFlags: 0
@@ -13160,6 +13165,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b1d8c3cd9951b849a96af1e713e5beb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  oneShot: 0
   groundLayers:
     serializedVersion: 2
     m_Bits: 768
