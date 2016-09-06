@@ -9,14 +9,17 @@ namespace Behaviours
         public float damage = 0.0f;
         public float delay = 0.0f;
 
-        float sinceLastDamage = 0.0f;
+        float untilDamage = 0.0f;
 
         // Update is called once per frame
         void Update()
         {
+            if (untilDamage > 0.0f)
+                untilDamage -= Time.deltaTime;
+
             if (trigger.IsActive())
             {
-                if (sinceLastDamage <= 0.0f)
+                if (untilDamage <= 0.0f)
                 {
                     Damageable damageable = trigger.other.GetComponent<Damageable>();
                     if (damageable == null)
@@ -27,12 +30,8 @@ namespace Behaviours
                     {
                         damageable.Damage(damage, transform);
                     }
+                    untilDamage = delay;
                 }
-                sinceLastDamage = delay;
-            }
-            else
-            {
-                sinceLastDamage = delay;
             }
         }
     }

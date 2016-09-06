@@ -56,7 +56,7 @@ public class GUIManager : MonoBehaviour {
     {
         if(offhand == null)
         {
-            SetAbilities(mainHand, 4, 0);
+            SetAbilities(mainHand, mainHand.abilities.Count, 0);
         }
         else
         {

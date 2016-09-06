@@ -24,8 +24,21 @@ namespace Behaviours
                 Vector2 position = transform.position;
                 Vector2 otherPosition = target.position;
                 Vector2 direction = (otherPosition - position).normalized;
+
+                float zRot = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+                transform.rotation = Quaternion.Euler(0, 0, zRot);
+                Vector3 scale = transform.localScale;
+                if (zRot < -90 && zRot > -270)
+                    scale.y = -1;
+                else
+                    scale.y = 1;
+                transform.localScale = scale;
+
                 rigidbody.velocity = direction * speed;
-                transform.LookAt(target);
+            }
+            else
+            {
+                rigidbody.velocity = Vector2.zero;
             }
         }
     }
