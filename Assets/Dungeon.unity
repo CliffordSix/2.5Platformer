@@ -8717,6 +8717,67 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 298927145}
   m_Mesh: {fileID: 4300000, guid: 3376bb17c8c0c6c4da144fc506ca84b2, type: 3}
+--- !u!1 &324197970
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 324197971}
+  - 61: {fileID: 324197973}
+  - 114: {fileID: 324197972}
+  m_Layer: 0
+  m_Name: AttackTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &324197971
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 324197970}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 869519791}
+  m_RootOrder: 2
+--- !u!114 &324197972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 324197970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c207c433e7d86b4fab12a4696d3d646, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  requiredTag: Player
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  other: {fileID: 0}
+  triggered: 0
+--- !u!61 &324197973
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 324197970}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: 0.14599705, y: 0.27411723}
+  serializedVersion: 2
+  m_Size: {x: 0.51731646, y: 0.51135683}
 --- !u!4 &338455669 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4000010669892502, guid: d96d8694b72251e40b1cc864f1bb31f5,
@@ -13273,9 +13334,9 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0.45739055}
+  m_Offset: {x: 0, y: 0.4378698}
   serializedVersion: 2
-  m_Size: {x: 4, y: 0.9428253}
+  m_Size: {x: 6, y: 0.98186755}
 --- !u!114 &579909179
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13291,6 +13352,8 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 0
+  other: {fileID: 0}
+  triggered: 0
 --- !u!1 &582143878
 GameObject:
   m_ObjectHideFlags: 0
@@ -14494,6 +14557,7 @@ GameObject:
   - 50: {fileID: 869519790}
   - 114: {fileID: 869519789}
   - 61: {fileID: 869519792}
+  - 114: {fileID: 869519793}
   m_Layer: 0
   m_Name: Imp
   m_TagString: Untagged
@@ -14514,7 +14578,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trigger: {fileID: 579909179}
   target: {fileID: 948892776}
-  speed: 5
+  speed: 2
   collider: {fileID: 0}
 --- !u!50 &869519790
 Rigidbody2D:
@@ -14546,6 +14610,7 @@ Transform:
   m_Children:
   - {fileID: 1712616601}
   - {fileID: 579909177}
+  - {fileID: 324197971}
   m_Father: {fileID: 0}
   m_RootOrder: 13
 --- !u!61 &869519792
@@ -14562,6 +14627,20 @@ BoxCollider2D:
   m_Offset: {x: 0.0071463585, y: 0.2715757}
   serializedVersion: 2
   m_Size: {x: 0.3282057, y: 0.7141304}
+--- !u!114 &869519793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 869519788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 202a560c7c302574e98575b5575f7f4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trigger: {fileID: 324197972}
+  damage: 5
+  delay: 1
 --- !u!1 &870344996
 GameObject:
   m_ObjectHideFlags: 0
@@ -15248,7 +15327,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7added1d712586443a1ddc5a88017927, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 0
+  maxHealth: 100
+  maxArmour: 0
   takesKnockback: 1
   dynamicKnockback: 1
   staticKnockback: 0
@@ -22738,7 +22818,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e75e0964d0ebbf54c8b40340e4a0976c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DungeonSize: 2
+  DungeonSize: 1
   RoomList:
   - {fileID: 162828, guid: d75a203ac747e4547ac7fdc2b08b2615, type: 2}
   - {fileID: 131608, guid: cad107816b2f3224296bd5122476b1cb, type: 2}
