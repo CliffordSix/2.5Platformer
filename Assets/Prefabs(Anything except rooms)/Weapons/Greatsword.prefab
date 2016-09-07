@@ -27,7 +27,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1000011796772860
 GameObject:
   m_ObjectHideFlags: 0
@@ -36,17 +36,17 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 4000011132021590}
-  - 68: {fileID: 68000012362032210}
   - 50: {fileID: 50000010275998650}
   - 114: {fileID: 114000011275172968}
   - 114: {fileID: 114000012284598304}
+  - 60: {fileID: 60000012267369128}
   m_Layer: 13
   m_Name: Shockwave
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1000012277841070
 GameObject:
   m_ObjectHideFlags: 0
@@ -98,7 +98,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4000011132021590
 Transform:
   m_ObjectHideFlags: 1
@@ -223,8 +223,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!68 &68000012362032210
-EdgeCollider2D:
+--- !u!60 &60000012267369128
+PolygonCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -232,15 +232,19 @@ EdgeCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   m_Points:
-  - {x: 0.13, y: -0.13}
-  - {x: 0.18, y: 0.12}
-  - {x: 0.08, y: 0.57}
-  - {x: -0.24, y: 0.99}
-  - {x: -0.72, y: 1.33}
+    m_Paths:
+    - - {x: -0.3155195, y: 0.46550465}
+      - {x: -1.0201259, y: 0.9974879}
+      - {x: -0.8014966, y: 1.316871}
+      - {x: -0.036834408, y: 0.7750033}
+      - {x: 0.28955337, y: 0.14159456}
+      - {x: 0.16596085, y: -0.18961173}
+      - {x: -0.32385457, y: -0.1706608}
+      - {x: -0.14967906, y: 0.03871561}
 --- !u!95 &95000010193205172
 Animator:
   serializedVersion: 3
@@ -303,7 +307,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trigger: {fileID: 114000011275172968}
   damage: 5
-  delay: 0
+  delay: 1
 --- !u!114 &114000012985758550
 MonoBehaviour:
   m_ObjectHideFlags: 1

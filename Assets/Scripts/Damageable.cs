@@ -15,6 +15,7 @@ public class Damageable : MonoBehaviour {
     public bool takesKnockback = true;
     public bool dynamicKnockback = false;
     public float staticKnockback = 750;
+    public float knockbackAngle = 0.0f;
 
     new Rigidbody2D rigidbody;
 
@@ -45,9 +46,14 @@ public class Damageable : MonoBehaviour {
 
             if (takesKnockback && damager != null && rigidbody != null)
             {
-                Vector2 direction = new Vector2(Mathf.Cos(45 * Mathf.Deg2Rad), Mathf.Sin(45 * Mathf.Deg2Rad));
-                if (damager.transform.position.x > transform.position.x)
-                    direction.x *= -1;
+                float radians = knockbackAngle * Mathf.Deg2Rad;
+                Vector2 direction = new Vector2(Mathf.Cos(radians), Mathf.Sin(radians));
+
+                Rigidbody2D otherBody = damager.GetComponent<Rigidbody2D>();
+                if (otherBody != null)
+                    direction.x *= otherBody.velocity.x > 0 ? 1 : -1;
+
+                Debug.Log(direction.x);
                 float force = dynamicKnockback ? amount * 100 : staticKnockback;
                 rigidbody.AddForce(direction * force, ForceMode2D.Impulse);
             }
@@ -67,6 +73,7 @@ public class Damageable : MonoBehaviour {
         {
             Damageable script = (Damageable)target;
 
+            EditorGUILayout.LabelField("Health", script.health.ToString());
             script.maxHealth = EditorGUILayout.FloatField("Max Health", script.maxHealth);
             script.invincibilityPeriod = EditorGUILayout.FloatField("Invincivility Period", script.invincibilityPeriod);
 
@@ -77,6 +84,7 @@ public class Damageable : MonoBehaviour {
                 if(!script.dynamicKnockback)
                 {
                     script.staticKnockback = EditorGUILayout.FloatField("Static Knockback", script.staticKnockback);
+                    script.knockbackAngle = EditorGUILayout.FloatField("Knockback Angle", script.knockbackAngle);
                 }
             }
         }

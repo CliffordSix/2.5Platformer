@@ -7,7 +7,8 @@ namespace Behaviours
     {
         public Trigger trigger;
         public Transform target;
-        public float speed = 0.0f;
+        public float moveForce = 0.0f;
+        public float maxSpeed = 0.0f;
 
         new Rigidbody2D rigidbody;
 
@@ -34,11 +35,9 @@ namespace Behaviours
                     scale.y = 1;
                 transform.localScale = scale;
 
-                rigidbody.velocity = direction * speed;
-            }
-            else
-            {
-                rigidbody.velocity = Vector2.zero;
+                rigidbody.AddForce(direction * moveForce);
+                if (rigidbody.velocity.magnitude > maxSpeed)
+                    rigidbody.velocity = rigidbody.velocity.normalized * maxSpeed;
             }
         }
     }

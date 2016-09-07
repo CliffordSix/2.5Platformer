@@ -40,13 +40,14 @@ GameObject:
   - 114: {fileID: 114000013873935280}
   - 58: {fileID: 58000013286694602}
   - 114: {fileID: 114000010989581314}
+  - 114: {fileID: 114000011818423978}
   m_Layer: 14
   m_Name: Eyeball
-  m_TagString: Untagged
+  m_TagString: Respawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1000010834721606
 GameObject:
   m_ObjectHideFlags: 1
@@ -406,8 +407,8 @@ Rigidbody2D:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010328149612}
   m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
+  m_Mass: 25
+  m_LinearDrag: 1
   m_AngularDrag: 0
   m_GravityScale: 0
   m_IsKinematic: 0
@@ -536,6 +537,24 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   other: {fileID: 0}
+--- !u!114 &114000011818423978
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010328149612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7added1d712586443a1ddc5a88017927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  maxArmour: 0
+  invincibilityPeriod: 0
+  takesKnockback: 1
+  dynamicKnockback: 0
+  staticKnockback: 200
+  knockbackAngle: 0
 --- !u!114 &114000013873935280
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -549,7 +568,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trigger: {fileID: 114000011161608184}
   target: {fileID: 0}
-  speed: 1.5
+  moveForce: 50
+  maxSpeed: 2.5
 --- !u!137 &137000014043073342
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

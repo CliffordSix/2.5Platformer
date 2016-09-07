@@ -6,7 +6,9 @@ namespace Behaviours
     [RequireComponent(typeof(Rigidbody2D))]
     public class PlayerMovement : MonoBehaviour
     {
-        public float speed;
+        public float moveForce = 0.0f;
+        public float maxSpeed = 0.0f;
+
         new Rigidbody2D rigidbody;
 
         void Start()
@@ -18,9 +20,15 @@ namespace Behaviours
         {
             float input = Input.GetAxis("Horizontal");
             if (input == 0) return;
-            Vector2 velocity = rigidbody.velocity;
-            velocity.x = input * speed;
-            rigidbody.velocity = velocity;
+
+            if((input < 0 && rigidbody.velocity.x > 0) || (input > 0 && rigidbody.velocity.x < 0))
+                rigidbody.velocity = new Vector2(0, rigidbody.velocity.y);
+            
+            rigidbody.AddForce(new Vector2(input * moveForce, 0));
+            if (rigidbody.velocity.x > maxSpeed)
+                rigidbody.velocity = new Vector2(maxSpeed, rigidbody.velocity.y);
+            if(rigidbody.velocity.x < maxSpeed * -1)
+                rigidbody.velocity = new Vector2(maxSpeed * -1, rigidbody.velocity.y);
         }
 
         // Update is called once per frame
@@ -28,7 +36,8 @@ namespace Behaviours
         {
             float input = Input.GetAxis("Horizontal");
             Vector3 scale = transform.localScale;
-            scale.x = input == 0 ? scale.x : input < 0 ? -1 : 1;
+            float facing = input;
+            scale.x = facing == 0 ? scale.x : facing < 0 ? -1 : 1;
 
             ParticleSystem[] particles = GetComponentsInChildren<ParticleSystem>();
             foreach(ParticleSystem p in particles)

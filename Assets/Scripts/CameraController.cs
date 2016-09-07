@@ -8,6 +8,11 @@ public class CameraController : MonoBehaviour {
     public float y_ = 0;
     public float z_ = -5;
 
+    void Start()
+    {
+        Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemy"), true);
+    }
+
     // Update is called once per frame
     void LateUpdate() {
         if (load)
