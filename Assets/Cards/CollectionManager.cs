@@ -97,6 +97,11 @@ public class CollectionManager : MonoBehaviour {
         BinaryFormatter formatter = new BinaryFormatter();
         cards = (Dictionary<string, int>)formatter.Deserialize(stream);
         stream.Close();
+
+        if(cards.Count == 0)
+        {
+            CollectCard("Slime", 2);
+        }
     }
 
     public void SaveCards()

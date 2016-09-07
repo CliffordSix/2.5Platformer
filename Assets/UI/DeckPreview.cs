@@ -32,7 +32,7 @@ public class DeckPreview : MonoBehaviour {
         foreach (string card_name in deck.cards)
         {
             GameObject card_preview = Instantiate<GameObject>(card_preview_prefab);
-            card_preview.GetComponentInChildren<Text>().text = card_name;
+            card_preview.transform.Find("Name").GetComponent<Text>().text = card_name;
             card_preview.transform.SetParent(content, false);
         }
     }

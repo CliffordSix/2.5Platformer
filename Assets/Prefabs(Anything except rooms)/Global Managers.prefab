@@ -11,38 +11,6 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1000012963750362}
   m_IsPrefabParent: 1
---- !u!1 &1000010437223114
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 4000012479647284}
-  - 114: {fileID: 114000011857660816}
-  m_Layer: 0
-  m_Name: DropManager
-  m_TagString: DropManager
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!1 &1000010510520026
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 4000013237233946}
-  - 114: {fileID: 114000013100529374}
-  m_Layer: 0
-  m_Name: Room Manager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &1000010840465600
 GameObject:
   m_ObjectHideFlags: 0
@@ -54,21 +22,6 @@ GameObject:
   - 114: {fileID: 114000010436293210}
   m_Layer: 0
   m_Name: CollectionManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!1 &1000010993097582
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 4000011459223806}
-  m_Layer: 0
-  m_Name: GameManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -106,32 +59,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4000011459223806
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000010993097582}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children: []
-  m_Father: {fileID: 4000013340852892}
-  m_RootOrder: 4
---- !u!4 &4000012479647284
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000010437223114}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children: []
-  m_Father: {fileID: 4000013340852892}
-  m_RootOrder: 2
 --- !u!4 &4000012769020856
 Transform:
   m_ObjectHideFlags: 1
@@ -140,19 +67,6 @@ Transform:
   m_GameObject: {fileID: 1000010840465600}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -13.735335, y: -16.55976, z: -5.6934667}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children: []
-  m_Father: {fileID: 4000013340852892}
-  m_RootOrder: 3
---- !u!4 &4000013237233946
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000010510520026}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.6808627, y: 4.397438, z: 4.536188}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -183,10 +97,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 4000013325956394}
-  - {fileID: 4000013237233946}
-  - {fileID: 4000012479647284}
   - {fileID: 4000012769020856}
-  - {fileID: 4000011459223806}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!114 &114000010436293210
@@ -202,39 +113,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   decks_folder: Decks
   decks: []
---- !u!114 &114000011857660816
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000010437223114}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b490b597ba97fd439734a12d2d490e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Card: {fileID: 117794, guid: 981b60a3fdacf3b4cb0e0ec599e7ad9a, type: 2}
---- !u!114 &114000013100529374
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000010510520026}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e75e0964d0ebbf54c8b40340e4a0976c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DungeonSize: 1
-  RoomList:
-  - {fileID: 162828, guid: d75a203ac747e4547ac7fdc2b08b2615, type: 2}
-  - {fileID: 131608, guid: cad107816b2f3224296bd5122476b1cb, type: 2}
-  - {fileID: 139936, guid: e0bb51d3baebaa243930ffe6729c7ae9, type: 2}
-  count: 0
-  OriginalRoom: {fileID: 0}
-  Wall: {fileID: 136870, guid: 389a24696caabfb498bc5f4f445d4e9a, type: 2}
-  Floor: {fileID: 164202, guid: ea4b20017f5a2a84790642f093e2c13e, type: 2}
-  ExpandList: []
 --- !u!114 &114000013626696286
 MonoBehaviour:
   m_ObjectHideFlags: 1
