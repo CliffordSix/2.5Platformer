@@ -11,6 +11,9 @@ namespace Behaviours
 
         new Rigidbody2D rigidbody;
 
+        int idleState = Animator.StringToHash("Base.Idle");
+        int walkState = Animator.StringToHash("Base.Walk");
+
         void Start()
         {
             rigidbody = GetComponent<Rigidbody2D>();
@@ -45,6 +48,16 @@ namespace Behaviours
                 p.transform.localScale = scale;
             }
             transform.localScale = scale;
+
+            Animator animator = GetComponentInChildren<Animator>();
+            if (rigidbody.velocity.x < 0.1 && rigidbody.velocity.x > -0.1 && animator.GetCurrentAnimatorStateInfo(0).IsName("Walk"))
+            {
+                animator.SetTrigger("Stop Walk");
+            }
+            else if(!animator.GetCurrentAnimatorStateInfo(0).IsName("Walk") && (rigidbody.velocity.x >= 0.1 || rigidbody.velocity.x < -0.1))
+            {
+                animator.SetTrigger("Start Walk");
+            }
         }
     }
 }

@@ -76,8 +76,7 @@ public class Damageable : MonoBehaviour {
                 Rigidbody2D otherBody = damager.GetComponent<Rigidbody2D>();
                 if (otherBody != null)
                     direction.x *= otherBody.velocity.x > 0 ? 1 : -1;
-
-                Debug.Log(direction.x);
+                
                 float force = dynamicKnockback ? amount * 100 : staticKnockback;
                 rigidbody.AddForce(direction * force, ForceMode2D.Impulse);
             }
