@@ -29,6 +29,7 @@ namespace Behaviours.Triggers
 
         void OnCollisionEnter2D(Collision2D collision)
         {
+            
             if (triggered) return;
             bool result = Check(collision.gameObject);
             if(result)
@@ -51,6 +52,8 @@ namespace Behaviours.Triggers
 
         void OnTriggerEnter2D(Collider2D other)
         {
+            if(other.gameObject.name == "Eyeball")
+                Debug.Log("Collision");
             if (triggered) return;
             bool result = Check(other.gameObject);
             if (result)

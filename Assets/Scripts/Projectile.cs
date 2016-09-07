@@ -24,7 +24,7 @@ public class Projectile : MonoBehaviour {
 			if (col.gameObject.layer == 14) {
 				rB.isKinematic = true;
 				transform.GetComponent<BoxCollider2D> ().enabled = false;
-				transform.parent = col.transform;
+				transform.parent = col.collider.transform;
 				col.transform.GetComponent<Rigidbody2D> ().AddForce (new Vector2 (0, 4), ForceMode2D.Impulse);
 				col.gameObject.GetComponent<Damageable> ().Damage (Dmg);
 				StartCoroutine (Despawn (DespawnTime));

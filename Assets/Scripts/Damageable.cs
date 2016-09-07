@@ -47,7 +47,7 @@ public class Damageable : MonoBehaviour {
         ((viewportPosition.x * canvasRect.sizeDelta.x) - (canvasRect.sizeDelta.x * 0.5f)),
         ((viewportPosition.y * canvasRect.sizeDelta.y) - (canvasRect.sizeDelta.y * 0.5f)));
         world_screenPosition.y += healthbarOffset;
-        Debug.Log(world_screenPosition);
+
         return world_screenPosition;
     }
 
@@ -106,7 +106,7 @@ public class Damageable : MonoBehaviour {
         }
     }
 
-    [CustomEditor(typeof(Damageable))]
+  /*  [CustomEditor(typeof(Damageable))]
     public class DamageableEditor : Editor
     {
         public override void OnInspectorGUI()
@@ -130,5 +130,5 @@ public class Damageable : MonoBehaviour {
                 }
             }
         }
-    }
+    }*/
 }
