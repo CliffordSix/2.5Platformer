@@ -21,7 +21,7 @@ public class SwordSlash : Ability
        // SlashEffectCoolDown();
     }
 
-    public override void Update()
+    void Update()
     {
     /*    Debug.Log("SwordSlashUpdate");
        // base.Update();

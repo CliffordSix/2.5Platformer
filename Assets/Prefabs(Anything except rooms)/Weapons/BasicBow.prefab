@@ -88,11 +88,7 @@ MonoBehaviour:
   weaponMat: {fileID: 0}
   isRanged: 1
   projectile: {fileID: 145666, guid: ea583fbd22337ca4eb6f19d08ac28b62, type: 2}
-  A1: {fileID: 21300000, guid: d7f121ea44f75b44b8c5a116e65bfed6, type: 3}
-  A2: {fileID: 21300000, guid: 3b579302be689754dbe639aa2663d718, type: 3}
-  A3: {fileID: 21300000, guid: 638dce22963abac4f9cfdbca2a9d40c1, type: 3}
-  A4: {fileID: 21300000, guid: 70e36b7c2dedda54a89a583529f34fbf, type: 3}
-  WeaponAbilities:
+  abilities:
   - {fileID: 11486782}
   - {fileID: 11458358}
   - {fileID: 11404404}

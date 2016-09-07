@@ -12,8 +12,4 @@ public class Ability : MonoBehaviour {
         
     }
 
-    public virtual void Update()
-    {
-
-    }
 }

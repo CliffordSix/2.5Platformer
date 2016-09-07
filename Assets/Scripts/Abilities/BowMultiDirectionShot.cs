@@ -7,9 +7,9 @@ public class BowMultiDirectionShot : Ability{
     {
         base.CallAbility(projectile);
         //  Time.timeScale = 0.05f;
-        Vector3 spawn = getSpawn(Player.transform.position);
+        Vector3 spawn = getSpawn(PlayerController.it.transform.position);
         Vector3 D = new Vector3(0, 0, 0);
-        Vector3 lScale = Player.localScale;
+        Vector3 lScale = PlayerController.it.transform.localScale;
         lScale.z = 0;
         int step = 45;
         Physics2D.IgnoreLayerCollision(13, 13);

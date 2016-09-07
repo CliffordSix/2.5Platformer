@@ -13,7 +13,7 @@ public class SwordSingle : Weapon
     protected override void Update()
     {
         base.Update();
-        abilities[0].Update();      
+     //   abilities[0].Update();      
     }
 
     override public void abilityOne(Transform Player)
