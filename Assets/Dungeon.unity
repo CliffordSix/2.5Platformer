@@ -5311,6 +5311,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7added1d712586443a1ddc5a88017927, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Healthbar: {fileID: 0}
   maxHealth: 100
   maxArmour: 0
   invincibilityPeriod: 0
@@ -5933,7 +5934,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22329864, guid: aff4b94e9a156f849952822c028958b0, type: 2}
       propertyPath: m_RenderMode
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 22438328, guid: aff4b94e9a156f849952822c028958b0, type: 2}
       propertyPath: m_LocalScale.x
@@ -6115,6 +6116,16 @@ Prefab:
       propertyPath: abilityIcons.Array.data[3]
       value: 
       objectReference: {fileID: 443894790}
+    - target: {fileID: 11410854, guid: aff4b94e9a156f849952822c028958b0, type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 1ddd404d5f4854c41b844aca85def402,
+        type: 3}
+    - target: {fileID: 11404258, guid: aff4b94e9a156f849952822c028958b0, type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 12afcdd617e938b4b8bb0c79a5d08815,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: aff4b94e9a156f849952822c028958b0, type: 2}
   m_IsPrefabParent: 0
@@ -12643,7 +12654,7 @@ Transform:
   - {fileID: 1968864278}
   - {fileID: 256171403}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
 --- !u!114 &1554383054 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 11400102, guid: aff4b94e9a156f849952822c028958b0,
@@ -16807,7 +16818,7 @@ Transform:
   m_Children:
   - {fileID: 728747826}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
 --- !u!114 &1932766946
 MonoBehaviour:
   m_ObjectHideFlags: 0
