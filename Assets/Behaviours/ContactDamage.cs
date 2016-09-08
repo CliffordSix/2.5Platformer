@@ -17,8 +17,9 @@ namespace Behaviours
             if (untilDamage > 0.0f)
                 untilDamage -= Time.deltaTime;
 
-            if (trigger.IsActive())
-            {
+
+            if (trigger.IsActive() && trigger.other != null)
+            {             
                 if (untilDamage <= 0.0f)
                 {
                     Damageable damageable = trigger.other.GetComponent<Damageable>();

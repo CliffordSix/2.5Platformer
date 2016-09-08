@@ -274,7 +274,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Icon: {fileID: 21300000, guid: b84fe83e24ebddd4b944aeaeb5bccd0c, type: 3}
-  CD: 1
+  CD: 2.5
   Slash: {fileID: 198000011444085996}
   Shockwave: {fileID: 1000011796772860}
 --- !u!114 &114000011275172968
@@ -306,8 +306,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trigger: {fileID: 114000011275172968}
-  damage: 5
-  delay: 1
+  damage: 15
+  delay: 0
 --- !u!114 &114000012985758550
 MonoBehaviour:
   m_ObjectHideFlags: 1

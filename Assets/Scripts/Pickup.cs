@@ -7,9 +7,31 @@ public class Pickup : MonoBehaviour {
     string CardName = "imp";
     int difficulty;
 
+    public ParticleSystem diffGlow;
+
     void Start()
     {
         GUI = GameObject.FindObjectOfType<GUIManager>();
+        Debug.Log(difficulty);
+        switch(difficulty)
+        {
+            case 1:
+                diffGlow.startColor = Color.white;
+                break;
+            case 2:
+                diffGlow.startColor = Color.green;
+                break;
+            case 3:
+                diffGlow.startColor = Color.blue;
+                break;
+            case 4:
+                diffGlow.startColor = new Color(238, 130, 238);
+                break;
+            case 5:
+                diffGlow.startColor = new Color(255, 215, 0);
+                break;
+        }
+        Debug.Log(diffGlow.startColor);
     }
 
 	void OnTriggerEnter2D(Collider2D col)
@@ -18,7 +40,7 @@ public class Pickup : MonoBehaviour {
         {
             GUI.DisplayPickup(CardName, difficulty);
             Debug.Log("Card Picked Up");
-            Destroy(gameObject);
+            Destroy(gameObject.transform.parent.gameObject);
         }
     }
 

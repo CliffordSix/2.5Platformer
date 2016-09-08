@@ -81,7 +81,15 @@ public class Damageable : MonoBehaviour {
                 rigidbody.AddForce(direction * force, ForceMode2D.Impulse);
             }
         }
-        if(health == 0)
+      
+    }
+
+    void Update()
+    {
+        if(untilVulnerable > 0)
+            untilVulnerable -= Time.deltaTime;
+
+        if (health <= 0)
         {
             //Unit is dead drop a card destroy the unit
             if (gameObject.tag != "Player")
@@ -91,13 +99,6 @@ public class Damageable : MonoBehaviour {
                 DropManger.it.DropItem(transform.position);
             }
         }
-    }
-
-    void Update()
-    {
-        if(untilVulnerable > 0)
-            untilVulnerable -= Time.deltaTime;
-       
     }
 
     void LateUpdate()
