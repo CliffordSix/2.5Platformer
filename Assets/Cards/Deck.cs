@@ -45,13 +45,10 @@ public struct Deck {
 
     public Card Draw()
     {
-        string card_name = cards[nextDraw++];
-        if (nextDraw == cards.Count)
-        {
-            Shuffle();
-            nextDraw = 0;
-        }
+        if (nextDraw >= cards.Count)
+            return null;
 
+        string card_name = cards[nextDraw++];
         return CardManager.it.Get(card_name);
     }
 }

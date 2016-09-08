@@ -47,7 +47,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1000010834721606
 GameObject:
   m_ObjectHideFlags: 1
@@ -548,7 +548,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7added1d712586443a1ddc5a88017927, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Healthbar: {fileID: 0}
+  Healthbar: {fileID: 1000011395674198, guid: 4aa11f772c6e4134592aca14083371fd, type: 2}
   maxHealth: 100
   maxArmour: 0
   invincibilityPeriod: 0

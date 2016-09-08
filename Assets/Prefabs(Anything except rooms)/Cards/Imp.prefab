@@ -51,6 +51,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f00ac777cb39a14db4576d08e75c420, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Monster: {fileID: 1000014004571732, guid: 42c6756851a106047a230f80100cc036, type: 2}
+  monster: {fileID: 1000014004571732, guid: 42c6756851a106047a230f80100cc036, type: 2}
   castAmount: 1
   image: {fileID: 21300000, guid: e5f985ac2a59b79429c8101400e24338, type: 3}

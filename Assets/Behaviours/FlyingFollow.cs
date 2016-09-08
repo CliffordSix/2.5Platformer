@@ -16,6 +16,8 @@ namespace Behaviours
         void Start()
         {
             rigidbody = GetComponent<Rigidbody2D>();
+            if (target == null)
+                target = PlayerController.it.transform;
         }
 
         void FixedUpdate()

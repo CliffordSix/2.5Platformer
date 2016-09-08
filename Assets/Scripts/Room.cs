@@ -21,6 +21,9 @@ public class Room : MonoBehaviour {
 
     public int Width, Height;
 
+    public SpawnArea[] flyingSpawns;
+    public SpawnArea[] groundSpawns;
+
     /*	void OnDrawGizmos()
         {
             Gizmos.DrawLine(tLeft.position, bRight.position);
