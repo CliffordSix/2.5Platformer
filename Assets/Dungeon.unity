@@ -4276,6 +4276,23 @@ BoxCollider2D:
   m_Offset: {x: 0.14599705, y: 0.27411723}
   serializedVersion: 2
   m_Size: {x: 0.51731646, y: 0.51135683}
+--- !u!1 &339539578 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 115660, guid: aff4b94e9a156f849952822c028958b0, type: 2}
+  m_PrefabInternal: {fileID: 975296800}
+--- !u!114 &339539582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 339539578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1254083943, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AspectMode: 1
+  m_AspectRatio: 12
 --- !u!1 &347261915
 GameObject:
   m_ObjectHideFlags: 0
@@ -5128,6 +5145,11 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 731967446}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &740350483 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4000012665324500, guid: bf1db87285487e647b4aec961463d243,
+    type: 2}
+  m_PrefabInternal: {fileID: 1464335263}
 --- !u!1001 &758757536
 Prefab:
   m_ObjectHideFlags: 0
@@ -5170,6 +5192,23 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3f0d0506c38e04341ac816b10219a225, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &836422617 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 140396, guid: aff4b94e9a156f849952822c028958b0, type: 2}
+  m_PrefabInternal: {fileID: 975296800}
+--- !u!114 &836422621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 836422617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1254083943, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AspectMode: 1
+  m_AspectRatio: 16
 --- !u!20 &853067936
 Camera:
   m_ObjectHideFlags: 0
@@ -5745,7 +5784,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22470380, guid: aff4b94e9a156f849952822c028958b0, type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 38
+      value: 39.5
       objectReference: {fileID: 0}
     - target: {fileID: 22431958, guid: aff4b94e9a156f849952822c028958b0, type: 2}
       propertyPath: m_AnchoredPosition.y
@@ -6074,7 +6113,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22470380, guid: aff4b94e9a156f849952822c028958b0, type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 11433972, guid: aff4b94e9a156f849952822c028958b0, type: 2}
       propertyPath: A2
@@ -6122,6 +6161,22 @@ Prefab:
       value: 
       objectReference: {fileID: 21300000, guid: 12afcdd617e938b4b8bb0c79a5d08815,
         type: 3}
+    - target: {fileID: 22470380, guid: aff4b94e9a156f849952822c028958b0, type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 17.8125
+      objectReference: {fileID: 0}
+    - target: {fileID: 22460866, guid: aff4b94e9a156f849952822c028958b0, type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 22470380, guid: aff4b94e9a156f849952822c028958b0, type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 285
+      objectReference: {fileID: 0}
+    - target: {fileID: 22460866, guid: aff4b94e9a156f849952822c028958b0, type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 300
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: aff4b94e9a156f849952822c028958b0, type: 2}
   m_IsPrefabParent: 0
@@ -6230,7 +6285,7 @@ Prefab:
         type: 2}
       propertyPath: target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 740350483}
     - target: {fileID: 1000010328149612, guid: a37bb40a38b31c446a42dffce5347e24, type: 2}
       propertyPath: m_IsActive
       value: 1
@@ -10516,7 +10571,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e75e0964d0ebbf54c8b40340e4a0976c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DungeonSize: 20
+  DungeonSize: 1
   RoomList:
   - {fileID: 162828, guid: d75a203ac747e4547ac7fdc2b08b2615, type: 2}
   - {fileID: 131608, guid: cad107816b2f3224296bd5122476b1cb, type: 2}

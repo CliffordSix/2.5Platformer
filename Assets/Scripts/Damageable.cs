@@ -81,6 +81,16 @@ public class Damageable : MonoBehaviour {
                 rigidbody.AddForce(direction * force, ForceMode2D.Impulse);
             }
         }
+        if(health == 0)
+        {
+            //Unit is dead drop a card destroy the unit
+            if (gameObject.tag != "Player")
+            {
+                Destroy(Healthbar);
+                Destroy(this.gameObject);
+                DropManger.it.DropItem(transform.position);
+            }
+        }
     }
 
     void Update()

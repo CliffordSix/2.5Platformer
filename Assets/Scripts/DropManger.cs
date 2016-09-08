@@ -3,7 +3,22 @@ using System.Collections;
 
 public class DropManger : MonoBehaviour {
 
+    public static DropManger it;
     public GameObject Card;
+
+    void Awake()
+    {
+        if(it != this)
+        {
+            it = this;
+            Init();
+        }
+    }
+
+    void Init()
+    {
+        Debug.Log("Drop Manager Online");
+    }
 
     public void DropItem(Vector3 position)
     {
