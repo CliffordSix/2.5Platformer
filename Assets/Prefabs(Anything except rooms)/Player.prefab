@@ -436,6 +436,7 @@ GameObject:
   - 114: {fileID: 114000013995037304}
   - 114: {fileID: 114000012706868806}
   - 114: {fileID: 114000011874018698}
+  - 114: {fileID: 114000013159314778}
   m_Layer: 10
   m_Name: Player
   m_TagString: Player
@@ -1657,8 +1658,8 @@ Animator:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011585651864}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: b96206a9786c6be40b12c77990d01446, type: 3}
-  m_Controller: {fileID: 0}
+  m_Avatar: {fileID: 9000000, guid: 9980cb6fcea0dcd46960a631388b8b5e, type: 3}
+  m_Controller: {fileID: 9100000, guid: cd80a6eca9ce2884494b26b15951e644, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1677,9 +1678,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7added1d712586443a1ddc5a88017927, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Healthbar: {fileID: 0}
   maxHealth: 100
   maxArmour: 0
   invincibilityPeriod: 0.5
+  healthbarOffset: 3
   takesKnockback: 1
   dynamicKnockback: 0
   staticKnockback: 750
@@ -1755,6 +1758,17 @@ MonoBehaviour:
   trigger: {fileID: 114000011874018698}
   platformLayerName: Platform
   dropTime: 0.4
+--- !u!114 &114000013159314778
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012201570722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a46a5218dffa9242adfed89853423db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114000013591745416
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1769,8 +1783,7 @@ MonoBehaviour:
   damageable: {fileID: 114000010812856370}
   mainHandPos: {fileID: 4000012166044936}
   offhandPos: {fileID: 4000013452436430}
-  mainHandWep: {fileID: 114000012985758550, guid: a74f13f4ccb65624da96e2f294864435,
-    type: 2}
+  mainHandWep: {fileID: 0}
   offhandWep: {fileID: 0}
 --- !u!114 &114000013995037304
 MonoBehaviour:
@@ -1823,7 +1836,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 4300000, guid: b96206a9786c6be40b12c77990d01446, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 9980cb6fcea0dcd46960a631388b8b5e, type: 3}
   m_Bones:
   - {fileID: 4000012068752196}
   - {fileID: 4000013147817474}

@@ -6,6 +6,8 @@ public class GameManager : MonoBehaviour {
     public static GameManager it;
 
     Deck deck;
+    float cardDelay = 1;
+    float untilNextCard = 0.0f;
 
     void Awake()
     {
@@ -35,9 +37,21 @@ public class GameManager : MonoBehaviour {
     {
         return deck;
     }
-	
+
+    void CastCard()
+    {
+        Room room = PlayerController.it.GetComponent<RoomTracker>().current;
+        
+    }
+
 	// Update is called once per frame
 	void Update () {
-	
+        untilNextCard -= Time.deltaTime;
+
+	    if(untilNextCard <= 0.0f)
+        {
+            CastCard();
+            untilNextCard = cardDelay;
+        }
 	}
 }

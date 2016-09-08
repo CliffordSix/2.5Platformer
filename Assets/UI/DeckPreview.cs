@@ -58,5 +58,7 @@ public class DeckPreview : MonoBehaviour {
         {
             CollectionManager.it.CreateDeck(current_deck);
         }
+
+        CollectionManager.it.SaveDecks();
     }
 }
