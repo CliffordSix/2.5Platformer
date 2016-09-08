@@ -548,9 +548,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7added1d712586443a1ddc5a88017927, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Healthbar: {fileID: 0}
   maxHealth: 100
   maxArmour: 0
   invincibilityPeriod: 0
+  healthbarOffset: 3
   takesKnockback: 1
   dynamicKnockback: 0
   staticKnockback: 200

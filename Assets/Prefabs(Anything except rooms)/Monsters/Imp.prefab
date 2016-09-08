@@ -1308,10 +1308,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c207c433e7d86b4fab12a4696d3d646, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  oneShot: 0
   requiredTag: Player
   layerMask:
     serializedVersion: 2
     m_Bits: 0
+  other: {fileID: 0}
 --- !u!114 &114000012740354480
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1326,7 +1328,6 @@ MonoBehaviour:
   trigger: {fileID: 114000011283567084}
   target: {fileID: 0}
   speed: 5
-  collider: {fileID: 0}
 --- !u!137 &137000011332625816
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

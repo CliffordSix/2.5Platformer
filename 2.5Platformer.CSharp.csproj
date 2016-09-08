@@ -88,7 +88,6 @@
     <Compile Include="Assets\Cards\CardManager.cs" />
     <Compile Include="Assets\Cards\CollectionManager.cs" />
     <Compile Include="Assets\Cards\Deck.cs" />
-    <Compile Include="Assets\Cards\DeckOld.cs" />
     <Compile Include="Assets\Monsters\MonsterManager.cs" />
     <Compile Include="Assets\Scripts\Abilities\Ability.cs" />
     <Compile Include="Assets\Scripts\Abilities\BasicBowFire.cs" />
@@ -108,6 +107,7 @@
     <Compile Include="Assets\Scripts\EnviroDamage.cs" />
     <Compile Include="Assets\Scripts\FPSCounter.cs" />
     <Compile Include="Assets\Scripts\GUIManager.cs" />
+    <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\Greatsword.cs" />
     <Compile Include="Assets\Scripts\Pickup.cs" />
     <Compile Include="Assets\Scripts\Platform.cs" />
@@ -124,7 +124,7 @@
     <Compile Include="Assets\UI\DeckButton.cs" />
     <Compile Include="Assets\UI\DeckList.cs" />
     <Compile Include="Assets\UI\DeckPreview.cs" />
-    <Compile Include="Assets\UI\StartMenu.cs" />
+    <Compile Include="Assets\UI\MainMenu.cs" />
     <Compile Include="Assets\UnityPackages\JsonNetSample\JsonNetSample.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -1,13 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Card : MonoBehaviour {
-
-    public Transform model;
-
-    public void SetCardDetail(CardDefinition details)
+[System.Serializable]
+public class Card : MonoBehaviour{
+    
+    public GameObject Monster;
+    public int castAmount = 1;
+ 
+    public void Cast(Transform position)
     {
-        model.Find("name_text").GetComponent<TextMesh>().text = details.name;
-        model.Find("flavour_text").GetComponent<TextMesh>().text = details.flavour_text;
+
     }
 }

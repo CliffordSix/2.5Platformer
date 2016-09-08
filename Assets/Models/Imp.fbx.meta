@@ -85,6 +85,8 @@ ModelImporter:
     400074: Imp:joint9
     400076: Imp:joint9 1
     400078: Imp:sunDirection
+    2300000: Imp:Jadeimp
+    3300000: Imp:Jadeimp
     4300000: Imp:Jadeimp
     9500000: //RootNode
     13700000: Imp:Jadeimp
@@ -95,7 +97,7 @@ ModelImporter:
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
-    resampleRotations: 1
+    resampleCurves: 1
     optimizeGameObjects: 0
     motionNodeName: 
     animationImportErrors: 
@@ -131,7 +133,7 @@ ModelImporter:
     normalSmoothAngle: 60
     normalImportMode: 0
     tangentImportMode: 3
-  importAnimation: 1
+  importAnimation: 0
   copyAvatar: 0
   humanDescription:
     human: []
@@ -146,7 +148,7 @@ ModelImporter:
     rootMotionBoneName: 
     hasTranslationDoF: 0
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   additionalBone: 0
   userData: 

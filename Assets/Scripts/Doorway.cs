@@ -186,7 +186,7 @@ public class Doorway : MonoBehaviour {
 				Vector3 parentPos = transform.parent.transform.position;
 				position += parentPos;
 				toBuild.transform.position = position;
-                //SPAWN ENEMIES
+
                 toBuild.GetComponent<BoxCollider2D>().enabled = false;
 				if(toBuild.GetComponent <Room> ().checkCollision ())
                 {

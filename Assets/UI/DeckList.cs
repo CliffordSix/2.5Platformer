@@ -9,15 +9,15 @@ public class DeckList : MonoBehaviour {
     public GameObject deck_button_prefab;
 
     public DeckPreview previewer;
-    public Button edit_button;
+    public Button confirm_button { get; set; }
 
-    Deck selected;
+    public Deck selected;
 
     public void SetSelected(Deck deck)
     {
         selected = deck;
         previewer.Preview(deck);
-        edit_button.interactable = deck.index >= 0;
+        confirm_button.interactable = deck.index >= 0;
     }
     
 	void OnEnable()

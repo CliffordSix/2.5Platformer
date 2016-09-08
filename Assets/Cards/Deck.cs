@@ -10,11 +10,14 @@ public struct Deck {
     public List<string> cards;
     public int index;
 
+    int nextDraw;
+
     public Deck(string name, int index)
     {
         this.name = name;
         this.index = index;
         cards = new List<string>();
+        nextDraw = 0;
     }
 
     public void AddCard(string name)
@@ -42,7 +45,13 @@ public struct Deck {
 
     public Card Draw()
     {
-        string card_name = cards[0];
-        return CardManager.it.Create(card_name);
+        string card_name = cards[nextDraw++];
+        if (nextDraw == cards.Count)
+        {
+            Shuffle();
+            nextDraw = 0;
+        }
+
+        return CardManager.it.Get(card_name);
     }
 }

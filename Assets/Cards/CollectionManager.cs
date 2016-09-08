@@ -37,6 +37,15 @@ public class CollectionManager : MonoBehaviour {
     void Init () {
         LoadDecks();
         LoadCardCollection();
+
+        //For now, give us all of the cards
+        if (cards.Count == 0)
+        {
+            foreach(Card card in CardManager.it.cards)
+            {
+                CollectCard(card.name, 2);
+            }
+        }
     }
 
     void LoadDeck(string path)
@@ -97,11 +106,6 @@ public class CollectionManager : MonoBehaviour {
         BinaryFormatter formatter = new BinaryFormatter();
         cards = (Dictionary<string, int>)formatter.Deserialize(stream);
         stream.Close();
-
-        if(cards.Count == 0)
-        {
-            CollectCard("Slime", 2);
-        }
     }
 
     public void SaveCards()
