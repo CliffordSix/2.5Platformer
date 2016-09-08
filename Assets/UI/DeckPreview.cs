@@ -31,7 +31,11 @@ public class DeckPreview : MonoBehaviour {
         
         foreach (string card_name in deck.cards)
         {
+            Card card = CardManager.it.Get(card_name);
+
             GameObject card_preview = Instantiate<GameObject>(card_preview_prefab);
+            card_preview.transform.Find("Image").GetComponent<Image>().sprite = card.image;
+
             card_preview.transform.Find("Name").GetComponent<Text>().text = card_name;
             card_preview.transform.SetParent(content, false);
         }

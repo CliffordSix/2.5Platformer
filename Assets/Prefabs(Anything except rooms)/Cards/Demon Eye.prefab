@@ -21,7 +21,7 @@ GameObject:
   - 4: {fileID: 4000010408628414}
   - 114: {fileID: 114000014100764356}
   m_Layer: 0
-  m_Name: Eyeball
+  m_Name: Demon Eye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -53,3 +53,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Monster: {fileID: 1000010328149612, guid: a37bb40a38b31c446a42dffce5347e24, type: 2}
   castAmount: 1
+  image: {fileID: 21300000, guid: da473b5c62f4e2048b6c9374ec0dd835, type: 3}

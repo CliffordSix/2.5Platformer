@@ -30,11 +30,15 @@ public class CardList : MonoBehaviour {
         int nextRow = 0;
         foreach(var pair in CollectionManager.it.cards)
         {
+            Card card = CardManager.it.Get(pair.Key);
+
             GameObject button = Instantiate<GameObject>(collected_card_prefab);
             button.transform.SetParent(rows[nextRow], false);
 
+            button.transform.Find("Image").GetComponent<Image>().sprite = card.image;
+
             CollectedCard script = button.GetComponent<CollectedCard>();
-            script.SetCard(pair.Key, pair.Value);
+            script.SetCard(card.name, pair.Value);
             script.previewer = previewer;
             nextRow++;
             if(nextRow > 1) nextRow = 0;
