@@ -89,13 +89,7 @@
     <Compile Include="Assets\Cards\CollectionManager.cs" />
     <Compile Include="Assets\Cards\Deck.cs" />
     <Compile Include="Assets\Cards\DeckOld.cs" />
-    <Compile Include="Assets\Monsters\BehaviourOld.cs" />
-    <Compile Include="Assets\Monsters\Behaviours\Charge.cs" />
-    <Compile Include="Assets\Monsters\Behaviours\ImpCombat.cs" />
-    <Compile Include="Assets\Monsters\Behaviours\Jumpy.cs" />
-    <Compile Include="Assets\Monsters\Behaviours\Wander.cs" />
-    <Compile Include="Assets\Monsters\State Managers\Basic.cs" />
-    <Compile Include="Assets\Monsters\StateManager.cs" />
+    <Compile Include="Assets\Monsters\MonsterManager.cs" />
     <Compile Include="Assets\Scripts\Abilities\Ability.cs" />
     <Compile Include="Assets\Scripts\Abilities\BasicBowFire.cs" />
     <Compile Include="Assets\Scripts\Abilities\BowMultiDirectionShot.cs" />

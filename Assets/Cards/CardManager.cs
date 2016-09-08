@@ -91,6 +91,6 @@ public class CardManager : MonoBehaviour
 
     public Card Create(string name)
     {
-        return GameObject.Instantiate<GameObject>(cards_[name]).GetComponent<Card>();
+        return Instantiate(cards_[name]).GetComponent<Card>();
     }
 }
