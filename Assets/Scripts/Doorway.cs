@@ -90,7 +90,7 @@ public class Doorway : MonoBehaviour {
             }
 
             Connected = true;
-            //oppositeDoor.Connected = true; 
+            oppositeDoor.Connected = true;
 
             toBuild = Instantiate(toBuild.gameObject).GetComponent<Room>();
             toBuild.transform.position = bottomLeft;
