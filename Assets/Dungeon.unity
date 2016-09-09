@@ -133,7 +133,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b490b597ba97fd439734a12d2d490e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Card: {fileID: 117794, guid: 981b60a3fdacf3b4cb0e0ec599e7ad9a, type: 2}
+  Card: {fileID: 117794, guid: b0e4b469adf1a1f4eb27f3ae81262637, type: 2}
 --- !u!1 &152658080
 GameObject:
   m_ObjectHideFlags: 0
@@ -6024,7 +6024,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 166554, guid: aff4b94e9a156f849952822c028958b0, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11499970, guid: aff4b94e9a156f849952822c028958b0, type: 2}
       propertyPath: m_MatchWidthOrHeight

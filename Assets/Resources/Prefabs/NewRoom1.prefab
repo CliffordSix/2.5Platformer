@@ -7138,7 +7138,7 @@ GameObject:
   - 61: {fileID: 61000013912021222}
   m_Layer: 11
   m_Name: NewRoom1
-  m_TagString: Untagged
+  m_TagString: Room
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -62579,7 +62579,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rContainer: {fileID: 0}
   dir: S
-  Connected: 0
   DungeonSize: 20
 --- !u!114 &114000010433084520
 MonoBehaviour:
@@ -62657,7 +62656,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rContainer: {fileID: 0}
   dir: W
-  Connected: 0
   DungeonSize: 60
 --- !u!114 &114000012350249800
 MonoBehaviour:
@@ -62684,7 +62682,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rContainer: {fileID: 0}
   dir: E
-  Connected: 0
   DungeonSize: 20
 --- !u!114 &114000013545094880
 MonoBehaviour:
@@ -62710,7 +62707,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rContainer: {fileID: 0}
   dir: N
-  Connected: 0
   DungeonSize: 60
 --- !u!114 &114000013986854266
 MonoBehaviour:

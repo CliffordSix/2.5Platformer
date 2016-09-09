@@ -926,6 +926,11 @@ Prefab:
       value: 
       objectReference: {fileID: 114000010946262574, guid: 5b72c196ac0b3d84383af2c19e24da41,
         type: 2}
+    - target: {fileID: 114000013387248360, guid: 3f0d0506c38e04341ac816b10219a225,
+        type: 2}
+      propertyPath: cardDelay
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3f0d0506c38e04341ac816b10219a225, type: 2}
   m_IsPrefabParent: 0
