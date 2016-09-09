@@ -118,9 +118,7 @@ public class RoomManager : MonoBehaviour {
                         doors.GetComponent<Doorway>().BlockDoorway();
                     }
                 }
-                Debug.Log("Dungeon Built");
-                GameObject.Find("GUI Manager").BroadcastMessage("LoadBarInc", 1.0F);
-                
+                GUIManager.it.LoadBarInc(1.0F);
             }
             
             CloseDoors = false;

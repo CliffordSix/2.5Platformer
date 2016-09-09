@@ -1,14 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
-
-/****************************
- * 							*
- * 							*
- *	Fix the Box Sizing		*
- * 							*
- * 							*
- ****************************/
 public class Room : MonoBehaviour {
 
     public bool Up ,Down,Left ,Right;
@@ -28,11 +20,6 @@ public class Room : MonoBehaviour {
 
     Dictionary<string, Doorway> doors = new Dictionary<string, Doorway>();
 
-    /*	void OnDrawGizmos()
-        {
-            Gizmos.DrawLine(tLeft.position, bRight.position);
-        }*/
-
     void Start()
     {
         FindDoors();
@@ -49,7 +36,6 @@ public class Room : MonoBehaviour {
 
     public Doorway GetExit(string direction)
     {
-        //Debug.Log(direction);
         return doors[direction];
     }
 
@@ -78,16 +64,4 @@ public class Room : MonoBehaviour {
         GetComponent<BoxCollider2D>().enabled = true;
         return result;
     }
-
-    /*void OnTriggerEnter2D(Collider2D col)
-    {
-		if (col.tag == "Player") {
-			Debug.Log ("Player Entered Rooms");
-			Doorway[] doors = GetExits ();
-			foreach (Doorway d in doors) {
-				d.buildRoom ();
-			}
-		}
-
-    }*/
 }

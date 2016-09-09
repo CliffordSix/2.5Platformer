@@ -65980,7 +65980,6 @@ MonoBehaviour:
   - {fileID: 162828, guid: d75a203ac747e4547ac7fdc2b08b2615, type: 2}
   - {fileID: 131608, guid: cad107816b2f3224296bd5122476b1cb, type: 2}
   - {fileID: 139936, guid: e0bb51d3baebaa243930ffe6729c7ae9, type: 2}
-  count: 0
   OriginalRoom: {fileID: 1950192696}
   Wall: {fileID: 136870, guid: 389a24696caabfb498bc5f4f445d4e9a, type: 2}
   Floor: {fileID: 164202, guid: ea4b20017f5a2a84790642f093e2c13e, type: 2}
@@ -72772,7 +72771,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4000012665324500, guid: bf1db87285487e647b4aec961463d243, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.424
       objectReference: {fileID: 0}
     - target: {fileID: 4000012665324500, guid: bf1db87285487e647b4aec961463d243, type: 2}
       propertyPath: m_LocalPosition.y
@@ -93618,6 +93617,7 @@ MonoBehaviour:
   flyingSpawns:
   - {fileID: 1883897135}
   groundSpawns: []
+  maxSpawns: 0
 --- !u!1 &1950962116
 GameObject:
   m_ObjectHideFlags: 0
