@@ -13883,7 +13883,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rContainer: {fileID: 0}
   dir: W
-  Connected: 0
   DungeonSize: 60
 --- !u!114 &11435720
 MonoBehaviour:
@@ -13924,7 +13923,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rContainer: {fileID: 0}
   dir: S
-  Connected: 0
   DungeonSize: 60
 --- !u!114 &11447128
 MonoBehaviour:
@@ -13951,7 +13949,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rContainer: {fileID: 0}
   dir: N
-  Connected: 0
   DungeonSize: 60
 --- !u!114 &11454448
 MonoBehaviour:
@@ -13989,7 +13986,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rContainer: {fileID: 0}
   dir: E
-  Connected: 0
   DungeonSize: 60
 --- !u!114 &11493774
 MonoBehaviour:

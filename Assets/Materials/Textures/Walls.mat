@@ -30,7 +30,7 @@ Material:
     - first:
         name: _DetailMask
       second:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 7de374796c592ce4998eaf7010afd4c7, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - first:
