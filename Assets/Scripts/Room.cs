@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using System.Collections;
+using System.Collections.Generic;
 
 
 /****************************
@@ -24,15 +24,45 @@ public class Room : MonoBehaviour {
     public SpawnArea[] flyingSpawns;
     public SpawnArea[] groundSpawns;
 
+    public int maxSpawns = 0;
+
+    Dictionary<string, Doorway> doors = new Dictionary<string, Doorway>();
+
     /*	void OnDrawGizmos()
         {
             Gizmos.DrawLine(tLeft.position, bRight.position);
         }*/
 
-    public Doorway[] GetExits()
+    void Start()
+    {
+        FindDoors();
+    }
+
+    public void FindDoors()
+    {
+        if (doors.Count > 0) return;
+        foreach (Doorway door in GetComponentsInChildren<Doorway>())
+        {
+            doors.Add(door.dir, door);
+        }
+    }
+
+    public Doorway GetExit(string direction)
+    {
+        //Debug.Log(direction);
+        return doors[direction];
+    }
+
+    public List<Doorway> GetExits()
     {
         Doorway[] doorways = GetComponentsInChildren<Doorway>();
-        return doorways;
+        List<Doorway> result = new List<Doorway>();
+        foreach(Doorway door in doorways)
+        {
+            if (!door.Connected)
+                result.Add(door);
+        }
+        return result;
     }
 
 	bool isOverlapping()
@@ -40,26 +70,14 @@ public class Room : MonoBehaviour {
 		return Physics2D.OverlapArea (tLeft.position, bRight.position, roomLayer);
 	}
 
-    void Start()
-	{
-        StartCoroutine(CheckForCollision());
-    }
-
 	public bool checkCollision()
 	{
-		//Debug.Log ("Checking for overlapping rooms");
-		if (isOverlapping ()) {
-			//Debug.Log ("Is Overlapping an existing Room");
-			//collided = true;
-
-            return false;
-		}
-        else
-        {
-            //Renable the collider
-            return true;
-        }
-	}
+        //Debug.Log ("Checking for overlapping rooms");
+        GetComponent<BoxCollider2D>().enabled = false;
+        bool result = !isOverlapping();
+        GetComponent<BoxCollider2D>().enabled = true;
+        return result;
+    }
 
     /*void OnTriggerEnter2D(Collider2D col)
     {
@@ -72,20 +90,4 @@ public class Room : MonoBehaviour {
 		}
 
     }*/
-
-    IEnumerator CheckForCollision()
-    {
-        yield return new WaitForSeconds(1.5f);
-
-        //Debug.Log(collided);
-        if(collided)
-        {
-          //  Debug.Log("Rrmoving Room");
-           // Destroy(this.gameObject);
-        }
-
-    }
-
-   
-
 }

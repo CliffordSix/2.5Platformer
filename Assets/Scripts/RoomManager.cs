@@ -4,76 +4,107 @@ using System.Collections.Generic;
 
 public class RoomManager : MonoBehaviour {
 
+    public static RoomManager it;
+
     public int DungeonSize = 60;
 
     public GameObject[] RoomList = new GameObject[6];
-    public int count = 0;
     public GameObject OriginalRoom;
 
     public GameObject Wall, Floor;
 
     bool CloseDoors = true;
+    int createdCount = 0;
 
-    public List<GameObject> ExpandList = new List<GameObject>();
+    public List<Doorway> ExpandList = new List<Doorway>();
+
+    void Awake()
+    {
+        if (it != this)
+        {
+            it = this;
+            Init();
+        }
+    }
 
 	// Use this for initialization
-	void Start () {
+	void Init () {
         Room OR = OriginalRoom.GetComponent<Room>();
 
-        Doorway[] doors = OR.GetExits();
+        //Start out with all original doors in list to expand
+        ExpandList = OR.GetExits();
        
         //Shuffle List of doors
-        for(int i = 0; i < doors.Length; i++)
-        {
-            int j = UnityEngine.Random.Range(0, doors.Length);
-            Doorway k = doors[i];
-            doors[i] = doors[j];
-            doors[j] = k; 
-           
-        }
+        //for(int i = 0; i < doors.Length; i++)
+        //{
+        //    int j = UnityEngine.Random.Range(0, doors.Length);
+        //    Doorway k = doors[i];
+        //    doors[i] = doors[j];
+        //    doors[j] = k;
+        //}
 
-        foreach (Doorway d in doors)
+        //foreach (Doorway d in doors)
+        //{
+        //    d.DungeonSize = DungeonSize;    
+        //    d.buildRoom();      
+        //}
+        //count++;
+    }
+
+    void Expand(int index)
+    {
+        //Get the door to be expanded
+        Doorway door = ExpandList[index];
+        door.DungeonSize = DungeonSize;
+
+        //Remove it so we never check this door again
+        ExpandList.RemoveAt(index);
+        UnityEditor.Selection.activeGameObject = door.gameObject;
+
+        //Attempt to build a room at the door
+        GameObject room = door.buildRoom();
+
+        //If the build failed
+        if (room != null)
         {
-            d.DungeonSize = DungeonSize;    
-            d.buildRoom();      
+            createdCount++;
+            List<Doorway> doors = room.GetComponent<Room>().GetExits();
+            //while (doors.Count > 0)
+            //{
+            //    int r = Random.Range(0, doors.Count);
+            //    ExpandList.Add(doors[r]);
+            //    doors.RemoveAt(r);
+            //}
+            ExpandList.AddRange(doors);
         }
-        count++;
     }
 	
 	// Update is called once per frame
-	void Update () {
-	
-        if(ExpandList.Count >= 1)
+	void Update ()
+    {
+	    //If we haven't created all the rooms and there are doors to expand
+        if(createdCount < DungeonSize && ExpandList.Count > 0)
         {
-            //Pick a random room to expand
-            
-            int Rand = UnityEngine.Random.Range(0, ExpandList.Count);
+            //Expand the first door in the list
+            Expand(0);
+            GUIManager.it.LoadBarInc(1.0f / (DungeonSize + 1.0f));
 
-            GameObject roomZero = ExpandList[0];
-            ExpandList[0] = ExpandList[Rand];
-            ExpandList[Rand] = roomZero;
+            //Room BuildMe = ExpandList[0].GetComponent<Room>();
+            //Doorway[] doors = BuildMe.GetExits();
+            ////Shuffle List of doors
+            //for (int i = 0; i < doors.Length; i++)
+            //{
+            //    int j = UnityEngine.Random.Range(0, doors.Length);
+            //    Doorway k = doors[i];
+            //    doors[i] = doors[j];
+            //    doors[j] = k;
+            //}
 
-
-            Room BuildMe = ExpandList[0].GetComponent<Room>();
-            Doorway[] doors = BuildMe.GetExits();
-            //Shuffle List of doors
-            for (int i = 0; i < doors.Length; i++)
-            {
-                int j = UnityEngine.Random.Range(0, doors.Length);
-                Doorway k = doors[i];
-                doors[i] = doors[j];
-                doors[j] = k;
-
-            }
-
-            foreach (Doorway d in doors)
-            {
-              //  Debug.Log(d.dir);
-                d.DungeonSize = DungeonSize;
-                d.buildRoom();
-            }
-           // Debug.Log("End");
-            ExpandList.RemoveAt(0);
+            //foreach (Doorway d in doors)
+            //{
+            //    d.DungeonSize = DungeonSize;
+            //    d.buildRoom();
+            //}
         }
         else
         {

@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour {
 
     public static GameManager it;
 
-    public float cardDelay = 1;
+    public float cardDelay = Mathf.Infinity;
 
     Deck deck;
     float untilNextCard = 0.0f;
@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour {
     }
     
 	void Init () {
-	    
+        Random.InitState(System.Environment.TickCount);
 	}
 
     public void SetDeck(Deck deck)
@@ -44,7 +44,7 @@ public class GameManager : MonoBehaviour {
     {
         Room room = PlayerController.it.GetComponent<RoomTracker>().current;
         Card card = deck.Draw();
-        if (card == null) return;
+        if (card == null || room == null) return;
 
         GameObject monster = Instantiate(card.monster);
         monster.transform.rotation = Quaternion.identity;

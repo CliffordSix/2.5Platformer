@@ -30,6 +30,11 @@ public struct Deck {
         cards.Remove(name);
     }
 
+    public bool isEmpty()
+    {
+        return nextDraw >= cards.Count;
+    }
+
     public void Shuffle()
     {
         List<string> old_cards = new List<string>(cards);

@@ -65,7 +65,7 @@ public class GUIManager : MonoBehaviour {
         }
     }
 
-	void LoadBarInc(float i)
+	public void LoadBarInc(float i)
 	{
 	//	Debug.Log ("Loading" + i);
 		LoadingBarFull.fillAmount += i;
