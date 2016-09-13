@@ -101,7 +101,7 @@ public class RoomManager : MonoBehaviour
     void Update()
     {
         //If we haven't created all the rooms and there are doors to expand
-        if (!GameManager.it.GetDeck().isEmpty())
+        if (GameManager.it.GetDeck() != null && !GameManager.it.GetDeck().isEmpty())
         {
             //Expand the first door in the list
             Expand(0);
