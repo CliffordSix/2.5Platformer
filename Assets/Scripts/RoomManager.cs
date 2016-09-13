@@ -81,7 +81,6 @@ public class RoomManager : MonoBehaviour
 
         //Remove it so we never check this door again
         expandList.RemoveAt(index);
-        UnityEditor.Selection.activeGameObject = door.gameObject;
 
         //Attempt to build a room at the door
         GameObject room = door.BuildRoom();
