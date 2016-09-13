@@ -101,28 +101,11 @@ public class RoomManager : MonoBehaviour
     void Update()
     {
         //If we haven't created all the rooms and there are doors to expand
-        if (GameManager.it.GetDeck() != null && !GameManager.it.GetDeck().isEmpty())
+        if ((GameManager.it.GetDeck() != null && !GameManager.it.GetDeck().isEmpty()) || (GameManager.it.GetDeck() == null && createdCount < DungeonSize))
         {
             //Expand the first door in the list
             Expand(0);
             GUIManager.it.LoadBarInc(1.0f / (DungeonSize + 1.0f));
-
-            //Room BuildMe = ExpandList[0].GetComponent<Room>();
-            //Doorway[] doors = BuildMe.GetExits();
-            ////Shuffle List of doors
-            //for (int i = 0; i < doors.Length; i++)
-            //{
-            //    int j = UnityEngine.Random.Range(0, doors.Length);
-            //    Doorway k = doors[i];
-            //    doors[i] = doors[j];
-            //    doors[j] = k;
-            //}
-
-            //foreach (Doorway d in doors)
-            //{
-            //    d.DungeonSize = DungeonSize;
-            //    d.buildRoom();
-            //}
         }
         else if (CloseDoors)
         {
