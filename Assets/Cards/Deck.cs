@@ -4,20 +4,30 @@ using System.Collections.Generic;
 using Newtonsoft.Json.Linq;
 
 [System.Serializable]
-public struct Deck {
+public class Deck {
 
     public string name;
-    public List<string> cards;
+    public List<string> cards = new List<string>();
     public int index;
 
-    int nextDraw;
+    int nextDraw = 0;
 
     public Deck(string name, int index)
     {
         this.name = name;
         this.index = index;
-        cards = new List<string>();
-        nextDraw = 0;
+    }
+
+    public Deck(Deck toCopy, bool copyDrawPosition = false)
+    {
+        this.name = toCopy.name;
+        this.index = toCopy.index;
+
+        foreach (string card in toCopy.cards)
+            this.AddCard(card);
+
+        if (copyDrawPosition)
+            this.nextDraw = toCopy.nextDraw;
     }
 
     public void AddCard(string name)

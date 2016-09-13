@@ -17,7 +17,7 @@ public class DeckList : MonoBehaviour {
     {
         selected = deck;
         previewer.Preview(deck);
-        confirm_button.interactable = deck.index >= 0;
+        confirm_button.interactable = deck != null && deck.index >= 0;
     }
     
 	void OnEnable()
@@ -34,7 +34,7 @@ public class DeckList : MonoBehaviour {
 
     void Setup()
     {
-        SetSelected(new Deck("", -1));
+        SetSelected(null);
         for(int i = 0; i < 2; i++)
         {
             ClearRow(i);

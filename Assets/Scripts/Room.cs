@@ -12,11 +12,10 @@ public class Room : MonoBehaviour {
 	public LayerMask roomLayer;
 
     public int Width, Height;
+    float spawnModifier = 0.15f;
 
     public SpawnArea[] flyingSpawns;
     public SpawnArea[] groundSpawns;
-
-    public int maxSpawns = 0;
 
     Dictionary<string, Doorway> doors = new Dictionary<string, Doorway>();
 
@@ -63,5 +62,27 @@ public class Room : MonoBehaviour {
         bool result = !isOverlapping();
         GetComponent<BoxCollider2D>().enabled = true;
         return result;
+    }
+
+    public int GetSpawnCount()
+    {
+        return (int)Mathf.Ceil((Width * Height) * spawnModifier);
+    }
+
+    public Vector3 GetRandomSpawn(GameObject monster)
+    {
+        SpawnArea[] spawns = new SpawnArea[0];
+        if (monster.GetComponent<Behaviours.GroundFollow>() != null)
+            spawns = groundSpawns;
+        else if (monster.GetComponent<Behaviours.FlyingFollow>() != null)
+            spawns = flyingSpawns;
+        
+        if(spawns.Length == 0 || spawns[0] == null)
+            return transform.position + new Vector3(Width * 0.5f, Height * 0.5f);
+
+        int index = Random.Range(0, spawns.Length);
+        Vector3 pos = spawns[index].GetRandomPosition();
+        pos.z = 0;
+        return pos;
     }
 }
