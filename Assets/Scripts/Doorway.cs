@@ -52,6 +52,8 @@ public class Doorway : MonoBehaviour {
             Vector2 bottomLeft = parent.transform.position;
             
             Doorway oppositeDoor = toBuild.GetExit(oppositeDoors[dir]);
+            if (oppositeDoor == null)
+                continue;
             float xDiff = transform.localPosition.x - oppositeDoor.transform.localPosition.x;
             float yDiff = transform.localPosition.y - oppositeDoor.transform.localPosition.y;
 
