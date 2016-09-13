@@ -35,7 +35,11 @@ public class Room : MonoBehaviour {
 
     public Doorway GetExit(string direction)
     {
-        return doors[direction];
+        try { return doors[direction]; }
+        catch (System.Exception e)
+        { }
+        return null;
+        
     }
 
     public List<Doorway> GetExits()
