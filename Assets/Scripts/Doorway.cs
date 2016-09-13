@@ -40,19 +40,22 @@ public class Doorway : MonoBehaviour {
             return null;
 
         Room parent = transform.parent.GetComponent<Room>();
-        GameObject[] rooms = RoomManager.it.RoomList;
+        List<GameObject> rooms = new List<GameObject>(RoomManager.it.RoomList).FindAll(room => 
+            //use this to filter which rooms can be chosen 
+            room != parent.prefab
+        );
 
         //Try 5 different rooms, if none fit, leave the door blank
-        for(int i = 0; i < 5; i++)
+        for (int i = 0; i < 5; i++)
         {
-            int r = Random.Range(0, rooms.Length);
-            Room toBuild = rooms[r].GetComponent<Room>();
-            toBuild.FindDoors();
-            List<Doorway> doors = toBuild.GetExits();
+            int r = Random.Range(0, rooms.Count);
+            Room prefab = rooms[r].GetComponent<Room>();
+            prefab.FindDoors();
+            List<Doorway> doors = prefab.GetExits();
 
             Vector2 bottomLeft = parent.transform.position;
             
-            Doorway oppositeDoor = toBuild.GetExit(oppositeDoors[dir]);
+            Doorway oppositeDoor = prefab.GetExit(oppositeDoors[dir]);
             if (oppositeDoor == null)
                 continue;
             float xDiff = transform.localPosition.x - oppositeDoor.transform.localPosition.x;
@@ -69,22 +72,23 @@ public class Doorway : MonoBehaviour {
                     bottomLeft.y += yDiff;
                     break;
                 case "S":
-                    bottomLeft.y -= toBuild.Height;
+                    bottomLeft.y -= prefab.Height;
                     bottomLeft.x += xDiff;
                     break;
                 case "W":
-                    bottomLeft.x -= toBuild.Width;
+                    bottomLeft.x -= prefab.Width;
                     bottomLeft.y += yDiff;
                     break;
             }
 
-            Vector2 topRight = bottomLeft + new Vector2(toBuild.Width, toBuild.Height);
+            Vector2 topRight = bottomLeft + new Vector2(prefab.Width, prefab.Height);
             //If the overlap hits something, try a new room
             Collider2D hit = Physics2D.OverlapArea(bottomLeft + Vector2.one, topRight - Vector2.one, LayerMask.GetMask(new string[] { "Room" }));
             if (hit != null)
                 continue;
 
-            toBuild = Instantiate(toBuild.gameObject).GetComponent<Room>();
+            Room toBuild = Instantiate(prefab.gameObject).GetComponent<Room>();
+            toBuild.prefab = prefab.gameObject;
             toBuild.FindDoors();
 
             toBuild.transform.position = bottomLeft;

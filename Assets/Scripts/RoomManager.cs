@@ -14,6 +14,9 @@ public class RoomManager : MonoBehaviour
 
     public GameObject Wall, Floor;
 
+    [Tooltip("No. of spawns = width*height*spawnModifier")]
+    public float spawnModifier = 0.01f;
+
     bool CloseDoors = true;
     int createdCount = 0;
 

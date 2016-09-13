@@ -12,10 +12,11 @@ public class Room : MonoBehaviour {
 	public LayerMask roomLayer;
 
     public int Width, Height;
-    float spawnModifier = 0.15f;
 
     public SpawnArea[] flyingSpawns;
     public SpawnArea[] groundSpawns;
+
+    public GameObject prefab { get; set; }
 
     Dictionary<string, Doorway> doors = new Dictionary<string, Doorway>();
 
@@ -69,7 +70,7 @@ public class Room : MonoBehaviour {
 
     public int GetSpawnCount()
     {
-        return (int)Mathf.Ceil((Width * Height) * spawnModifier);
+        return (int)Mathf.Ceil((Width * Height) * RoomManager.it.spawnModifier);
     }
 
     public Vector3 GetRandomSpawn(GameObject monster)

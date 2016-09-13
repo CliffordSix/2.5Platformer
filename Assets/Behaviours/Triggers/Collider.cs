@@ -9,7 +9,9 @@ namespace Behaviours.Triggers
     {
         public string requiredTag;
         public LayerMask layerMask;
-        public Collider2D other = null;
+
+        [System.ComponentModel.DefaultValue(null)]
+        public Collider2D other { get; set; }
 
         bool triggered = false;
 
