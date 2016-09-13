@@ -58,7 +58,6 @@ public class RoomManager : MonoBehaviour
     {
         Deck deck = GameManager.it.GetDeck();
         int spawnsLeft = room.GetSpawnCount();
-        Debug.Log(room.name + ": " + spawnsLeft);
 
         while (spawnsLeft-- > 0)
         {
@@ -89,7 +88,8 @@ public class RoomManager : MonoBehaviour
         {
             createdCount++;
             expandList.AddRange(room.GetComponent<Room>().GetExits());
-            SpawnMonsters(room.GetComponent<Room>());
+            if(GameManager.it.GetDeck() != null)
+                SpawnMonsters(room.GetComponent<Room>());
         }
         else
         {
@@ -101,7 +101,7 @@ public class RoomManager : MonoBehaviour
     void Update()
     {
         //If we haven't created all the rooms and there are doors to expand
-        if ((GameManager.it.GetDeck() != null && !GameManager.it.GetDeck().isEmpty()) || (GameManager.it.GetDeck() == null && createdCount < DungeonSize))
+        if ((GameManager.it.GetDeck() != null && !GameManager.it.GetDeck().isEmpty()) || (GameManager.it.GetDeck() == null && createdCount < DungeonSize && expandList.Count > 0))
         {
             //Expand the first door in the list
             Expand(0);

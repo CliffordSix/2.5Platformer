@@ -21,7 +21,6 @@ public class Room : MonoBehaviour {
 
     void Start()
     {
-        FindDoors();
     }
 
     public void FindDoors()

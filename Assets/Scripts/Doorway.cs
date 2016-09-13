@@ -85,6 +85,8 @@ public class Doorway : MonoBehaviour {
                 continue;
 
             toBuild = Instantiate(toBuild.gameObject).GetComponent<Room>();
+            toBuild.FindDoors();
+
             toBuild.transform.position = bottomLeft;
 
             oppositeDoor = toBuild.GetExit(oppositeDoors[dir]);
