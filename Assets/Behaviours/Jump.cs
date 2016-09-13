@@ -13,6 +13,8 @@ namespace Behaviours
         public Triggers.Grounded groundedTrigger;
         public float force = 0.0f;
 
+        bool lastActive = false;
+
         void Start()
         {
             rigidbody = GetComponent<Rigidbody2D>();
@@ -20,10 +22,11 @@ namespace Behaviours
         
         void FixedUpdate()
         {
-            if(trigger.IsActive() && groundedTrigger.IsActive())
+            if((trigger.IsActive() && !lastActive) && groundedTrigger.IsActive())
             {
                 rigidbody.AddForce(new Vector2(0, force), ForceMode2D.Impulse);
             }
+            lastActive = trigger.IsActive();
         }
     }
 }
