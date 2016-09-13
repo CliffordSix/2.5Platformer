@@ -33,7 +33,7 @@ public class Doorway : MonoBehaviour {
         Gizmos.DrawSphere(transform.position, 0.125f);
     }
 
-	public GameObject buildRoom()
+	public GameObject BuildRoom()
 	{
         //First check there isnt a room directly in front of this doorway
         if (Connected)
@@ -42,6 +42,7 @@ public class Doorway : MonoBehaviour {
         Room parent = transform.parent.GetComponent<Room>();
         GameObject[] rooms = RoomManager.it.RoomList;
 
+        //Try 5 different rooms, if none fit, leave the door blank
         for(int i = 0; i < 5; i++)
         {
             int r = Random.Range(0, rooms.Length);

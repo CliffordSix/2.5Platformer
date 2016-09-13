@@ -2,7 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class RoomManager : MonoBehaviour {
+public class RoomManager : MonoBehaviour
+{
 
     public static RoomManager it;
 
@@ -16,7 +17,8 @@ public class RoomManager : MonoBehaviour {
     bool CloseDoors = true;
     int createdCount = 0;
 
-    public List<Doorway> ExpandList = new List<Doorway>();
+    List<Doorway> expandList = new List<Doorway>();
+    List<Doorway> openDoors = new List<Doorway>();
 
     void Awake()
     {
@@ -27,13 +29,14 @@ public class RoomManager : MonoBehaviour {
         }
     }
 
-	// Use this for initialization
-	void Init () {
+    // Use this for initialization
+    void Init()
+    {
         Room OR = OriginalRoom.GetComponent<Room>();
 
         //Start out with all original doors in list to expand
-        ExpandList = OR.GetExits();
-       
+        expandList = OR.GetExits();
+
         //Shuffle List of doors
         //for(int i = 0; i < doors.Length; i++)
         //{
@@ -51,79 +54,70 @@ public class RoomManager : MonoBehaviour {
         //count++;
     }
 
+    void SpawnMonsters(Room room)
+    {
+        Deck deck = GameManager.it.GetDeck();
+        int spawnsLeft = room.GetSpawnCount();
+        Debug.Log(room.name + ": " + spawnsLeft);
+
+        while (spawnsLeft-- > 0)
+        {
+            Card card = deck.Draw();
+            if (card == null) break;
+
+            GameObject monster = Instantiate(card.monster);
+            Vector3 position = room.GetRandomSpawn(monster);
+            monster.transform.position = position;
+        }
+    }
+
     void Expand(int index)
     {
         //Get the door to be expanded
-        Doorway door = ExpandList[index];
+        Doorway door = expandList[index];
         door.DungeonSize = DungeonSize;
 
         //Remove it so we never check this door again
-        ExpandList.RemoveAt(index);
+        expandList.RemoveAt(index);
         UnityEditor.Selection.activeGameObject = door.gameObject;
 
         //Attempt to build a room at the door
-        GameObject room = door.buildRoom();
+        GameObject room = door.BuildRoom();
 
         //If the build failed
         if (room != null)
         {
             createdCount++;
-            List<Doorway> doors = room.GetComponent<Room>().GetExits();
-            //while (doors.Count > 0)
-            //{
-            //    int r = Random.Range(0, doors.Count);
-            //    ExpandList.Add(doors[r]);
-            //    doors.RemoveAt(r);
-            //}
-            ExpandList.AddRange(doors);
+            expandList.AddRange(room.GetComponent<Room>().GetExits());
+            SpawnMonsters(room.GetComponent<Room>());
+        }
+        else
+        {
+            openDoors.Add(door);
         }
     }
-	
-	// Update is called once per frame
-	void Update ()
+
+    // Update is called once per frame
+    void Update()
     {
-	    //If we haven't created all the rooms and there are doors to expand
-        if(createdCount < DungeonSize && ExpandList.Count > 0)
+        //If we haven't created all the rooms and there are doors to expand
+        if ((GameManager.it.GetDeck() != null && !GameManager.it.GetDeck().isEmpty()) || (GameManager.it.GetDeck() == null && createdCount < DungeonSize))
         {
             //Expand the first door in the list
             Expand(0);
             GUIManager.it.LoadBarInc(1.0f / (DungeonSize + 1.0f));
-
-            //Room BuildMe = ExpandList[0].GetComponent<Room>();
-            //Doorway[] doors = BuildMe.GetExits();
-            ////Shuffle List of doors
-            //for (int i = 0; i < doors.Length; i++)
-            //{
-            //    int j = UnityEngine.Random.Range(0, doors.Length);
-            //    Doorway k = doors[i];
-            //    doors[i] = doors[j];
-            //    doors[j] = k;
-            //}
-
-            //foreach (Doorway d in doors)
-            //{
-            //    d.DungeonSize = DungeonSize;
-            //    d.buildRoom();
-            //}
         }
-        else
+        else if (CloseDoors)
         {
-            if (CloseDoors)
+            openDoors.AddRange(expandList);
+
+            //Block off all doors
+            foreach (Doorway door in openDoors)
             {
-                //Block off all doors
-                foreach (GameObject doors in GameObject.FindGameObjectsWithTag("Doorway"))
-                {
-                    if (doors.GetComponent<Doorway>().Connected == false)
-                    {
-                        doors.GetComponent<Doorway>().BlockDoorway();
-                    }
-                }
-                GUIManager.it.LoadBarInc(1.0F);
+                door.BlockDoorway();
             }
-            
+            GUIManager.it.LoadBarInc(1.0F);
             CloseDoors = false;
-
         }
-
-	}
+    }
 }

@@ -26,7 +26,13 @@ public class DeckPreview : MonoBehaviour {
         foreach (Transform child in content) children.Add(child.gameObject);
         children.ForEach(child => Destroy(child));
 
-        current_deck = deck;
+        if (deck == null)
+        {
+            current_deck = null;
+            return;
+        }
+
+        current_deck = new Deck(deck);
         if (current_deck.cards == null) return;
         
         foreach (string card_name in deck.cards)

@@ -27,7 +27,13 @@ public class GameManager : MonoBehaviour {
     
 	void Init () {
         Random.InitState(System.Environment.TickCount);
-	}
+
+        int playerLayer = LayerMask.NameToLayer("Player");
+        int enemyLayer = LayerMask.NameToLayer("Enemy");
+
+        Physics2D.IgnoreLayerCollision(playerLayer, enemyLayer, true);
+        Physics2D.IgnoreLayerCollision(enemyLayer, enemyLayer, true);
+    }
 
     public void SetDeck(Deck deck)
     {
@@ -66,15 +72,15 @@ public class GameManager : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-        if (SceneManager.GetActiveScene().name != "Dungeon" || deck.cards == null)
-            return;
+     //   if (SceneManager.GetActiveScene().name != "Dungeon" || deck.cards == null)
+     //       return;
 
-        untilNextCard -= Time.deltaTime;
+     //   untilNextCard -= Time.deltaTime;
 
-	    if(untilNextCard <= 0.0f)
-        {
-            CastCard();
-            untilNextCard = cardDelay;
-        }
+	    //if(untilNextCard <= 0.0f)
+     //   {
+     //       CastCard();
+     //       untilNextCard = cardDelay;
+     //   }
 	}
 }

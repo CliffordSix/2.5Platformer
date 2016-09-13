@@ -7,5 +7,6 @@ public class Card : MonoBehaviour{
     
     public GameObject monster;
     public int castAmount = 1;
+    public int difficulty = 0;
     public Sprite image;
 }
