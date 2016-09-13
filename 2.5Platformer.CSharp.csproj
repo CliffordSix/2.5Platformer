@@ -79,6 +79,7 @@
     <Compile Include="Assets\Behaviours\Jump.cs" />
     <Compile Include="Assets\Behaviours\PathFollow.cs" />
     <Compile Include="Assets\Behaviours\PlayerMovement.cs" />
+    <Compile Include="Assets\Behaviours\Teleport.cs" />
     <Compile Include="Assets\Behaviours\Triggers\AxisInput.cs" />
     <Compile Include="Assets\Behaviours\Triggers\Collider.cs" />
     <Compile Include="Assets\Behaviours\Triggers\Grounded.cs" />

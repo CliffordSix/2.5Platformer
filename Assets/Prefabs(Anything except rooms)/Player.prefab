@@ -260,8 +260,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000012630123730}
   - 95: {fileID: 95000013471595464}
-  - 61: {fileID: 61000014271254954}
-  - 114: {fileID: 114000012375653330}
   m_Layer: 10
   m_Name: Model
   m_TagString: Player
@@ -437,6 +435,8 @@ GameObject:
   - 114: {fileID: 114000012706868806}
   - 114: {fileID: 114000011874018698}
   - 114: {fileID: 114000013159314778}
+  - 61: {fileID: 61000010916275226}
+  - 114: {fileID: 114000013758191512}
   m_Layer: 10
   m_Name: Player
   m_TagString: Player
@@ -1318,7 +1318,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012201570722}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.2, z: 0}
+  m_LocalPosition: {x: 0.424, y: 3.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -1636,20 +1636,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &61000014271254954
+--- !u!61 &61000010916275226
 BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000011585651864}
+  m_GameObject: {fileID: 1000012201570722}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: -0.005, y: 0}
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Size: {x: 0.05, y: 0.23}
+  m_Size: {x: 0.41, y: 1.18}
 --- !u!95 &95000013471595464
 Animator:
   serializedVersion: 3
@@ -1712,8 +1712,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trigger: {fileID: 114000011468432916}
-  groundedTrigger: {fileID: 114000012375653330}
-  force: 650
+  groundedTrigger: {fileID: 114000013758191512}
+  force: 950
 --- !u!114 &114000011874018698
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1727,23 +1727,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   oneShot: 0
   axis: Drop
---- !u!114 &114000012375653330
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000011585651864}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b1d8c3cd9951b849a96af1e713e5beb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  oneShot: 0
-  groundLayers:
-    serializedVersion: 2
-    m_Bits: 768
-  collider: {fileID: 61000014271254954}
-  rigidbody: {fileID: 50000011095572578}
 --- !u!114 &114000012706868806
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1783,8 +1766,26 @@ MonoBehaviour:
   damageable: {fileID: 114000010812856370}
   mainHandPos: {fileID: 4000012166044936}
   offhandPos: {fileID: 4000013452436430}
-  mainHandWep: {fileID: 0}
+  mainHandWep: {fileID: 114000012985758550, guid: a74f13f4ccb65624da96e2f294864435,
+    type: 2}
   offhandWep: {fileID: 0}
+--- !u!114 &114000013758191512
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012201570722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b1d8c3cd9951b849a96af1e713e5beb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  oneShot: 0
+  groundLayers:
+    serializedVersion: 2
+    m_Bits: 768
+  collider: {fileID: 61000010916275226}
+  rigidbody: {fileID: 50000011095572578}
 --- !u!114 &114000013995037304
 MonoBehaviour:
   m_ObjectHideFlags: 1
