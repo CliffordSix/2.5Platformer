@@ -83,11 +83,12 @@ public class Doorway : MonoBehaviour {
             if (hit != null)
                 continue;
 
-            Connected = true;
-            oppositeDoor.Connected = true;
-
             toBuild = Instantiate(toBuild.gameObject).GetComponent<Room>();
             toBuild.transform.position = bottomLeft;
+
+            oppositeDoor = toBuild.GetExit(oppositeDoors[dir]);
+            Connected = true;
+            oppositeDoor.Connected = true;
 
             return toBuild.gameObject;
         }
