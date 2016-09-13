@@ -17,13 +17,14 @@ namespace Behaviours.Triggers
 
         protected override bool CheckActive()
         {
-            return grounded && lastGrounded;
+            return grounded;
         }
 
         void FixedUpdate()
         {
             lastGrounded = grounded;
-            grounded = collider.IsTouchingLayers(groundLayers) && rigidbody.velocity.y <= 0;
+            bool onPlatform = rigidbody.transform.parent != null && rigidbody.transform.parent.GetComponent<MovingPlatform>() != null;
+            grounded = (collider.IsTouchingLayers(groundLayers) && rigidbody.velocity.y <= 0) || onPlatform;
         }
     }
 }
