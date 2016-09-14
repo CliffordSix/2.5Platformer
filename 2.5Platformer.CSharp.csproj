@@ -72,6 +72,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Behaviours\Bosses\Atlas\AtlasController.cs" />
+    <Compile Include="Assets\Behaviours\Bosses\Atlas\AtlasFist.cs" />
     <Compile Include="Assets\Behaviours\ContactDamage.cs" />
     <Compile Include="Assets\Behaviours\DropDown.cs" />
     <Compile Include="Assets\Behaviours\FlyingFollow.cs" />
@@ -101,7 +103,10 @@
     <Compile Include="Assets\Scripts\Abilities\SwordStab.cs" />
     <Compile Include="Assets\Scripts\Armour.cs" />
     <Compile Include="Assets\Scripts\Bow.cs" />
+    <Compile Include="Assets\Scripts\Breakable.cs" />
     <Compile Include="Assets\Scripts\CameraController.cs" />
+    <Compile Include="Assets\Scripts\CameraShake.cs" />
+    <Compile Include="Assets\Scripts\CubicBezier.cs" />
     <Compile Include="Assets\Scripts\Damageable.cs" />
     <Compile Include="Assets\Scripts\DontDestroy.cs" />
     <Compile Include="Assets\Scripts\Doorway.cs" />
