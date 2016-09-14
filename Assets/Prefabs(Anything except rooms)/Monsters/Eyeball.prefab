@@ -38,12 +38,11 @@ GameObject:
   - 4: {fileID: 4000011712222892}
   - 50: {fileID: 50000014162648610}
   - 114: {fileID: 114000013873935280}
-  - 58: {fileID: 58000013286694602}
   - 114: {fileID: 114000010989581314}
   - 114: {fileID: 114000011818423978}
-  m_Layer: 14
+  m_Layer: 0
   m_Name: Eyeball
-  m_TagString: Respawn
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -181,7 +180,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000014122431078}
   - 58: {fileID: 58000012386836422}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: joint1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -458,20 +457,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!58 &58000013286694602
-CircleCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000010328149612}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.2
 --- !u!95 &95000013969970552
 Animator:
   serializedVersion: 3
@@ -505,7 +490,6 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 0
-  other: {fileID: 0}
 --- !u!114 &114000010989581314
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -536,7 +520,6 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 0
-  other: {fileID: 0}
 --- !u!114 &114000011818423978
 MonoBehaviour:
   m_ObjectHideFlags: 1

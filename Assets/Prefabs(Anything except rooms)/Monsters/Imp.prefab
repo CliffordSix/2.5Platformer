@@ -1313,7 +1313,6 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 0
-  other: {fileID: 0}
 --- !u!114 &114000012740354480
 MonoBehaviour:
   m_ObjectHideFlags: 1
