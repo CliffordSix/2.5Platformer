@@ -31,7 +31,6 @@ namespace Behaviours.Triggers
 
         void OnCollisionEnter2D(Collision2D collision)
         {
-            
             if (triggered) return;
             bool result = Check(collision.gameObject);
             if(result)
