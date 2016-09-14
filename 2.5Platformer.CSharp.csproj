@@ -129,6 +129,8 @@
     <Compile Include="Assets\Scripts\SpawnArea.cs" />
     <Compile Include="Assets\Scripts\SwordSingle.cs" />
     <Compile Include="Assets\Scripts\Weapon.cs" />
+    <Compile Include="Assets\Scripts\rotate.cs" />
+    <Compile Include="Assets\SpawnPortal.cs" />
     <Compile Include="Assets\UI\CardList.cs" />
     <Compile Include="Assets\UI\CollectedCard.cs" />
     <Compile Include="Assets\UI\DeckButton.cs" />
@@ -136,7 +138,6 @@
     <Compile Include="Assets\UI\DeckPreview.cs" />
     <Compile Include="Assets\UI\MainMenu.cs" />
     <Compile Include="Assets\UnityPackages\JsonNetSample\JsonNetSample.cs" />
-    <Compile Include="Assets\rotate.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />

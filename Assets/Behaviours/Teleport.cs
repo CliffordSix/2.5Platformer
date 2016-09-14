@@ -21,7 +21,7 @@ namespace Behaviours
         {
             if (trigger.IsActive() && !lastActive)
                 trigger.other.transform.position = endPoint.position;
-
+            
             lastActive = trigger.IsActive();
         }
     }

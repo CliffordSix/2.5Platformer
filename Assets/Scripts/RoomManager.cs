@@ -7,7 +7,11 @@ public class RoomManager : MonoBehaviour
 
     public static RoomManager it;
 
+    public Behaviours.Teleport SpawnTeleport;
+
     public int DungeonSize = 60;
+    public GameObject Portal;
+    List<Transform> spawnLocations = new List<Transform>();
 
     public GameObject[] RoomList = new GameObject[6];
     public GameObject OriginalRoom;
@@ -92,9 +96,17 @@ public class RoomManager : MonoBehaviour
             expandList.AddRange(room.GetComponent<Room>().GetExits());
             if(GameManager.it.GetDeck() != null)
                 SpawnMonsters(room.GetComponent<Room>());
+            CircleCollider2D[] spawnPoints = room.GetComponentsInChildren<CircleCollider2D>();
+            foreach (CircleCollider2D c in spawnPoints) {
+                if (c.tag == "PlayerSpawn")
+                {
+                    spawnLocations.Add(c.transform);
+                }
+             }     
         }
         else
         {
+            
             openDoors.Add(door);
         }
     }
@@ -120,6 +132,15 @@ public class RoomManager : MonoBehaviour
             }
             GUIManager.it.LoadBarInc(1.0F);
             CloseDoors = false;
+
+            int rand = UnityEngine.Random.Range(0, spawnLocations.Count - 1);
+
+
+            Debug.Log(rand);
+            SpawnTeleport.endPoint = spawnLocations[rand];
+            
+            GameObject p = Instantiate(Portal, spawnLocations[rand].position, Quaternion.identity) as GameObject;
+            p.GetComponent<Behaviours.Teleport>().enabled = false;
         }
     }
 }

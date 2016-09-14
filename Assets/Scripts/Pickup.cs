@@ -25,10 +25,10 @@ public class Pickup : MonoBehaviour {
                 diffGlow.startColor = Color.blue;
                 break;
             case 4:
-                diffGlow.startColor = new Color(238, 130, 238);
+                diffGlow.startColor = Color.red;
                 break;
             case 5:
-                diffGlow.startColor = new Color(255, 215, 0);
+                diffGlow.startColor = Color.magenta;
                 break;
         }
         Debug.Log(diffGlow.startColor);

@@ -29,7 +29,7 @@ public class DropManger : MonoBehaviour {
 
     int GetDifficulty()
     {
-        return UnityEngine.Random.Range(4,5);
+        return UnityEngine.Random.Range(1,6);
     }
 
 }
