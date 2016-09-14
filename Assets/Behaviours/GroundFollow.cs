@@ -9,7 +9,8 @@ namespace Behaviours
 
         public Trigger trigger;
         public Transform target;
-        public float speed = 0.0f;
+        public float moveForce = 0.0f;
+        public float maxSpeed = 0.0f;
 
         new Rigidbody2D rigidbody;
 
@@ -26,17 +27,18 @@ namespace Behaviours
             if (trigger == null || trigger.IsActive())
             {
                 Vector3 position = transform.position;
-                int direction = 0;
-                if (position.x < target.position.x) direction = 1;
-                if (position.x > target.position.x) direction = -1;
+                Vector2 direction = Vector2.zero;
+                if (position.x < target.position.x) direction.x = 1;
+                if (position.x > target.position.x) direction.x = -1;
 
-                Vector2 velocity = rigidbody.velocity;
-                velocity.x = direction * speed;
-                rigidbody.velocity = velocity;
+                rigidbody.AddForce(direction * moveForce);
 
                 Vector3 scale = transform.localScale;
-                scale.x = direction;
+                scale.x = direction.x;
                 transform.localScale = scale;
+
+                if (rigidbody.velocity.magnitude > maxSpeed)
+                    rigidbody.velocity = rigidbody.velocity.normalized * maxSpeed;
             }
         }
     }
