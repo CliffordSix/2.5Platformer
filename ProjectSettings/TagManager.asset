@@ -11,6 +11,7 @@ TagManager:
   - DropManager
   - Platform
   - PlayerSpawn
+  - Projectile
   layers:
   - Default
   - TransparentFX

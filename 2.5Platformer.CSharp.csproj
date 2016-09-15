@@ -131,6 +131,7 @@
     <Compile Include="Assets\Scripts\Weapon.cs" />
     <Compile Include="Assets\Scripts\rotate.cs" />
     <Compile Include="Assets\SpawnPortal.cs" />
+    <Compile Include="Assets\Switch.cs" />
     <Compile Include="Assets\UI\CardList.cs" />
     <Compile Include="Assets\UI\CollectedCard.cs" />
     <Compile Include="Assets\UI\DeckButton.cs" />
