@@ -72,25 +72,30 @@ public class AtlasController : MonoBehaviour {
 
     void TargetPatternUpdate()
     {
-        if(!leftFist.IsMoving() && !rightFist.IsMoving())
+        if (untilSlam > 0.0f)
+            untilSlam -= Time.deltaTime;
+        if (untilSlam <= 0.0f)
         {
-            if (untilSlam > 0.0f)
-                untilSlam -= Time.deltaTime;
-            if (untilSlam <= 0.0f)
-            {
-                patternCycles++;
-                if (PlayerController.it.transform.position.x <= transform.position.x)
-                    leftFist.Slam(PlayerController.it.transform);
-                else
-                    rightFist.Slam(PlayerController.it.transform);
-                untilSlam = slamDelay;
-            }
+            patternCycles++;
+            if (PlayerController.it.transform.position.x <= transform.position.x)
+                leftFist.Slam(PlayerController.it.transform.position);
+            else
+                rightFist.Slam(PlayerController.it.transform.position);
+            untilSlam = slamDelay;
         }
     }
 
     void SweepPatternUpdate()
     {
-
+        if (untilSlam > 0.0f)
+            untilSlam -= Time.deltaTime;
+        if (untilSlam <= 0.0f)
+        {
+            patternCycles++;
+            leftFist.Sweep(leftFist.GetMaxTarget());
+            rightFist.Sweep(rightFist.GetMinTarget());
+            untilSlam = slamDelay;
+        }
     }
 
     void RagePatternUpdate()
@@ -98,25 +103,25 @@ public class AtlasController : MonoBehaviour {
 
     }
 
+    void SetPattern(Pattern newPattern)
+    {
+        pattern = newPattern;
+        patternCycles = 0;
+        leftFist.Slam(leftFist.GetMinTarget());
+        rightFist.Slam(rightFist.GetMaxTarget());
+    }
+
     void FixedUpdate()
     {
-        if (!fightStarted)
+        if (!fightStarted || leftFist.IsMoving() || rightFist.IsMoving())
             return;
 
         if(pattern == Pattern.TARGET && patternCycles == targetPatternCycles)
-        {
-            pattern = Pattern.SWEEP;
-            patternCycles = 0;
-        }
-        if(pattern == Pattern.SWEEP && patternCycles == sweepPatternCycles)
-        {
-            pattern = Pattern.TARGET;
-            patternCycles = 0;
-        }
-        if(damageable.GetHealth() / damageable.maxHealth < 0.3f)
-        {
-            pattern = Pattern.RAGE;
-        }
+            SetPattern(Pattern.SWEEP);
+        if (pattern == Pattern.SWEEP && patternCycles == sweepPatternCycles)
+            SetPattern(Pattern.TARGET);
+        if (damageable.GetHealth() / damageable.maxHealth < 0.3f)
+            SetPattern(Pattern.RAGE);
 
         switch (pattern)
         {

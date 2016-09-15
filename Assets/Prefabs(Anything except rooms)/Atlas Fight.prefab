@@ -10577,7 +10577,8 @@ MonoBehaviour:
   maxHeight: 8
   minX: -8.5
   maxX: -1
-  bounceTime: 1
+  slamTime: 1
+  sweepAccel: 0.005
 --- !u!114 &114000010094831064
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -10659,7 +10660,8 @@ MonoBehaviour:
   maxHeight: 8
   minX: 1
   maxX: 8.5
-  bounceTime: 1
+  slamTime: 1
+  sweepAccel: 0.005
 --- !u!114 &114000011050236974
 MonoBehaviour:
   m_ObjectHideFlags: 1
