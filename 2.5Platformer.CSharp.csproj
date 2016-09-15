@@ -74,11 +74,14 @@
   <ItemGroup>
     <Compile Include="Assets\Behaviours\Bosses\Atlas\AtlasController.cs" />
     <Compile Include="Assets\Behaviours\Bosses\Atlas\AtlasFist.cs" />
+    <Compile Include="Assets\Behaviours\Breakable.cs" />
     <Compile Include="Assets\Behaviours\ContactDamage.cs" />
+    <Compile Include="Assets\Behaviours\Damageable.cs" />
     <Compile Include="Assets\Behaviours\DropDown.cs" />
     <Compile Include="Assets\Behaviours\FlyingFollow.cs" />
     <Compile Include="Assets\Behaviours\GroundFollow.cs" />
     <Compile Include="Assets\Behaviours\Jump.cs" />
+    <Compile Include="Assets\Behaviours\Knockbackable.cs" />
     <Compile Include="Assets\Behaviours\PathFollow.cs" />
     <Compile Include="Assets\Behaviours\PlayerMovement.cs" />
     <Compile Include="Assets\Behaviours\Teleport.cs" />
@@ -103,11 +106,9 @@
     <Compile Include="Assets\Scripts\Abilities\SwordStab.cs" />
     <Compile Include="Assets\Scripts\Armour.cs" />
     <Compile Include="Assets\Scripts\Bow.cs" />
-    <Compile Include="Assets\Scripts\Breakable.cs" />
     <Compile Include="Assets\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\CameraShake.cs" />
     <Compile Include="Assets\Scripts\CubicBezier.cs" />
-    <Compile Include="Assets\Scripts\Damageable.cs" />
     <Compile Include="Assets\Scripts\DontDestroy.cs" />
     <Compile Include="Assets\Scripts\Doorway.cs" />
     <Compile Include="Assets\Scripts\DropManger.cs" />
@@ -120,7 +121,6 @@
     <Compile Include="Assets\Scripts\Pickup.cs" />
     <Compile Include="Assets\Scripts\Platform.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
-    <Compile Include="Assets\Scripts\PlayerControllerOld.cs" />
     <Compile Include="Assets\Scripts\Projectile.cs" />
     <Compile Include="Assets\Scripts\ProjectileCollisions.cs" />
     <Compile Include="Assets\Scripts\Room.cs" />

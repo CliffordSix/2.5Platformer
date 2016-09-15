@@ -27,6 +27,10 @@ public class GUIManager : MonoBehaviour {
 
     public Image A1, A2, A3, A4;
 
+    public GameObject bossUI;
+    public Image bossHealthBar;
+    Damageable bossHealth;
+
     void Awake()
     {
         if (it != this)
@@ -39,7 +43,19 @@ public class GUIManager : MonoBehaviour {
     void Init()
     {
         GO.enabled = false;
-        
+    }
+
+    public void StartBoss(string name, Damageable health)
+    {
+        bossUI.SetActive(true);
+        bossHealthBar.fillAmount = 1;
+        bossHealth = health;
+        bossUI.transform.Find("Name").GetComponent<Text>().text = name;
+    }
+
+    public void StopBoss()
+    {
+        bossUI.SetActive(false);
     }
 
     void SetAbilities(Weapon weapon, int count, int start)
@@ -139,6 +155,11 @@ public class GUIManager : MonoBehaviour {
                 StartCoroutine(CoolDown(abilityCds[3], A4));
             }
 
+        }
+
+        if (bossUI.activeSelf)
+        {
+            bossHealthBar.fillAmount = bossHealth.GetHealth() / bossHealth.maxHealth;
         }
 
     }

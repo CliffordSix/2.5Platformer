@@ -25,6 +25,7 @@ public class CameraController : MonoBehaviour {
             pos.z = z_;
 
             transform.position = pos;
+            GetComponent<Camera>().nearClipPlane = (z_ * -1.0f) - 2;
         }
     }
 }

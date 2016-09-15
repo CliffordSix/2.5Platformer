@@ -3,11 +3,13 @@ using System.Collections;
 
 public class AtlasFist : MonoBehaviour {
 
+    public AtlasController controller;
     public float maxHeight = 6.0f;
     public float minX = 0.0f;
     public float maxX = 0.0f;
     public float bounceTime = 1.0f;
 
+    Damageable damageable;
     bool hasTarget = false;
     float progress = 1.0f;
     float minY = 0.0f;
@@ -16,6 +18,7 @@ public class AtlasFist : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
+        damageable = GetComponent<Damageable>();
         minY = transform.position.y;
 	}
 	
@@ -38,12 +41,12 @@ public class AtlasFist : MonoBehaviour {
 
     public void Slam(Transform target)
     {
-        if (target != null)
+        if (target != null && !hasTarget)
         {
             Vector3 start = transform.position;
-            start.x = Mathf.Clamp(start.x, minX, maxX);
+            start.x = Mathf.Clamp(start.x, transform.parent.position.x + minX, transform.parent.position.x + maxX);
             Vector3 end = target.position;
-            end.x = Mathf.Clamp(end.x, minX, maxX);
+            end.x = Mathf.Clamp(end.x, transform.parent.position.x + minX, transform.parent.position.x + maxX);
             end.y = start.y;
             Vector3 b = new Vector3(start.x, start.y + maxHeight * 0.5f);
             Vector3 c = new Vector3(end.x, start.y + maxHeight);

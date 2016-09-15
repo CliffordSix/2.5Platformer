@@ -95,14 +95,7 @@ public class RoomManager : MonoBehaviour
             createdCount++;
             expandList.AddRange(room.GetComponent<Room>().GetExits());
             if(GameManager.it.GetDeck() != null)
-                SpawnMonsters(room.GetComponent<Room>());
-            CircleCollider2D[] spawnPoints = room.GetComponentsInChildren<CircleCollider2D>();
-            foreach (CircleCollider2D c in spawnPoints) {
-                if (c.tag == "PlayerSpawn")
-                {
-                    spawnLocations.Add(c.transform);
-                }
-             }     
+                SpawnMonsters(room.GetComponent<Room>());   
         }
         else
         {
@@ -133,13 +126,15 @@ public class RoomManager : MonoBehaviour
             GUIManager.it.LoadBarInc(1.0F);
             CloseDoors = false;
 
-            int rand = UnityEngine.Random.Range(0, spawnLocations.Count - 1);
+            if (SpawnTeleport == null) return;
+            GameObject[] potentialSpawns = GameObject.FindGameObjectsWithTag("PlayerSpawn");
 
+            if (potentialSpawns.Length < 0) return;
+            int rand = UnityEngine.Random.Range(0, potentialSpawns.Length - 1);
 
-            Debug.Log(rand);
-            SpawnTeleport.endPoint = spawnLocations[rand];
+            SpawnTeleport.endPoint = potentialSpawns[rand].transform;
             
-            GameObject p = Instantiate(Portal, spawnLocations[rand].position, Quaternion.identity) as GameObject;
+            GameObject p = Instantiate(Portal, SpawnTeleport.endPoint.position, Quaternion.identity) as GameObject;
             p.GetComponent<Behaviours.Teleport>().enabled = false;
         }
     }

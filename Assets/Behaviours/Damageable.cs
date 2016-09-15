@@ -27,7 +27,7 @@ public class Damageable : MonoBehaviour {
         health = maxHealth;
         armour = maxArmour;
         rigidbody = GetComponent<Rigidbody2D>();
-        if (gameObject.layer == 14)
+        if (gameObject.layer == 14 && Healthbar != null)
         {
             Healthbar = Instantiate(Healthbar);
             Healthbar.transform.SetParent(GameObject.Find("Canvas").GetComponent<Transform>());
@@ -53,6 +53,13 @@ public class Damageable : MonoBehaviour {
     public float GetHealth()
     {
         return health;
+    }
+
+    public void SetHealth(float amount)
+    {
+        health = amount;
+        if (health > maxHealth)
+            health = maxHealth;
     }
 
     public void Heal(float amount)
@@ -115,30 +122,4 @@ public class Damageable : MonoBehaviour {
             }
         }
     }
-
-  /*  [CustomEditor(typeof(Damageable))]
-    public class DamageableEditor : Editor
-    {
-        public override void OnInspectorGUI()
-        {
-            Damageable script = (Damageable)target;
-
-            EditorGUILayout.LabelField("Health", script.health.ToString());
-            script.Healthbar = EditorGUILayout.ObjectField("Health Bar", script.Healthbar, typeof(Object), true) as GameObject;
-            script.maxHealth = EditorGUILayout.FloatField("Max Health", script.maxHealth);
-            script.healthbarOffset = EditorGUILayout.FloatField("Health Bar Offset", script.healthbarOffset);
-            script.invincibilityPeriod = EditorGUILayout.FloatField("Invincivility Period", script.invincibilityPeriod);
-
-            script.takesKnockback = EditorGUILayout.Toggle("Take Knockback", script.takesKnockback);
-            if(script.takesKnockback)
-            {
-                script.dynamicKnockback = EditorGUILayout.Toggle("Calculate Knockback Dynamically", script.dynamicKnockback);
-                if(!script.dynamicKnockback)
-                {
-                    script.staticKnockback = EditorGUILayout.FloatField("Static Knockback", script.staticKnockback);
-                    script.knockbackAngle = EditorGUILayout.FloatField("Knockback Angle", script.knockbackAngle);
-                }
-            }
-        }
-    }*/
 }
