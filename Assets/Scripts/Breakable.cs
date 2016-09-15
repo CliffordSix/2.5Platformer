@@ -22,7 +22,7 @@ public class Breakable : MonoBehaviour {
             Vector3 pos = transform.position;
             pos.y += animationOffset;
             transform.position = pos;
-            animator.Play("Broken");
+            animator.Play("Break");
         }
 
         lastTrigger = trigger.IsActive();
