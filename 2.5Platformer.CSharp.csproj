@@ -142,6 +142,7 @@
     <Compile Include="Assets\UnityPackages\JsonNetSample\JsonNetSample.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Materials\DiamonShader.shader" />
     <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
     <None Include="Assets\Standard Assets\Effects\GlassRefraction\Shaders\GlassStainedBumpDistort.shader" />
     <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\BlendModesOverlay.shader" />

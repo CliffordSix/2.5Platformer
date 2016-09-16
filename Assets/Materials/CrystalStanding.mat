@@ -7,9 +7,9 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: CrystalStanding
-  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: _ALPHAPREMULTIPLY_ON
-  m_LightmapFlags: 6
+  m_Shader: {fileID: 45, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: _ALPHAPREMULTIPLY_ON _EMISSION
+  m_LightmapFlags: 1
   m_CustomRenderQueue: 3000
   stringTagMap:
     RenderType: Transparent
@@ -94,13 +94,13 @@ Material:
       second: 1
     - first:
         name: _Glossiness
-      second: 0.859
+      second: 0.54
     - first:
         name: _GlossyReflections
       second: 1
     - first:
         name: _Metallic
-      second: 0.787
+      second: 1
     - first:
         name: _Mode
       second: 3
@@ -128,10 +128,10 @@ Material:
     m_Colors:
     - first:
         name: _Color
-      second: {r: 0.6965518, g: 0, b: 1, a: 0}
+      second: {r: 0.53103447, g: 0, b: 1, a: 0}
     - first:
         name: _EmissionColor
       second: {r: 0, g: 0, b: 0, a: 1}
     - first:
         name: _SpecColor
-      second: {r: 0.88032466, g: 0.13235295, b: 1, a: 1}
+      second: {r: 0.7322516, g: 0.11764705, b: 1, a: 1}
