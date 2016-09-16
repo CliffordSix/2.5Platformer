@@ -7,15 +7,36 @@ namespace Behaviours.Triggers
     public class Timer : Trigger
     {
         public float interval = 0.0f;
-        public Trigger resetTrigger;
+        public bool startRunning = true;
 
         float time = 0.0f;
-        bool running = true;
         bool triggered = false;
+        bool running = false;
+
+        void Start()
+        {
+            running = startRunning;
+        }
 
         protected override bool CheckActive()
         {
             return triggered;
+        }
+
+        public void Run()
+        {
+            running = true;
+        }
+
+        public void Pause()
+        {
+            running = false;
+        }
+
+        public void Stop()
+        {
+            Pause();
+            Reset();
         }
 
         public void Reset()
@@ -37,11 +58,6 @@ namespace Behaviours.Triggers
                     triggered = true;
                     time = 0.0f;
                 }
-            }
-
-            if(resetTrigger != null && resetTrigger.IsActive())
-            {
-                Reset();
             }
         }
     }

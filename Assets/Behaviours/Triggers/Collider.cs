@@ -10,26 +10,21 @@ namespace Behaviours.Triggers
         public string requiredTag;
         public LayerMask layerMask;
 
-        public Triggers.Timer timer;
-
         [System.ComponentModel.DefaultValue(null)]
         public Collider2D other { get; set; }
 
         bool triggered = false;
-        public bool toggleMode;
 
         protected override bool CheckActive()
         {
             return triggered;
         }
 
-        void Update()
+        protected override void LateUpdate()
         {
-            if(timer != null && timer.IsActive())
-            {
+            base.LateUpdate();
+            if (other == null)
                 triggered = false;
-                other = null;
-            }
         }
 
         bool Check(GameObject o)
@@ -43,77 +38,45 @@ namespace Behaviours.Triggers
 
         void OnCollisionEnter2D(Collision2D collision)
         {
-            
-            if (triggered && !toggleMode) return;
+            if (triggered) return;
             bool result = Check(collision.gameObject);
             if(result)
             {
-                if (toggleMode)
-                {
-                    triggered = !triggered;
-                }
-                else
-                {
-                    triggered = true;
-                }
+                triggered = true;
                 other = collision.collider;
             }
         }
 
         void OnCollisionExit2D(Collision2D collision)
         {
-            if (toggleMode)
-                return;
-           
-            if (other == null)
-            {
-                triggered = false;
-                this.other = null;
-            }
             if (collision.collider != other) return;
             bool result = Check(collision.gameObject);
             if(result)
             {
                 triggered = false;
-                this.other = null;
+                other = null;
             }
         }
 
         void OnTriggerEnter2D(Collider2D other)
         {
-            if (triggered && !toggleMode) return;
+            if (triggered) return;
             bool result = Check(other.gameObject);
             if (result)
             {
-                if (toggleMode)
-                {
-                    triggered = !triggered;
-                }
-                else
-                {
-                    triggered = true;
-                }
+                triggered = true;
                 this.other = other;
             }
         }
 
         void OnTriggerExit2D(Collider2D other)
         {
-
-            if (toggleMode)
-                return;
-
-            if (other == null)
-            {
-                triggered = false;
-                this.other = null;
-            }
             if (other != this.other) return;
             bool result = Check(other.gameObject);
             if (result)
             {
                 triggered = false;
-                this.other = null;
+                other = null;
             }
         }
     }
